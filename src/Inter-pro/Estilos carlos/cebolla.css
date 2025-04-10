@@ -1,0 +1,125 @@
+.Edimenu
+{   margin-top: 1rem;
+    margin-left: 1rem;
+    margin: auto;
+    background-color: rgb(19, 182, 211);
+    display: flex;
+
+
+}
+
+.Borguesa
+{
+    
+width: 40px;
+height: 40px;
+display: flex;
+}
+.cont
+{
+background-color: rgb(63, 222, 243);
+display: flex;
+}
+.logo
+{
+width: 90px;
+height: 80px;
+margin-left: 38rem;
+background-color:rgb(19, 182, 211);
+}
+
+.Ce
+{
+    margin-top: 1rem;
+    margin-left: 20%;
+    height: 40px;
+    display: flex;
+}
+
+.Pe
+{
+    margin-top: 1rem;
+    margin-left: 300%;
+    display: flex;
+    
+}
+
+.main
+{
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    padding: 30px 40px;
+    border: solid;
+}
+
+.citas, .recordatorio {
+    flex: 1;
+    background-color: rgb(243, 176, 176);
+    padding: 30px;
+    border: solid 1px;
+    font-size: 18px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    height: 100%;
+    border: solid;
+    height: 40rem;
+
+
+}
+
+.imf
+{
+    width:31rem;
+    
+}
+.record1
+{
+    
+    background-color: rgb(131, 205, 235);
+    
+}
+.record2
+{
+border: solid;
+    background-color: rgb(247, 139, 139);
+}
+
+.footer {
+    background-color: aqua;
+    text-align: center;
+    padding: 30px;
+    font-size: 16px;
+  }
+  .recordatorio2{
+    flex: 1;
+    background-color: rgb(243, 176, 176);
+    padding: 30px;
+    border: solid 1px;
+    font-size: 18px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    height: 100%;
+    
+
+  }
+  .record3
+  {
+        background-color: rgb(255, 255, 255);
+        height: 40rem;
+        text-align: center;
+  }
+  .record4
+{
+    text-align: center;
+    background-color: rgb(252, 134, 134);
+}
+
+.inf1,.inf2
+{
+    flex: 1;
+    background-color: rgb(243, 176, 176);
+    padding: 30px;
+    border: solid 1px;
+    font-size: 18px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+
+}
