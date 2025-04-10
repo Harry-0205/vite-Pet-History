@@ -94,3 +94,72 @@ body {
   padding: 30px;
   font-size: 16px;
 }
+
+
+.jilian2-container {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.menu-icon {
+  font-size: 24px;
+}
+
+.dropdown-menu select {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.logo-box {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 24px;
+}
+
+.buttons button {
+  margin-left: 10px;
+  padding: 6px 12px;
+}
+
+.main-content {
+  background-color: white;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.historia-clinica-box {
+  border: 1px solid #999;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.paciente-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reporte-procedimientos {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #666;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.footer {
+  text-align: center;
+  background-color: aqua;
+  padding: 15px;
+  margin-top: 20px;
+}
+
