@@ -1,6 +1,7 @@
 import img1 from "../../assets/pet.png";
 import { Link } from 'react-router-dom';
 import Login from "../Jossimar-estilos/Login.css";
+
 function Login() {
   return (
     <section className="register-container">
