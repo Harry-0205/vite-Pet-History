@@ -8,13 +8,20 @@ import Miguel from './home/Miguel/Miguel';
 import Carlos from './Inter-pro/Carlos apps/carlos';
 import Carlos2 from './Inter-pro/Carlos apps/Carlos2';
 import Inciar from './Login/jossimar-app/Iniciar';
+import Login from './Login/Componentesjossi/Login';
 
 function App() {
 
   return (
     <>
      
+     <BrowserRouter>
+    <Routes>
+    <Route path='/' element={<Login></Login>}></Route>
+    </Routes>
+    </BrowserRouter>
       
+         
          
     </>
   )
