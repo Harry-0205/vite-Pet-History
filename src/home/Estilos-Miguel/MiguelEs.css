@@ -1,0 +1,42 @@
+#tamaño{
+    height: 6rem;
+    align-items: center;
+}
+.but{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+.Conte {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+.Fooo{
+    background-color: black;
+    text-align: center;
+    height: 15rem;
+    padding-top: 6rem;
+}
+.GridM{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+}
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+}
+.div3 { 
+    grid-area: 2 / 1 / 3 / 3; 
+}
+.sec11{
+    border: solid;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    text-align: center;
+}
