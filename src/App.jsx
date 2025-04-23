@@ -7,8 +7,7 @@ import HeaderMi from './home/Componentes-Miguel/HeaderMi/MenuMi';
 import Miguel from './home/Miguel/Miguel';
 import Carlos from './Inter-pro/Carlos apps/carlos';
 import Carlos2 from './Inter-pro/Carlos apps/Carlos2';
-import Inciar from './Login/jossimar-app/Iniciar';
-
+import Login from './home/Login/Login';
 function App() {
 
   return (
