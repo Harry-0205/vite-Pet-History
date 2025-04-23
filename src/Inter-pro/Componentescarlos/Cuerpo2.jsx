@@ -1,7 +1,3 @@
-import Calendario from "../Imagenes/Calendario.png"
-import perros from "../Imagenes/perros.png"
-
-
 function Cuerpo2() {
     return (
       <>

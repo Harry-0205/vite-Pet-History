@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from "../../assets/Logo.jpg"
 
 function Mn() {
     const [show, setShow] = useState(false);
