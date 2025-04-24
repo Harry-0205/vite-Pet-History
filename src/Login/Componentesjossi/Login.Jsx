@@ -1,4 +1,4 @@
-import img1 from "../assets/WhatsApp Image 2025-04-03 at 1.47.34 PM-Photoroom.png";
+import img1 from "../../assets/WhatsApp Image 2025-04-03 at 1.47.34 PM-Photoroom.png";
 import { Link } from 'react-router-dom';
 
 function Login() {

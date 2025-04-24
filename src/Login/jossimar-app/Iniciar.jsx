@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './Login.css';
-import Login from './Componentesjossi/Login.jsx';
+import '../Jossimar-estilos/Login.css';
+
 
 function App() {
   return (

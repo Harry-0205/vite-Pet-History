@@ -14,7 +14,11 @@ function App() {
   return (
     <>
      
-      
+     <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Miguel></Miguel>}></Route>
+        </Routes>
+        </BrowserRouter>
          
     </>
   )
