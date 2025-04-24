@@ -1,9 +1,9 @@
 import '../Jilian-Estillos/Estilos.css'
-import React, { useState } from 'react';
+
 import Mn from "../Componentes-Jilian/Mn"
 
 function Jilian() {
-  const [mostrarMenu, setMostrarMenu] = useState(false);
+
 
   return (
     <div className="Jilian"> 
