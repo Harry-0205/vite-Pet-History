@@ -7,6 +7,7 @@ import HeaderMi from './home/Componentes-Miguel/HeaderMi/MenuMi';
 import Miguel from './home/Miguel/Miguel';
 import Carlos from './Inter-pro/Carlos apps/carlos';
 import Carlos2 from './Inter-pro/Carlos apps/Carlos2';
+import Carlos3 from './Inter-pro/Carlos apps/Carlos3';
 
 
 function App() {

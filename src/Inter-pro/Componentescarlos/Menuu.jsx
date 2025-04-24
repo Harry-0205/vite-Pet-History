@@ -4,7 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import hamburguesa from '../Imagenes/hamburguesa.png';
-import logo from "../Imagenes/logo.jpg"
+import pet from "../../assets/pet.png"
 
 
 
@@ -18,11 +18,11 @@ function Menuu() {
     <>
       <div className='grillas'>
            
-      <Button variant="link"  onClick={handleShow}><img className='Borguesa' src={hamburguesa} alt="error" /></Button>
+      <Button className="fff" variant="link"  onClick={handleShow}><img className='Borguesa' src={hamburguesa} alt="error" /></Button>
 
 <Offcanvas show={show} onHide={handleClose}>
   <Offcanvas.Header closeButton>
-    <Offcanvas.Title>Menu de opciones</Offcanvas.Title>
+    <Offcanvas.Title>Menu</Offcanvas.Title>
   </Offcanvas.Header>
   <Offcanvas.Body>
     
@@ -37,7 +37,7 @@ function Menuu() {
 
 </Offcanvas>
     
-    <img className='logo' src={logo} alt="errorrr" />
+    <img className='logo' src={pet} alt="errorrr" />
   
       <div className='grid3'>
         
