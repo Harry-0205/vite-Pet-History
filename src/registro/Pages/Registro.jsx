@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../Pages/Brandon.css"
 import Footer from '../Componentes/Footer';
 import pet from "../../assets/pet.png"
+import { Button } from 'react-bootstrap';
 function SignUp() {
   const navigate = useNavigate();
   const [userType, setUserType] = useState('usuario');
@@ -138,9 +139,9 @@ function SignUp() {
                     <a href="#" className="attach-link">Anexar certificado de veterinario profesional</a>
                   )}
                   
-                  <button type="submit" className="btn register-btn">
+                  <Button href='/Inter-Usu' type="submit" className="btn register-btn">
                     Registrarme en Pet History
-                  </button>
+                  </Button>
                 </form>
               </div>
             </div>

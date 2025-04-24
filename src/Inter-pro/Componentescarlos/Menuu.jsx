@@ -26,9 +26,9 @@ function Menuu() {
   </Offcanvas.Header>
   <Offcanvas.Body>
     
-        <NavDropdown.Item href="#action/3.1">Citas</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2"> Historia clinica</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Pacientes recientes</NavDropdown.Item>
+        <NavDropdown.Item href="/Inter-Usu">Citas</NavDropdown.Item>
+        <NavDropdown.Item href="/Inter-Usu2"> Historia clinica</NavDropdown.Item>
+        <NavDropdown.Item href="/Inter-Usu3">Pacientes recientes</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">recordatorios</NavDropdown.Item>
 
   
@@ -41,8 +41,8 @@ function Menuu() {
   
       <div className='grid3'>
         
-      <button className='b16'>Perfil</button>
-      <button className='b16'>Salir</button>
+      <Button href='/' className='b16'>Perfil</Button>
+      <Button href='/' className='b16'>Salir</Button>
       </div>
 
       </div>

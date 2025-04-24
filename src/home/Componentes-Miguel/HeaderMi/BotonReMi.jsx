@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 function BotonReMi() {
   return (
     <>
-      <Button href='/' variant="primary">Registro</Button>
+      <Button href='/Registro' variant="primary">Registro</Button>
     </>
   );
 }
