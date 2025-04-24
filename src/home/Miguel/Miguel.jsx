@@ -5,12 +5,13 @@ import MainMig from "../Componentes-Miguel/MainMi/MainMig"
 function Miguel(){
     return(
         <>
-        <div className="Conte">
+        <div>
         <div><HeaderMi></HeaderMi></div>
         <div><MainMig></MainMig></div>
         <div><FooterMi></FooterMi></div>
         </div>
         </>
+        
       
     )
 }
