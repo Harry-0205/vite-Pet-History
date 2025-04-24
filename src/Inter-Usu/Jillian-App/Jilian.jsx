@@ -1,30 +1,37 @@
-import '../Jilian-Estillos/Estilos.css'
+import React, { useState } from "react";
+import Encabezado from "../Componentes-Jilian/Encabezado";
+import Menu from "../Componentes-Jilian/Menu";
+import Jilian2 from "../Componentes-Jilian/Jilian-2";
+import Jilian3 from "../Componentes-Jilian/Jilian-3";
+import Jilian4 from "../Componentes-Jilian/Jilian-4";
+import Jilian5 from "../Componentes-Jilian/Jilian-5";
+import "./Estilos.css";
 
-import Mn from "../Componentes-Jilian/Mn"
+const Jilian = () => {
+  const [seccion, setSeccion] = useState("perfil");
 
-function Jilian() {
-
+  const mostrarSeccion = () => {
+    switch (seccion) {
+      case "perfil":
+        return <Jilian2 />;
+      case "historia":
+        return <Jilian3 />;
+      case "cita":
+        return <Jilian4 />;
+      case "veterinarias":
+        return <Jilian5 />;
+      default:
+        return <Jilian2 />;
+    }
+  };
 
   return (
-    <div className="Jilian"> 
-    
-      <header className="header"> 
-        <Mn></Mn>
-        <div className="logo">🐾 Logo 🐾</div>
-        <div className="botones">
-          <button>Perfil</button>
-          <button>Salir</button>
-        </div>
-      </header>
-
-      <main className="main">
-        <div className="calendario">Calendario</div>
-        <div className="Recordatorio">Recordatorio</div>
-      </main>
-
-      <footer className="footer">Footer </footer>
+    <div className="contenedor-principal">
+      <Encabezado />
+      <Menu setSeccion={setSeccion} />
+      <main>{mostrarSeccion()}</main>
     </div>
   );
-}
+};
 
 export default Jilian;
