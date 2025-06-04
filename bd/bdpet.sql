@@ -59,10 +59,10 @@ CREATE TABLE Estado (
 CREATE TABLE Procedimiento (
     idcita BIGINT(19) PRIMARY KEY AUTO_INCREMENT,
     fecha TIMESTAMP,
-    FecAsig INT(10),
+    FecAsig datetime,
     proced VARCHAR(25),
     Cost INT(10),
-    Durac INT(10),
+    Durac time,
     Anot varchar(200)
 );
 
@@ -91,8 +91,7 @@ CREATE TABLE mascota (
     idmasc BIGINT(19) PRIMARY KEY AUTO_INCREMENT,
     nom CHAR(50),
     raza VARCHAR(20),
-    fecnam DATE,
-    espc VARCHAR(30),
+    fecnam timestamp,
     Razaidraza INT(10),
     coloridcolor INT(10),
     EsquemaVacunasIdEsque INT(10),
@@ -111,7 +110,7 @@ ADD CONSTRAINT fk_historia_masc FOREIGN KEY (mascotadueñodoc) REFERENCES mascot
 CREATE TABLE agendamiento (
     idcita BIGINT(19) PRIMARY KEY AUTO_INCREMENT,
     fecag TIMESTAMP,
-    FecAsig INT(10),
+    FecAsig datetime,
     veterinariadoc BIGINT(19),
     mascotadueñodoc BIGINT(19),
     EstadoIdEs boolean,
@@ -137,14 +136,14 @@ CREATE TABLE Vacunas (
     Especiedeespecie INT(10),
     Costo INT(10),
     Dosis INT(10),
-    Durac date,
+    Durac varchar(30),
     CONSTRAINT fk_vacunas_especie FOREIGN KEY (Especiedeespecie) REFERENCES Especie(idespecie)
 );
 
 CREATE TABLE Vacunas_EsquemaVacunas (
     Vacunasidvacunas INT(10),
     EsquemaVacunasIdEsque INT(10),
-    fecha date,
+    fecha timestamp,
     PRIMARY KEY (Vacunasidvacunas, EsquemaVacunasIdEsque),
     CONSTRAINT fk_vacunas_esqvac_vac FOREIGN KEY (Vacunasidvacunas) REFERENCES Vacunas(idvacunas),
     CONSTRAINT fk_vacunas_esqvac_esq FOREIGN KEY (EsquemaVacunasIdEsque) REFERENCES EsquemaVacunas(IdEsque)
