@@ -95,12 +95,12 @@ CREATE TABLE Mascota (
     IdRaza INT,
     IdColor INT,
     IdEsquema INT,
-    DocDueño BIGINT,
+    DocUsuario BIGINT,
     Foto VARCHAR(255),
     FOREIGN KEY (IdRaza) REFERENCES Raza(IdRaza),
     FOREIGN KEY (IdColor) REFERENCES Color(IdColor),
     FOREIGN KEY (IdEsquema) REFERENCES EsquemaVacunas(IdEsquema),
-    FOREIGN KEY (DocDueño) REFERENCES Usuario(Doc)
+    FOREIGN KEY (DocUsuario) REFERENCES Usuario_Roles(DocUsuario)
 );
 
 CREATE TABLE Agendamiento (
