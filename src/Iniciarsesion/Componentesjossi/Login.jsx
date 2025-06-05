@@ -8,7 +8,8 @@ function Login() {
     <section className="register-container">
       <aside className="left-section">
         <img src={img1} alt="Pet History Logo" />
-        <h1 className="logo">Pet History</h1>
+        <h1 className="titulo">
+          Pet History</h1>
         <p>
           Los animales domésticos, fieles compañeros de nuestras vidas, llenan
           nuestros días de alegría, amor incondicional y una ternura que nos
@@ -30,10 +31,6 @@ function Login() {
 
         <h2>Iniciar sesión</h2>
         <button className="google-button">Iniciar sesión con Google</button>
-        <p>
-          ¿No tienes cuenta? <Link to="/register">Regístrate rápido</Link>
-        </p>
-        <div className="divider">o</div>
 
         <form className="register-form">
           <section className="input-group">
@@ -47,6 +44,9 @@ function Login() {
             <p>
               ¿Perdiste tu cuenta? <Link to="/register">Recuperar cuenta</Link>
             </p>
+             <p>
+          ¿No tienes cuenta? <Link to="/register">Regístrate </Link>
+        </p>
           </section>
 
           <button type="submit" className="register-button">Iniciar sesión</button>
