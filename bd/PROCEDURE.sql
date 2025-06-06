@@ -9,18 +9,17 @@ DELIMITER $$
 USE `dbpet`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_mascota`(
     IN nomm VARCHAR(30),
-    IN raz VARCHAR(20),
     IN fecna timestamp,
-    IN Razaidraz INT(10),
-    IN coloridcolor INT(10),
-    IN EsquemaVacunasIdEsqu INT(10),
+    IN idraz INT(10),
+    IN idcolo INT(10),
+    IN IdEsqu INT(10),
     IN Dueñodo BIGINT(19),
     IN fot VARCHAR(255)
 )
 BEGIN
     -- Inserción en la tabla mascota
-    INSERT INTO mascota(nom, raza, fecnam, espc, Razaidraza, coloridcolor, EsquemaVacunasIdEsque, Dueñodoc, foto)
-    VALUES (nomm, raz, fecna, esp, Razaidraz, coloridcolo, EsquemaVacunasIdEsqu, Dueñodo, fot);
+    INSERT INTO mascota(nombre, FecNac,idraza,idcolor, IdEsquema, DocUsuario, foto)
+    VALUES (nomm,fecna, idraz,idcolo,IdEsqu, Dueñodo, fot);
 END$$
 
 DELIMITER ;
@@ -42,58 +41,16 @@ DROP procedure IF EXISTS `dbpet`.`pro_his_cli`;
 DELIMITER $$
 USE `dbpet`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_his_cli`(
-    IN mascotadueñodo BIGINT(19),
-    IN Anotacione varchar(200)
+    IN w BIGINT(19),
+    IN Anotacion varchar(200)
 )
 BEGIN
     -- Inserción en la tabla Procedimiento
-    INSERT INTO Procedimiento(mascotadueñodoc, Anotaciones)
-    VALUES (mascotadueñodo, Anotacione);
+    INSERT INTO historiaclinica(idmascota, Anotaciones)
+    VALUES (w, Anotacion);
 END$$
-
-DELIMITER ;
-;
-
-
-USE `dbpet`;
-DROP procedure IF EXISTS `pro_agenda`;
-
-USE `dbpet`;
-DROP procedure IF EXISTS `dbpet`.`pro_agenda`;
-;
 
 DELIMITER $$
-USE `dbpet`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_agenda`(
-    IN feca TIMESTAMP,
-    IN FecAsi datetime,
-    IN veterinariado BIGINT(19),
-    IN mascotadueñodo BIGINT(19),
-    IN EstadoIdE BOOLEAN,
-    IN Procedimientoidcit BIGINT(19)
-)
-BEGIN
-    -- Comprobar si el veterinariadoc existe en la tabla de veterinarios
-    IF NOT EXISTS (SELECT 1 FROM veterinarios WHERE id = veterinariadoc) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Veterinario no encontrado';
-    END IF;
-
-    -- Comprobar si el mascotadueñodoc existe en la tabla de mascotas
-    IF NOT EXISTS (SELECT 1 FROM mascotas WHERE id = mascotadueñodoc) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Mascota no encontrada';
-    END IF;
-
-    -- Inserción en la tabla agendamiento
-    INSERT INTO agendamiento(fecag, FecAsig, veterinariadoc, mascotadueñodoc, EstadoIdEs, Procedimientoidcita)
-    VALUES (feca, FecAsi, veterinariado, mascotadueñodo, EstadoIdE, Procedimientoidcit);
-    
-    -- Opcionalmente, devolver el ID del registro insertado
-    -- SELECT LAST_INSERT_ID() AS 'ID Insertado';
-
-END$$
-
-DELIMITER ;
-;
 
 
 USE `dbpet`;
@@ -108,19 +65,21 @@ USE `dbpet`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Pro_usuar`(
     IN docc BIGINT(19),
     IN tipodo INT(10),
+    IN IdRo   INT,
     IN nomm VARCHAR(20),
-    IN ape VARCHAR(20),
+    IN apel1 VARCHAR(20),
+    IN apel2 VARCHAR(20),
     IN tel VARCHAR(20),
-    IN cont VARCHAR(20),
-    IN clav VARCHAR(20),
+    IN contrat int,
     IN dir VARCHAR(50),
     IN corre VARCHAR(100),
+    IN contr VARCHAR (10),
     IN fecna DATE
 )
 BEGIN
     -- Inserción en la tabla Usuario
-    INSERT INTO Usuario(doc, tipodoc, nom, ape, telf, conta, clave, dir, correo, fecnam)
-    VALUES (docc, tipodo, nomm, ape, tel, cont, clav, dir, corre, fecna);
+    INSERT INTO Usuario(doc, tipodoc,IdRol, nom, ape1, ape2, tel, contrato, dir, correo,Contra, fecnam)
+    VALUES (docc, tipodo,IdRo, nomm, apel1,apel2, tel, contrat, dir, corre,contr , fecna);
 END$$
 
 DELIMITER ;
@@ -151,23 +110,47 @@ END$$
 DELIMITER ;
 ;
 
-
-
 USE `dbpet`;
-DROP procedure IF EXISTS `pro_pro_his_cli`;
+DROP procedure IF EXISTS `esqvacun`;
 
 DELIMITER $$
 USE `dbpet`$$
-CREATE PROCEDURE `pro_pro_his_cli` (
-in ano varchar(200)
+CREATE PROCEDURE `esqvacun` (
+in idvacun int,
+in Dosi varchar(255),
+in fecVac datetime
 )
 BEGIN
-insert into procedimiento_historia_clinica(anot)
-values(ano);
+insert into esquemavacunas(idvacuna,Dosis,fecVacu)
+values(idvacun,Dosi,fecVac);
 END$$
 
 DELIMITER ;
 
+USE `dbpet`;
+DROP procedure IF EXISTS `pro_agenda`;
+
+USE `dbpet`;
+DROP procedure IF EXISTS `dbpet`.`pro_agenda`;
+;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_agenda`(
+    IN feca TIMESTAMP,
+    IN FecAs datetime,
+    IN IdVe BIGINT(19),
+    IN IdMascot BIGINT(19),
+    IN IdEstad BOOLEAN,
+    IN IdProcedimient BIGINT(19)
+)
+BEGIN
+    INSERT INTO agendamiento(fecag, FecAsi, IdVet, IdMascota, IdEstado, IdProcedimiento)
+    VALUES (feca, FecAs, IdVe, IdMascot, IdEstad, IdProcedimient);
+END$$
+
+DELIMITER ;
+;
 
 
 
