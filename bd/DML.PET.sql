@@ -98,9 +98,10 @@ CALL pro_usuar(567891234567, 2, 2, 'Valeria', 'Ortega', 'Sandoval', '3212345678'
 CALL pro_usuar(678912345678, 1, 1, 'Mateo', 'Silva', 'Trujillo', '3223456789', 4268, 'Avenida 78 #90-12', 'mateo.silva@email.com', 'contrasena3', '1992-04-23');
 CALL pro_usuar(912345678901, 3, 2, 'Isabella', 'Cortes', 'Nieto', '3234567890', 4666, 'Calle 90 #12-34', 'isabella.cortes@email.com', 'secreto456', '1988-11-11');
 CALL pro_usuar(891234567890, 1, 1, 'Tomas', 'Aguilar', 'Muñoz', '3245678901', 4322, 'Carrera 12 #34-56', 'tomas.aguilar@email.com', 'pass6789', '1995-07-09');
-CALL pro_usuar(912345678901, 2, 2, 'Gabriela', 'Rendon', 'Morales', '3256789012', 8000, 'Avenida 34 #56-78', 'gabriela.rendon@email.com', 'clave3456', '1991-12-15');
+CALL pro_usuar(91234567890, 2, 2, 'Gabriela', 'Rendon', 'Morales', '3256789012', 8000, 'Avenida 34 #56-78', 'gabriela.rendon@email.com', 'clave3456', '1991-12-15');
 CALL pro_usuar(123456789234, 1, 1, 'Julian', 'Cano', 'Gonzalez', '3267890123', 4444, 'Calle 56 #78-90', 'julian.cano@email.com', 'contrasena4', '1989-09-03');
 CALL pro_usuar(234567892345, 3, 2, 'Natalia', 'Pena', 'Vargas', '3278901234', 4888, 'Carrera 78 #90-12', 'natalia.pena@email.com', 'pass7890', '1994-05-27');
+CALL pro_usuar(474678658928, 3, 2, 'Nataliaa', 'Penaa', 'Vargaas', '32789012345', 48888, 'Carrera 78 #90-12', 'natalia.pena@email.com', 'pass7890', '1994-05-27');
 
 -- Veterinaria
 call pro_veteri(1001, 'VetSalud', 'vetsalud@correo.com', 'foto.jpg', 'Calle 123 #45-67');
@@ -140,44 +141,33 @@ CALL esqvacun(12, '0.5ml', '2025-06-06');
 CALL esqvacun(3, '0.8ml', '2025-06-06');
 CALL esqvacun(4, '0.8ml', '2025-06-06');
 CALL esqvacun(5, '1ml', '2025-06-06');
+CALL esqvacun(5, '1ml', '2025-06-06');
+
 
 
 -- Mascota del usuario
 
-CALL pro_mascota('Rocky', '2020-03-15', 1, 1, 1, 123456789012, 'rocky.jpg');
-CALL pro_mascota('Luna', '2019-07-22', 16, 2, 2, 234567890123, 'luna.jpg');
-CALL pro_mascota('Max', '2018-05-10', 4, 3, 3, 345678901234, 'max.jpg');
-CALL pro_mascota('Maya', '2021-01-30', 9, 4, 4, 456789012345, 'maya.jpg');
-CALL pro_mascota('Toby', '2017-11-05', 11, 5, 5, 567890123456, 'toby.jpg');
-CALL pro_mascota('Nala', '2020-06-18', 21, 6, 6, 678901234567, 'nala.jpg');
-CALL pro_mascota('Simba', '2019-09-25', 5, 7, 7, 789012345678, 'simba.jpg');
-CALL pro_mascota('Coco', '2018-12-10', 30, 8, 8, 890123456789, 'coco.jpg');
-CALL pro_mascota('Daisy', '2021-04-14', 41, 9, 9, 901234567890, 'daisy.jpg');
-CALL pro_mascota('Loki', '2019-02-28', 56, 10, 10, 123456789123, 'loki.jpg');
-CALL pro_mascota('Milo', '2017-08-12', 7, 11, 11, 434567891234, 'milo.jpg');
-CALL pro_mascota('Bella', '2020-10-03', 13, 1, 12, 345678912345, 'bella.jpg');
-CALL pro_mascota('Oscar', '2019-03-20', 18, 2, 13, 456789123456, 'oscar.jpg');
-CALL pro_mascota('Lola', '2018-06-25', 23, 3, 14, 567891234567, 'lola.jpg');
-CALL pro_mascota('Simone', '2021-09-15', 28, 4, 15, 678912345678, 'simone.jpg');
-CALL pro_mascota('Zoe', '2017-11-11', 35, 5, 16, 789123456789, 'zoe.jpg');
-CALL pro_mascota('Tina', '2019-07-30', 40, 6, 17, 891234567890, 'tina.jpg');
-CALL pro_mascota('Chloe', '2020-12-01', 45, 7, 1, 912345678901, 'chloe.jpg');
-CALL pro_mascota('Rex', '2018-01-09', 50, 8, 2, 123456789234, 'rex.jpg');
-CALL pro_mascota('Gizmo', '2019-05-22', 55, 9, 3, 234567892345, 'gizmo.jpg');
-CALL pro_mascota('Fiona', '2021-02-17', 2, 10, 4, 123456789012, 'fiona.jpg');
-CALL pro_mascota('Leo', '2017-04-30', 6, 11, 5, 234567890123, 'leo.jpg');
-CALL pro_mascota('Ruby', '2019-08-19', 12, 1, 6, 345678901234, 'ruby.jpg');
-CALL pro_mascota('Maggie', '2020-11-07', 17, 2, 7, 456789012345, 'maggie.jpg');
-CALL pro_mascota('Jack', '2018-09-13', 22, 3, 8, 567890123456, 'jack.jpg');
-CALL pro_mascota('Sasha', '2019-04-26', 27, 4, 9, 678901234567, 'sasha.jpg');
-CALL pro_mascota('Oliver', '2020-07-11', 33, 5, 10, 789012345678, 'oliver.jpg');
-CALL pro_mascota('Mimi', '2017-12-03', 38, 6, 11, 890123456789, 'mimi.jpg');
-CALL pro_mascota('Pepper', '2021-05-22', 43, 7, 12, 901234567890, 'pepper.jpg');
-CALL pro_mascota('Rusty', '2018-03-17', 48, 8, 13, 123456789123, 'rusty.jpg');
-CALL pro_mascota('Teddy', '2019-09-29', 53, 9, 14, 234567892345 , 'teddy.jpg');
-CALL pro_mascota('Molly', '2020-06-14', 58, 10, 15, 123456789234 , 'molly.jpg');
-CALL pro_mascota('Buster', '2017-10-20', 3, 11, 16, 912345678901 , 'buster.jpg');
-CALL pro_mascota('Duke', '2018-02-05', 8, 1, 17, 912345678901 , 'duke.jpg');
+CALL pro_mascota('Rocky', '2020-03-15', 1, 1, 1, 1234567890, 'rocky.jpg');
+CALL pro_mascota('Luna', '2019-07-22', 16, 2, 2, 123456789012, 'luna.jpg');
+CALL pro_mascota('Max', '2018-05-10', 4, 3, 3, 234567890123, 'max.jpg');
+CALL pro_mascota('Maya', '2021-01-30', 9, 4, 4, 345678901234, 'maya.jpg');
+CALL pro_mascota('Toby', '2017-11-05', 11, 5, 5, 456789012345, 'toby.jpg');
+CALL pro_mascota('Nala', '2020-06-18', 21, 6, 6, 567890123456, 'nala.jpg');
+CALL pro_mascota('Simba', '2019-09-25', 5, 7, 7, 678901234567, 'simba.jpg');
+CALL pro_mascota('Coco', '2018-12-10', 30, 8, 8, 789012345678, 'coco.jpg');
+CALL pro_mascota('Daisy', '2021-04-14', 41, 9, 9, 890123456789, 'daisy.jpg');
+CALL pro_mascota('Loki', '2019-02-28', 56, 10, 10, 901234567890, 'loki.jpg');
+CALL pro_mascota('Milo', '2017-08-12', 7, 11, 11, 123456789123, 'milo.jpg');
+CALL pro_mascota('Bella', '2020-10-03', 13, 1, 12, 434567891234, 'bella.jpg');
+CALL pro_mascota('Oscar', '2019-03-20', 18, 2, 13, 345678912345, 'oscar.jpg');
+CALL pro_mascota('Lola', '2018-06-25', 23, 3, 14, 456789123456, 'lola.jpg');
+CALL pro_mascota('Simone', '2021-09-15', 28, 4, 15, 567891234567, 'simone.jpg');
+CALL pro_mascota('Zoe', '2017-11-11', 35, 5, 16, 678912345678, 'zoe.jpg');
+CALL pro_mascota('Tina', '2019-07-30', 40, 6, 17, 912345678901, 'tina.jpg');
+CALL pro_mascota('Chloe', '2020-12-01', 45, 7, 1, 891234567890, 'chloe.jpg');
+CALL pro_mascota('Rex', '2018-01-09', 50, 8, 2, 91234567890, 'rex.jpg');
+CALL pro_mascota('Gizmo', '2019-05-22', 55, 9, 3, 123456789234, 'gizmo.jpg');
+CALL pro_mascota('jack', '2019-05-22', 55, 9, 3, 123456789234, 'gizmo.jpg');
 
 
 -- Cita en agendamiento
@@ -201,22 +191,66 @@ CALL pro_agenda(NOW(), '2025-06-26', 1007, 17, 2, 17);
 CALL pro_agenda(NOW(), '2025-06-27', 1008, 18, 1, 18);
 CALL pro_agenda(NOW(), '2025-06-28', 1009, 19, 2, 19);
 CALL pro_agenda(NOW(), '2025-06-29', 1008, 20, 1, 20);
-CALL pro_agenda(NOW(), '2025-06-30', 1001, 21, 1, 21);
-CALL pro_agenda(NOW(), '2025-07-01', 1002, 22, 2, 22);
-CALL pro_agenda(NOW(), '2025-07-02', 1003, 23, 1, 23);
-CALL pro_agenda(NOW(), '2025-07-03', 1004, 24, 2, 24);
-CALL pro_agenda(NOW(), '2025-07-04', 1005, 25, 1, 25);
-
-
-
-
-
-
-
-
 
 
 -- historia clinica 
-call pro_his_cli (1,"Esterilización realizada sin complicaciones. Recuperación postoperatoria estable.");
+CALL pro_his_cli(1, 1, 'Esterilización realizada sin complicaciones. Recuperación postoperatoria estable.');
+CALL pro_his_cli(2, 2, 'Vacunación completa para Luna. Sin anomalías.');
+CALL pro_his_cli(3, 3, 'Max presenta leve irritación ocular. Tratamiento recetado.');
+CALL pro_his_cli(4, 4, 'Maya con buen peso y energía. Control rutinario.');
+CALL pro_his_cli(5, 5, 'Toby tuvo cirugía dental. En recuperación.');
+CALL pro_his_cli(6, 6, 'Nala fue desparasitada. Sin complicaciones.');
+CALL pro_his_cli(7, 7, 'Simba con historial alérgico. Se recomienda seguimiento.');
+CALL pro_his_cli(8, 8, 'Coco recibió vacuna antirrábica.');
+CALL pro_his_cli(9, 9, 'Daisy fue esterilizada. Evolución positiva.');
+CALL pro_his_cli(10, 10, 'Loki atendido por cojera leve. Se recetó reposo.');
+CALL pro_his_cli(11, 11, 'Milo con buena condición física. Control al día.');
+CALL pro_his_cli(12, 12, 'Bella mostró signos de ansiedad. Se recomendó ejercicio.');
+CALL pro_his_cli(13, 13, 'Oscar con otitis. Tratamiento iniciado.');
+CALL pro_his_cli(14, 14, 'Lola está en recuperación postquirúrgica.');
+CALL pro_his_cli(15, 15, 'Simone vacunada y desparasitada.');
+CALL pro_his_cli(16, 16, 'Zoe con problemas digestivos leves.');
+CALL pro_his_cli(17, 17, 'Tina presenta dermatitis. En observación.');
+CALL pro_his_cli(18, 18, 'Chloe revisada por comportamiento agresivo. Recomendación etológica.');
+CALL pro_his_cli(19, 19, 'Rex tuvo control de peso. Se indicó dieta especial.');
+CALL pro_his_cli(20, 20, 'Gizmo con revisión dental. Higiene adecuada.');
+CALL pro_his_cli(21, 21, 'Jack atendido por lesión en la pata. Vendaje aplicado.');
+CALL pro_his_cli(2, 12, 'Jack atendido por lesión en la pata. Vendaje aplicado.');
 
 
+-- tiggers
+
+DROP TRIGGER IF EXISTS `dbpet`.`historiaclinica_AFTER_INSERT`;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`historiaclinica_AFTER_INSERT` AFTER INSERT ON `historiaclinica` FOR EACH ROW
+BEGIN
+insert into procedimiento_historiaclinica (IdProcedimiento,IdHistoria)
+values (new.IdProcedimiento,new.IdHistoria);
+
+END$$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `dbpet`.`usuario_AFTER_INSERT`;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`usuario_AFTER_INSERT` AFTER INSERT ON `usuario` FOR EACH ROW
+BEGIN
+insert into usuario_roles(DocUsuario,IdRol)
+values(new.Doc,new.IdRol);
+END$$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `dbpet`.`esquemavacunas_AFTER_INSERT`;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`esquemavacunas_AFTER_INSERT` AFTER INSERT ON `esquemavacunas` FOR EACH ROW
+BEGIN
+insert into vacunas_esquemavacunas(IdVacuna,IdEsquema)
+values(new.IdVacuna,new.IdEsquema);
+END$$
+DELIMITER ;
+.

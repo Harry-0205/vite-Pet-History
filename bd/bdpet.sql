@@ -82,7 +82,9 @@ CREATE TABLE Procedimiento (
 CREATE TABLE HistoriaClinica (
     IdHistoria INT PRIMARY KEY AUTO_INCREMENT,
     IdMascota BIGINT,
-    Anotaciones VARCHAR(200)
+    iDProcedimiento BIGINT,
+    Anotaciones VARCHAR(200),
+    constraint FK_procedi Foreign key (iDProcedimiento) references Procedimiento(IdProcedimiento)
 );
 
 CREATE TABLE Usuario_Roles (

@@ -42,12 +42,14 @@ DELIMITER $$
 USE `dbpet`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_his_cli`(
     IN w BIGINT(19),
+	in iDProcedimient bigint,
     IN Anotacion varchar(200)
+ 
 )
 BEGIN
     -- Inserción en la tabla Procedimiento
-    INSERT INTO historiaclinica(idmascota, Anotaciones)
-    VALUES (w, Anotacion);
+    INSERT INTO historiaclinica(idmascota,iDProcedimiento, Anotaciones)
+    VALUES (w,iDProcedimient,Anotacion);
 END$$
 
 DELIMITER $$
