@@ -101,7 +101,7 @@ CALL pro_usuar(891234567890, 1, 1, 'Tomas', 'Aguilar', 'Muñoz', '3245678901', 4
 CALL pro_usuar(91234567890, 2, 2, 'Gabriela', 'Rendon', 'Morales', '3256789012', 8000, 'Avenida 34 #56-78', 'gabriela.rendon@email.com', 'clave3456', '1991-12-15');
 CALL pro_usuar(123456789234, 1, 1, 'Julian', 'Cano', 'Gonzalez', '3267890123', 4444, 'Calle 56 #78-90', 'julian.cano@email.com', 'contrasena4', '1989-09-03');
 CALL pro_usuar(234567892345, 3, 2, 'Natalia', 'Pena', 'Vargas', '3278901234', 4888, 'Carrera 78 #90-12', 'natalia.pena@email.com', 'pass7890', '1994-05-27');
-CALL pro_usuar(474678658928, 3, 2, 'Nataliaa', 'Penaa', 'Vargaas', '32789012345', 48888, 'Carrera 78 #90-12', 'natalia.pena@email.com', 'pass7890', '1994-05-27');
+CALL pro_usuar(474678658929, 3, 2, 'Nataliaa', 'Penaa', 'Vargaas', '32789012345', 48888, 'Carrera 78 #90-12', 'natalia.pena@email.com', 'pass7890', '1994-05-27');
 
 -- Veterinaria
 call pro_veteri(1001, 'VetSalud', 'vetsalud@correo.com', 'foto.jpg', 'Calle 123 #45-67');
@@ -216,41 +216,3 @@ CALL pro_his_cli(19, 19, 'Rex tuvo control de peso. Se indicó dieta especial.')
 CALL pro_his_cli(20, 20, 'Gizmo con revisión dental. Higiene adecuada.');
 CALL pro_his_cli(21, 21, 'Jack atendido por lesión en la pata. Vendaje aplicado.');
 CALL pro_his_cli(2, 12, 'Jack atendido por lesión en la pata. Vendaje aplicado.');
-
-
--- tiggers
-
-DROP TRIGGER IF EXISTS `dbpet`.`historiaclinica_AFTER_INSERT`;
-
-DELIMITER $$
-USE `dbpet`$$
-CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`historiaclinica_AFTER_INSERT` AFTER INSERT ON `historiaclinica` FOR EACH ROW
-BEGIN
-insert into procedimiento_historiaclinica (IdProcedimiento,IdHistoria)
-values (new.IdProcedimiento,new.IdHistoria);
-
-END$$
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS `dbpet`.`usuario_AFTER_INSERT`;
-
-DELIMITER $$
-USE `dbpet`$$
-CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`usuario_AFTER_INSERT` AFTER INSERT ON `usuario` FOR EACH ROW
-BEGIN
-insert into usuario_roles(DocUsuario,IdRol)
-values(new.Doc,new.IdRol);
-END$$
-DELIMITER ;
-
-DROP TRIGGER IF EXISTS `dbpet`.`esquemavacunas_AFTER_INSERT`;
-
-DELIMITER $$
-USE `dbpet`$$
-CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`esquemavacunas_AFTER_INSERT` AFTER INSERT ON `esquemavacunas` FOR EACH ROW
-BEGIN
-insert into vacunas_esquemavacunas(IdVacuna,IdEsquema)
-values(new.IdVacuna,new.IdEsquema);
-END$$
-DELIMITER ;
-.

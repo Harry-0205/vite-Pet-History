@@ -25,12 +25,6 @@ END$$
 DELIMITER ;
 ;
 
-
-
-
-
-
-
 USE `dbpet`;
 DROP procedure IF EXISTS `pro_his_cli`;
 
@@ -75,13 +69,13 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Pro_usuar`(
     IN contrat int,
     IN dir VARCHAR(50),
     IN corre VARCHAR(100),
-    IN contr VARCHAR (10),
+    IN contr VARCHAR (500),
     IN fecna DATE
 )
 BEGIN
     -- Inserción en la tabla Usuario
     INSERT INTO Usuario(doc, tipodoc,IdRol, nom, ape1, ape2, tel, contrato, dir, correo,Contra, fecnam)
-    VALUES (docc, tipodo,IdRo, nomm, apel1,apel2, tel, contrat, dir, corre,contr , fecna);
+    VALUES (docc, tipodo,IdRo, nomm, apel1,apel2, tel, contrat, dir, corre,aes_encrypt(contr,'1234') , fecna);
 END$$
 
 DELIMITER ;
@@ -154,6 +148,43 @@ END$$
 DELIMITER ;
 ;
 
+
+
+-- tiggers
+
+DROP TRIGGER IF EXISTS `dbpet`.`historiaclinica_AFTER_INSERT`;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`historiaclinica_AFTER_INSERT` AFTER INSERT ON `historiaclinica` FOR EACH ROW
+BEGIN
+insert into procedimiento_historiaclinica (IdProcedimiento,IdHistoria)
+values (new.IdProcedimiento,new.IdHistoria);
+
+END$$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `dbpet`.`usuario_AFTER_INSERT`;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`usuario_AFTER_INSERT` AFTER INSERT ON `usuario` FOR EACH ROW
+BEGIN
+insert into usuario_roles(DocUsuario,IdRol)
+values(new.Doc,new.IdRol);
+END$$
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `dbpet`.`esquemavacunas_AFTER_INSERT`;
+
+DELIMITER $$
+USE `dbpet`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `dbpet`.`esquemavacunas_AFTER_INSERT` AFTER INSERT ON `esquemavacunas` FOR EACH ROW
+BEGIN
+insert into vacunas_esquemavacunas(IdVacuna,IdEsquema)
+values(new.IdVacuna,new.IdEsquema);
+END$$
+DELIMITER ;
 
 
 

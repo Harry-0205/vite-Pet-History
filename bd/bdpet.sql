@@ -23,7 +23,7 @@ CREATE TABLE Usuario (
     Contrato int,
     Dir VARCHAR(50),
     Correo VARCHAR(100),
-    Contra varchar(10),
+    contra varchar(500),
     FecNam DATE,
     FOREIGN KEY (TipoDoc) REFERENCES TipoDeDocumento(IdTipo),
 	CONSTRAINT FK_ROL FOREIGN KEY (IdRol) REFERENCES roles(IdRol)
