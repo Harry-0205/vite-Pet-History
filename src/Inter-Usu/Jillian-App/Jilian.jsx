@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Encabezado from "../Componentes-Jilian/Encabezado";
-import Menu from "../Componentes-Jilian/Menu";
 import Jilian2 from "../Componentes-Jilian/Jilian-2";
 import Jilian3 from "../Componentes-Jilian/Jilian-3";
 import Jilian4 from "../Componentes-Jilian/Jilian-4";
@@ -26,9 +25,8 @@ const Jilian = () => {
   };
 
   return (
-    <div className="contenedor-principal">
-      <Encabezado />
-      <Menu setSeccion={setSeccion} />
+    <div className="pagina">
+      <Encabezado setSeccion={setSeccion} />
       <main>{mostrarSeccion()}</main>
     </div>
   );
