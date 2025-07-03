@@ -9,14 +9,14 @@ import Carlos from './Inter-pro/Carlos apps/carlos';
 import Carlos2 from './Inter-pro/Carlos apps/Carlos2';
 import Home from './registro/Pages/Home';
 import Registro from "./registro/Pages/Registro";
-import Login from './Login/Login';
+
 
 function App() {
 
   return (
     <>
      
-      
+      <Miguel></Miguel>
          
     </>
   )
