@@ -1,18 +1,17 @@
-import HeaderMi from "../Componentes-Miguel/HeaderMi/HeaderMi"
-import MainMi from "../Componentes-Miguel/MainMi/MainMi"
 import FooterMi from "../Componentes-Miguel/FooterMi/FooterMi"
-
+import HeaderMi from "../Componentes-Miguel/HeaderMi/HeaderMi"
+import MainMig from "../Componentes-Miguel/MainMi/MainMig"
 
 function Miguel(){
     return(
         <>
-         <div className="acomodacion">
-        <HeaderMi></HeaderMi>
-        <MainMi></MainMi>
-        <FooterMi></FooterMi>
+        <div>
+        <div><HeaderMi></HeaderMi></div>
+        <div><MainMig></MainMig></div>
+        <div><FooterMi></FooterMi></div>
         </div>
         </>
-
+        
       
     )
 }
