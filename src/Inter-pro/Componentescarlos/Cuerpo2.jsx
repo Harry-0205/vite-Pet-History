@@ -1,19 +1,16 @@
-import Calendario from "../Imagenes/Calendario.png"
-import perros from "../Imagenes/perros.png"
-
-
 function Cuerpo2() {
     return (
       <>
         
         <div>
-        <main className="main">
+        <main className="maiin">
          
     
         <div className="recordatorio2">
             
             
             <h4 className="record4">Historia Clinica  </h4>
+            
             <div className="inf1"><h2>Datos Mascotas</h2><h6>Nombre:_________________Fecha de nacimiento____________  Vacunas:____________________</h6>
             <h6>Edad: "____________"     " Raza:____________  Color:_______________ fecha de ultima desparasitacion____________________</h6>
             
@@ -24,6 +21,8 @@ function Cuerpo2() {
         
 
         <h6>--- "RESUMEN HISTORIA CLINICA" --- </h6>
+       
+        
         <h8>1- Reseña
 Aquí se consignarán los datos personales del paciente y los propietarios responsables del mismo.
 Respecto a los datos del paciente, se incluye especie, raza, sexo, edad, capa y señales, tamaño, peso, utilización
