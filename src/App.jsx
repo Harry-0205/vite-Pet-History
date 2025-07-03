@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
 import Jilian from './Inter-Usu/Jillian-App/Jilian'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Miguel from './home/Miguel/Miguel'
 import Login from './Iniciarsesion/Componentesjossi/Login';
 import Carlos from './Inter-pro/Carlos apps/carlos';
 import Carlos2 from './Inter-pro/Carlos apps/Carlos2';
@@ -14,7 +13,7 @@ function App() {
 
   return (
     <>
-
+      <Miguel></Miguel>
     </>
   )
 }

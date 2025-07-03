@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../Pages/Brandon.css"
 import Footer from '../Componentes/Footer';
-import pet from "../../assets/pet.png"
+import pet from "../../assets/imagenes/pet.png"
 import { Button } from 'react-bootstrap';
 function SignUp() {
   const navigate = useNavigate();

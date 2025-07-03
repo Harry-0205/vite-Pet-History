@@ -1,4 +1,4 @@
-import img1 from "../../assets/pet.png";
+import img1 from "../../assets/imagenes/pet.png";
 import { Link } from 'react-router-dom';
 import "../Jossimar-estilos/Login.css";
 import React from 'react';

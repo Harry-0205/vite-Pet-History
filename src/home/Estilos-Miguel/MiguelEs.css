@@ -27,7 +27,8 @@
 .acomodacion{
     display: grid;
     grid-template-rows:  auto 1fr auto ;
-    font-family: Flatory
+    font-family: Flatory;
+    background-color: white;
 }
 .FooterMi{
     background-color: #A3B9C9;

@@ -4,7 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import hamburguesa from '../Imagenes/hamburguesa.png';
-import pet from "../../assets/pet.png"
+import pet from "../../assets/imagenes/pet.png"
 
 
 
