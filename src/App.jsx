@@ -8,19 +8,21 @@ import Registro from "./registro/Pages/Registro";
 import Carlos3 from './Inter-pro/Carlos apps/Carlos3';
 import Login from './Iniciarsesion/Componentesjossi/Login';
 import Admin from './Inter-Admin/Admin/Admin';
-import MainAdmin from './Inter-Admin/Componentes-Admin/MainAdmin/MainAdmin';
 import CreaPer from './Inter-Admin/Componentes-Admin/MainAdmin/CreaPer'
+import PerVet from './Inter-Admin/Componentes-Admin/MainAdmin/PerVet';
 
 function App() {
 
   return (
-        <BrowserRouter>
         <Routes>
           <Route path='/' element={<Miguel/>} />
           <Route path='/Admin' element={<Admin/>} />
           <Route path='/CreaPer' element={<CreaPer/>} />
+          <Route path='/iniciar' element={<Login/>} />
+          <Route path='/PerVet' element={<PerVet/>} />
+          <Route path='/Usu' element={<Jilian/>} />
+          <Route path='/Pro' element={<Carlos/>} />
         </Routes>
-        </BrowserRouter>
   )
 }
 
