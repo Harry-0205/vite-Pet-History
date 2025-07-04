@@ -14,7 +14,7 @@ function HeaderAdmin (){
             </div>
             <div className='HE3'>
                 <Button href='/' variant="primary" className='separacion' > Cerrar sesion </Button>
-                <Button href='/perfil' variant="outline-primary" className='separacion'><font color='#fafafa'>Perfil</font></Button>
+                <Button href='/Admin' variant="outline-primary" className='separacion'><font color='#fafafa'>Perfil</font></Button>
             </div>
         </div>
         </>

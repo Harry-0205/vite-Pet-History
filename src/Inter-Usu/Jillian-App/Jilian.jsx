@@ -6,6 +6,7 @@ import Jilian3 from "../Componentes-Jilian/Jilian-3";
 import Jilian4 from "../Componentes-Jilian/Jilian-4";
 import Jilian5 from "../Componentes-Jilian/Jilian-5";
 import "./Estilos.css";
+import FooterMi from "../../home/Componentes-Miguel/FooterMi/FooterMi";
 
 const Jilian = () => {
   const [seccion, setSeccion] = useState("perfil");
@@ -30,6 +31,7 @@ const Jilian = () => {
       <Encabezado />
       <Menu setSeccion={setSeccion} />
       <main>{mostrarSeccion()}</main>
+      <FooterMi></FooterMi>
     </div>
   );
 };

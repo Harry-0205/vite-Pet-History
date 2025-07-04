@@ -1,57 +1,44 @@
+import FooterMi from "../../../home/Componentes-Miguel/FooterMi/FooterMi";
+import HeaderAdmin from "../HeaderAdmin/HeaderAdmin"
+
 function CreaPer () {
-      const [formulario, setFormulario] = useState({
-    nombre: '',
-    cedula: '',
-    correo: '',
-    telefono: '',
-    experiencia: '',
-    habilidades: '',
-    descripcion: '',
-  });
+    return(
+       <div>
+         <HeaderAdmin></HeaderAdmin>
+        <div className="InfoAdm">
+            <h2>Formulario de Creación de Perfil Profesional - Administrador</h2>
+                <form >
+                    <label for="nombre">Nombre completo:</label><br />
+                    <input type="text" id="nombre" name="nombre" required/><br></br>
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormulario({ ...formulario, [name]: value });
-  };
+                    <label for="cedula">Cédula:</label><br/>
+                    <input type="text" id="cedula" name="cedula" required/><br></br>
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Datos del perfil:', formulario);
-    // Aquí puedes enviar los datos a un backend con fetch o axios
-  };
+                    <label for="correo">Correo electrónico:</label><br/>
+                    <input type="email" id="correo" name="correo" required/><br></br>
 
-  return (
-    <div>
-      <h2>Formulario de Creación de Perfil Profesional - Administrador</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Nombre completo:</label><br />
-        <input type="text" name="nombre" value={formulario.nombre} onChange={handleChange} required /><br /><br />
+                    <label for="telefono">Teléfono de contacto:</label><br/>
+                    <input type="tel" id="telefono" name="telefono" required/><br></br>
 
-        <label>Cédula:</label><br />
-        <input type="text" name="cedula" value={formulario.cedula} onChange={handleChange} required /><br /><br />
+                    <label for="cargo">Cargo actual:</label><br/>
+                    <input type="text" id="cargo" name="cargo" value="Administrador" readonly/><br></br>
 
-        <label>Correo electrónico:</label><br />
-        <input type="email" name="correo" value={formulario.correo} onChange={handleChange} required /><br /><br />
+                    <label for="experiencia">Años de experiencia:</label><br/>
+                    <input type="number" id="experiencia" name="experiencia" min="0" required/><br></br>
 
-        <label>Teléfono de contacto:</label><br />
-        <input type="tel" name="telefono" value={formulario.telefono} onChange={handleChange} required /><br /><br />
+                    <label for="habilidades">Habilidades (separadas por comas):</label><br/>
+                    <textarea id="habilidades" name="habilidades" rows="4" placeholder="Liderazgo, gestión de equipos, análisis de datos, etc." required></textarea><br></br>
 
-        <label>Cargo actual:</label><br />
-        <input type="text" name="cargo" value="Administrador" readOnly /><br /><br />
+                    <label for="descripcion">Descripción profesional:</label><br />
+                    <textarea id="descripcion" name="descripcion" rows="5" placeholder="Describe tu perfil profesional..." required></textarea><br></br>
 
-        <label>Años de experiencia:</label><br />
-        <input type="number" name="experiencia" value={formulario.experiencia} onChange={handleChange} required /><br /><br />
-
-        <label>Habilidades (separadas por comas):</label><br />
-        <textarea name="habilidades" rows="4" value={formulario.habilidades} onChange={handleChange} placeholder="Liderazgo, gestión de equipos, etc." required></textarea><br /><br />
-
-        <label>Descripción profesional:</label><br />
-        <textarea name="descripcion" rows="5" value={formulario.descripcion} onChange={handleChange} placeholder="Describe tu perfil profesional..." required></textarea><br /><br />
-
-        <button type="submit">Crear Perfil</button>
-      </form>
-    </div>
-  )
-}
+                    <button type="submit">Crear Perfil</button>
+                </form>
+        </div>
+        <FooterMi></FooterMi>
+       </div>
+       
+  );
+};
 
 export default CreaPer
