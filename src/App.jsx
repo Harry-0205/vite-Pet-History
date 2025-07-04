@@ -14,7 +14,6 @@ import CreaPer from './Inter-Admin/Componentes-Admin/MainAdmin/CreaPer'
 function App() {
 
   return (
-  
         <BrowserRouter>
         <Routes>
           <Route path='/' element={<Miguel/>} />
@@ -22,7 +21,6 @@ function App() {
           <Route path='/CreaPer' element={<CreaPer/>} />
         </Routes>
         </BrowserRouter>
-
   )
 }
 

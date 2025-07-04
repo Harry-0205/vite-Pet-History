@@ -65,12 +65,8 @@
     width: 70%;
     justify-self: center;
 }
-.organizacion1{
-    text-align: center;
-    width: 35%;
-    justify-self: center;
-  
-    
+#organizacion1{
+    width: 35%; 
 }
 .Infor1{
     display: grid;
@@ -85,6 +81,7 @@
     border: solid   #A3B9C9;
     padding: 5px;
     border-radius: 1.5rem;
+    width: 100%;
 }
 .BOTONES{
      align-self: center;
