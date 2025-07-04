@@ -24,10 +24,10 @@ function Menuu() {
           <Offcanvas.Title><img src={Pet} className='tamaño'></img></Offcanvas.Title>
         </Offcanvas.Header>
       <Offcanvas.Body>
-        <NavDropdown.Item href="/Inter-Usu">Citas</NavDropdown.Item>
-        <NavDropdown.Item href="/Inter-Usu2"> Historia clinica</NavDropdown.Item>
-        <NavDropdown.Item href="/Inter-Usu3">Pacientes recientes</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">recordatorios</NavDropdown.Item>
+        <NavDropdown.Item href="/Pro">Citas</NavDropdown.Item>
+        <NavDropdown.Item href="/pro2"> Historia clinica</NavDropdown.Item>
+        <NavDropdown.Item href="/pro3">Pacientes recientes</NavDropdown.Item>
+      
       </Offcanvas.Body>
       </Offcanvas>
     </div>
