@@ -51,7 +51,7 @@ function Login() {
         </p>
           </section>
 
-          <Button href="Usu" type="submit" className="register-button" >Iniciar sesión</Button>
+          <Button href="/Pro" type="submit" className="register-button" >Iniciar sesión</Button>
         </form>
       </main>
     </section>

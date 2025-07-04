@@ -10,6 +10,7 @@ import Login from './Iniciarsesion/Componentesjossi/Login';
 import Admin from './Inter-Admin/Admin/Admin';
 import CreaPer from './Inter-Admin/Componentes-Admin/MainAdmin/CreaPer'
 import PerVet from './Inter-Admin/Componentes-Admin/MainAdmin/PerVet';
+import '../src/App.css'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/PerVet' element={<PerVet/>} />
           <Route path='/Usu' element={<Jilian/>} />
           <Route path='/Pro' element={<Carlos/>} />
+          <Route path='/registro' element={<Registro/>}/>
         </Routes>
   )
 }
