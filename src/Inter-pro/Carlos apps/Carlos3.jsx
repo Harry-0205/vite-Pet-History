@@ -1,21 +1,22 @@
 import '../Estilos carlos/cebolla.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Menuu from '../Componentescarlos/Menuu';
-import Cuerpoo from "../Componentescarlos/Cuerpoo"
+import Menuu from '../Componentescarlos/Menuu'; 
 import Footerr from "../Componentescarlos/Footerr"
+import Cuerpo3 from '../Componentescarlos/Cuerpo2';
+import Pacientesr from '../Componentescarlos/Pacientesr';
 
 
-function Carlos() {
+function Carlos3() {
 
   return (
     <>
       <div className='Edimenu'>
 
         <Menuu></Menuu>
-        
       </div>
       <div>
-      <Cuerpoo></Cuerpoo>
+        <Pacientesr></Pacientesr>
+      
       <Footerr></Footerr>
       
       </div>
@@ -24,4 +25,4 @@ function Carlos() {
   )
 }
 
-export default Carlos
+export default Carlos3

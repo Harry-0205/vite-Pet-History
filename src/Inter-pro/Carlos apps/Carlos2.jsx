@@ -1,8 +1,6 @@
 import '../Estilos carlos/cebolla.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Menuu from '../Componentescarlos/Menuu';
-import Peboton from '../Componentescarlos/Peboton';
-import Ceboton from "../Componentescarlos/Ceboton"
+import Menuu from '../Componentescarlos/Menuu'; 
 
 import Footerr from "../Componentescarlos/Footerr"
 import Cuerpo2 from '../Componentescarlos/Cuerpo2';
@@ -15,8 +13,6 @@ function Carlos2() {
       <div className='Edimenu'>
 
         <Menuu></Menuu>
-        <Peboton></Peboton>
-        <Ceboton></Ceboton>
       </div>
       <div>
         <Cuerpo2></Cuerpo2>

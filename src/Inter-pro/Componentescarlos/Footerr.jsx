@@ -1,13 +1,11 @@
-
+import FooterMi from "../../home/Componentes-Miguel/FooterMi/FooterMi";
 
 
 function Footerr() {
     return (
       <>
         
-        <footer className="footer">
-          <h1></h1>
-        </footer>
+        <FooterMi></FooterMi>
         
       </>
     );

@@ -9,7 +9,7 @@ import 'primereact/resources/themes/lara-light-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-
+import FooterMi from "../../home/Componentes-Miguel/FooterMi/FooterMi";
 
 const Jilian = () => {
   const [seccion, setSeccion] = useState("perfil");
@@ -33,6 +33,7 @@ const Jilian = () => {
     <div className="pagina">
       <Encabezado setSeccion={setSeccion} />
       <main>{mostrarSeccion()}</main>
+      <FooterMi></FooterMi>
     </div>
   );
 };

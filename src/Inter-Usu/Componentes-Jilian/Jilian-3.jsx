@@ -23,13 +23,7 @@ const Jilian3 = () => {
         </div>
       </div>
 
-      <footer className="footer">
-        <div className="footer-contenido">
-          <p><strong>PET-HISTORY</strong> &copy; 2025</p>
-          <p>Desarrollado por el equipo PET-HISTORY</p>
-          <p>Contacto: soporte@pet-history.com</p>
-        </div>
-      </footer>
+   
     </div>
   );
 };

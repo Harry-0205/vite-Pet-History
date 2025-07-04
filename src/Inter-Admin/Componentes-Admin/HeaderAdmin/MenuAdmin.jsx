@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import hamburguesa from '../../assets/imagenes/menusito.webp';
-import pet from "../../assets/imagenes/pet.png"
-import '../../home/Estilos-Miguel/MiguelEs.css'
+import hamburguesa from '../../../assets/imagenes/menusito.webp';
+import '../../../home/Estilos-Miguel/MiguelEs.css'
+import Pet from '../../../assets/imagenes/pet.png'
 
-function Menuu() {
+function MenuAdmin() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,17 +20,15 @@ function Menuu() {
       </Button>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Menu</Offcanvas.Title>
+          <Offcanvas.Title><img src={Pet} className='tamaño'></img></Offcanvas.Title>
         </Offcanvas.Header>
       <Offcanvas.Body>
-        <NavDropdown.Item href="/Inter-Usu">Citas</NavDropdown.Item>
-        <NavDropdown.Item href="/Inter-Usu2"> Historia clinica</NavDropdown.Item>
-        <NavDropdown.Item href="/Inter-Usu3">Pacientes recientes</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">recordatorios</NavDropdown.Item>
+        <NavDropdown.Item href="/CreaPer"><h6>Creacion Perfil</h6></NavDropdown.Item>
+        <NavDropdown.Item href="/PerVet"><h6>Personal Veterinaria</h6></NavDropdown.Item>
       </Offcanvas.Body>
       </Offcanvas>
     </div>
   );
 }
 
-export default Menuu
+export default MenuAdmin    
