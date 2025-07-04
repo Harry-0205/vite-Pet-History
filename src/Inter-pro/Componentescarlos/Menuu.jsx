@@ -4,7 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import hamburguesa from '../../assets/imagenes/menusito.webp';
-import pet from "../../assets/imagenes/pet.png"
+import Pet from "../../assets/imagenes/pet.png"
 import '../../home/Estilos-Miguel/MiguelEs.css'
 
 function Menuu() {
@@ -21,7 +21,7 @@ function Menuu() {
       </Button>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Menu</Offcanvas.Title>
+          <Offcanvas.Title><img src={Pet} className='tamaño'></img></Offcanvas.Title>
         </Offcanvas.Header>
       <Offcanvas.Body>
         <NavDropdown.Item href="/Inter-Usu">Citas</NavDropdown.Item>
@@ -31,6 +31,9 @@ function Menuu() {
       </Offcanvas.Body>
       </Offcanvas>
     </div>
+
+    
+    
   );
 }
 

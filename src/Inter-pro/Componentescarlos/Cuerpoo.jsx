@@ -1,5 +1,5 @@
-import Calendario from "../Imagenes/Calendario.png"
 import perros from "../Imagenes/perros.png"
+import Calendario from "../Componentescarlos/Calendario.jsx";
 
 
 function Cuerpoo() {
@@ -7,13 +7,13 @@ function Cuerpoo() {
       <>
         
         
-        <main className="main">
+        <main className="minn">
          
-        <div className="citas"><img src={Calendario} alt="sedef" /></div>
-        <div className="recordatorio"><h4 className="record2">Recordatorios  </h4>
+        <div className="siu2"><Calendario></Calendario></div>
+        <div><h4 className="record2">Recordatorios  </h4>
 
       <div className="record1">
-      <p className="t1">
+      <p>
         <h6>- Cita General a las 2:30PM, bruno "snaucer 11/04/2025"</h6>
         <h6>- Cita General a las 11:30am, bruno "snaucer 12/04/2025"</h6>
         <h6>- Cita procedimiento a las 8:30pm, bruno "snaucer 13/04/2025"</h6>
@@ -23,7 +23,7 @@ function Cuerpoo() {
         <h6>- Cita procedimiento a las 2:30, bruno "snaucer 17/04/2025"</h6>
         </p>
         </div>
-        <img className="imf" src={perros} alt="dddd" />
+        <img className="perras"  src={perros} alt="dddd" />
         </div>
         
         

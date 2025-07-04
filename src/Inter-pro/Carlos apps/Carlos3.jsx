@@ -10,10 +10,7 @@ function Carlos3() {
 
   return (
     <>
-      <div className='Edimenu'>
-
-        <Menuu></Menuu>
-      </div>
+      <Headercarlos></Headercarlos>
       <div>
         <Pacientesr></Pacientesr>
       
