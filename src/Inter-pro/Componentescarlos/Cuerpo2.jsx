@@ -2,8 +2,8 @@ function Cuerpo2() {
     return (
       <>
         
-        <div>
-        <main className="maiin">
+        <div className="maiin">
+        
          
     
         <div className="recordatorio2">
@@ -59,7 +59,7 @@ Antecedentes Quirúrgicos: Cirugías recibidas (castraciones, cirugías estétic
         </div>
         
         
-      </main>
+      
             
         </div>
         

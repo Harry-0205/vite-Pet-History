@@ -10,10 +10,7 @@ function Carlos2() {
 
   return (
     <>
-      <div className='Edimenu'>
-
-        <Menuu></Menuu>
-      </div>
+      <Headercarlos></Headercarlos>
       <div>
         <Cuerpo2></Cuerpo2>
       
