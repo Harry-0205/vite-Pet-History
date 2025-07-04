@@ -44,7 +44,7 @@ function SignUp() {
                   alt="Pet History Logo" 
                   className="pet-history-logo" 
                 />
-                <p className="description-text text-white mt-3">
+                <p className="description-text ">
                   Sistema global, privado, libre y anónimo de registro de mascotas.
                   Creando repositorios segmentados con datos certificados por médicos veterinarios partícipes de sistema.
                 </p>
@@ -54,27 +54,12 @@ function SignUp() {
               <div className="form-container m-4">
                 <div className="user-type-container">
                   <div className="user-type-option">
-                    <input 
-                      type="radio" 
-                      id="usuario" 
-                      name="userType" 
-                      value="usuario" 
-                      checked={userType === 'usuario'} 
-                      onChange={handleUserTypeChange}
-                    />
-                    <label htmlFor="usuario" className="ms-2">Usuario</label>
+                    
+                    
+                    
                   </div>
-                  <div className="user-type-option">
-                    <input 
-                      type="radio" 
-                      id="profesional" 
-                      name="userType" 
-                      value="profesional" 
-                      checked={userType === 'profesional'} 
-                      onChange={handleUserTypeChange}
-                    />
-                    <label htmlFor="profesional" className="ms-2">Profesional</label>
-                  </div>
+                  
+                  
                 </div>
                 
                 <h2 className="form-title">Crea tu Cuenta</h2>
@@ -150,7 +135,7 @@ function SignUp() {
       </div>
       
       
-      <Footer />
+      
     </div>
   );
 }

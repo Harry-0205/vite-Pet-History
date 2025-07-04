@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-    <Miguel></Miguel>
+    <Registro></Registro>
     </>
   )
 }
