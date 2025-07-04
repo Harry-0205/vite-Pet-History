@@ -1,10 +1,7 @@
 import '../Estilos carlos/cebolla.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Menuu from '../Componentescarlos/Menuu'; 
-
 import Footerr from "../Componentescarlos/Footerr"
-import Cuerpo2 from '../Componentescarlos/Cuerpo2';
-
+import Cuerpo2 from '../Componentescarlos/Cuerpo2.JSX';
+import Headercarlos from '../Componentescarlos/hedercarlos';
 
 function Carlos2() {
 
