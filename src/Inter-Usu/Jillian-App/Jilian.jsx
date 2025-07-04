@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Encabezado from "../Componentes-Jilian/Encabezado";
-import Menu from "../Componentes-Jilian/Menu";
 import Jilian2 from "../Componentes-Jilian/Jilian-2";
 import Jilian3 from "../Componentes-Jilian/Jilian-3";
 import Jilian4 from "../Componentes-Jilian/Jilian-4";
 import Jilian5 from "../Componentes-Jilian/Jilian-5";
 import "./Estilos.css";
+import 'primereact/resources/themes/lara-light-blue/theme.css'; 
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import FooterMi from "../../home/Componentes-Miguel/FooterMi/FooterMi";
 
 const Jilian = () => {
@@ -27,9 +30,8 @@ const Jilian = () => {
   };
 
   return (
-    <div className="contenedor-principal">
-      <Encabezado />
-      <Menu setSeccion={setSeccion} />
+    <div className="pagina">
+      <Encabezado setSeccion={setSeccion} />
       <main>{mostrarSeccion()}</main>
       <FooterMi></FooterMi>
     </div>

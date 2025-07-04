@@ -4,7 +4,7 @@ import DOG from '../Imagenes/DOG.jpg';
 
 const Jilian2 = () => {
   return (
-    <div className="contenedor-principal">
+    <div className="pagina">
       <div className="perfil-contenedor">
         <img src={DOG} alt="Mascota" className="imagen-perfil" />
         <div className="info-perfil">
@@ -19,4 +19,3 @@ const Jilian2 = () => {
 };
 
 export default Jilian2;
-
