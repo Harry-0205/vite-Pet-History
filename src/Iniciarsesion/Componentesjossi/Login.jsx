@@ -1,13 +1,15 @@
-import img1 from "../assets/pet.png";
+import img1 from "../../assets/imagenes/pet.png";
 import { Link } from 'react-router-dom';
-import '../estilos-login/Login.css'
+import "../Jossimar-estilos/Login.css";
+import React from 'react';
 
 function Login() {
   return (
     <section className="register-container">
       <aside className="left-section">
         <img src={img1} alt="Pet History Logo" />
-        <h1 className="logo">Pet History</h1>
+        <h1 className="titulo">
+          Pet History</h1>
         <p>
           Los animales domésticos, fieles compañeros de nuestras vidas, llenan
           nuestros días de alegría, amor incondicional y una ternura que nos
@@ -29,15 +31,11 @@ function Login() {
 
         <h2>Iniciar sesión</h2>
         <button className="google-button">Iniciar sesión con Google</button>
-        <p>
-          ¿No tienes cuenta? <Link to="/register">Regístrate rápido</Link>
-        </p>
-        <hr className="divider" />
 
         <form className="register-form">
           <section className="input-group">
-            <label htmlFor="Usuario">Usuario</label>
-            <input id="Usuario" type="email" placeholder="Escribe tu usuario" />
+            <label htmlFor="email">Correo Electrónico</label>
+            <input id="email" type="email" placeholder="Escribe tu correo" />
           </section>
 
           <section className="input-group">
@@ -46,11 +44,10 @@ function Login() {
             <p>
               ¿Perdiste tu cuenta? <Link to="/register">Recuperar cuenta</Link>
             </p>
+             <p>
+          ¿No tienes cuenta? <Link to="/register">Regístrate </Link>
+        </p>
           </section>
-
-          <p>
-            <Link to="/register">¿Recuperar contraseña?</Link>
-          </p>
 
           <button type="submit" className="register-button">Iniciar sesión</button>
         </form>
@@ -58,5 +55,4 @@ function Login() {
     </section>
   );
 }
-
 export default Login;
