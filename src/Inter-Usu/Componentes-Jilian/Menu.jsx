@@ -1,4 +1,5 @@
 import React from "react";
+import "../Jillian-App/Estilos.css";
 
 const Menu = ({ setSeccion }) => {
   return (
