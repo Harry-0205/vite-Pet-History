@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "./Menu"; // Asegúrate de importar el menú correctamente
+import Menu from "./Menu"; 
 import "../Jillian-App/Estilos.css";
 
 const Encabezado = ({ setSeccion }) => {
@@ -7,7 +7,7 @@ const Encabezado = ({ setSeccion }) => {
     <header className="encabezado">
       <h1>PET-HISTORY</h1>
       <div className="barra">
-        <Menu setSeccion={setSeccion} /> {/* Mueve el menú aquí */}
+        <Menu setSeccion={setSeccion} /> 
         <input type="text" placeholder="PET-HISTORY" />
         <button>SALIR</button>
         <button>PERFIL</button>

@@ -15,13 +15,13 @@ html, body {
   flex-direction: column;
 }
 
-
 main {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 
@@ -55,14 +55,14 @@ main {
   padding: 8px;
   width: 250px;
   border: 1px solid #ccc;  
-  border-radius: 5px;
+  border-radius: 9px;
 }
 
 .barra button {
   background-color: #ffcccc; 
   border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 10px 30px;
+  border-radius: 9px;
   cursor: pointer;
 }
 
@@ -77,39 +77,90 @@ main {
   border-radius: 10px;
 }
 
-
 .perfil-contenedor {
   display: flex;
+  flex-direction: row;             
   align-items: center;
-  gap: 20px;
-  background-color: #d0e7ff; 
-  padding: 20px;
-  border-radius: 10px;
-  width: 100%;
+  justify-content: space-around;  
+  gap: 60px;
+  background-color: #d0e7ff;
+  padding: 60px;
+  margin: 60px auto;              
+  border-radius: 20px;
+  width: 90%;                     
+  max-width: 1600px;              
   flex-wrap: wrap;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
 .imagen-perfil {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #ffcccc; 
+  border: 4px solid #ffcccc;
 }
 
 .info-perfil p {
-  margin: 8px 0;
+  font-size: 1.3rem;
+  margin: 10px 0;
 }
 
 
-.historial,
+.perfil-contenedor,
 .cita,
+.historial,
 .veterinarias {
-  background-color: #ffffff; 
-  padding: 20px;
-  border: 2px solid #d0e7ff; 
+  width: 90%;
+  max-width: 1600px;
+  margin: 60px auto;
+  padding: 60px;
+  min-height: 700px; 
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #d0e7ff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+
+.perfil-contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  background-color: #d0e7ff;;
+}
+
+.cita {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.historial {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.veterinarias ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.veterinarias li {
+  background-color: #d0e7ff;
+  padding: 12px 20px;
+  margin: 10px 0;
   border-radius: 10px;
-  width: 100%;
+  font-size: 1.2rem;
 }
 
 .reporte,
@@ -152,15 +203,32 @@ main {
 
 
 .footer {
-  background-color: #cceeff; 
-  padding: 40px 20px;
+  width: 100vw; 
+  background-color: #cceeff;
+  padding: 60px 0;
   text-align: center;
-  border-top: 3px solid #ffcccc; 
-  width: 100%;
+  border-top: 3px solid #ffcccc;
+  box-sizing: border-box;
 }
 
-.footer-contenido p {
-  margin: 10px 0;
-  color: #333;
-  font-size: 16px;
+
+
+.footer-contenido {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.calendario-container {
+  transform: scale(1.4); 
+  margin-right: 10rem;
+  margin-top: 20px;
+}
+
+
+.calendario-cita {
+  flex: 1;
+  padding: 30px;
+  max-width: 500px;
+  min-width: 300px;
+  box-sizing: border-box;
 }

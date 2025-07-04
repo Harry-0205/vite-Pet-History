@@ -5,6 +5,11 @@ import Jilian3 from "../Componentes-Jilian/Jilian-3";
 import Jilian4 from "../Componentes-Jilian/Jilian-4";
 import Jilian5 from "../Componentes-Jilian/Jilian-5";
 import "./Estilos.css";
+import 'primereact/resources/themes/lara-light-blue/theme.css'; 
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+
 
 const Jilian = () => {
   const [seccion, setSeccion] = useState("perfil");
