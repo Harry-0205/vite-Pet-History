@@ -1,28 +1,13 @@
 function Cuerpo2() {
     return (
       <>
-        
-        
-        
-         
-    
         <div className="recordatorio2">
-            
-            
             <h2 className="record4">Historia Clinica  </h2>
-            
             <div className="inf1"><h4>Datos Mascotas</h4><h6>Nombre:_________________Fecha de nacimiento____________  Vacunas:____________________</h6>
             <h6>Edad: "____________"     " Raza:____________  Color:_______________ fecha de ultima desparasitacion____________________</h6>
-            
             </div>
-           
-
-      <div className="record3">
-        
-
-        <h4>--- "RESUMEN HISTORIA CLINICA" --- </h4>
-       
-        
+      <div className="record3">       
+        <h4>--- "RESUMEN HISTORIA CLINICA" --- </h4>           
         <h8>1- Reseña
 Aquí se consignarán los datos personales del paciente y los propietarios responsables del mismo.
 Respecto a los datos del paciente, se incluye especie, raza, sexo, edad, capa y señales, tamaño, peso, utilización
@@ -53,16 +38,9 @@ animal utilizado para reproducción, registrar la fecha y número de servicios, 
 y características de partos y destetes.
 Anamnesis Patológica Remota: Manifestaciones morbosas que se hayan presentado en el pasado.
 Forma de inicio, signos, tratamientos instaurados y evolución
-Antecedentes Quirúrgicos: Cirugías recibidas (castraciones, cirugías estéticas, etc). </h8>
-        
+Antecedentes Quirúrgicos: Cirugías recibidas (castraciones, cirugías estéticas, etc). </h8>      
         </div>
         </div>
-        
-        
-      
-            
-        
-        
       </>
     );
   }

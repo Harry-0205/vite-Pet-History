@@ -3,8 +3,6 @@ import HeaderAdmin from "../HeaderAdmin/HeaderAdmin"
 
 function PerVet () {
     return(
-            <div>
-                <HeaderAdmin></HeaderAdmin>
                 <div className="InfoAdm">
                     <h2>Lista de Profesionales</h2>
 
@@ -34,8 +32,7 @@ function PerVet () {
                         <p><strong>Universidad:</strong> Universidad de los Andes</p>
                     </div>
                 </div>
-                <FooterMi></FooterMi>
-            </div>
+             
     )
 }
 
