@@ -1,11 +1,10 @@
 import { Button } from "react-bootstrap"
-import FooterMi from "../../../home/Componentes-Miguel/FooterMi/FooterMi"
-import HeaderAdmin from "../HeaderAdmin/HeaderAdmin"
 
 function PerVet () {
     return(
+        <div>
+            <h2 className="list">Lista de Profesionales</h2>
             <div className="InfoAdm" id="sep">
-                <h2>Lista de Profesionales</h2>
                     <div>
                         <h3>Carlos Ramírez</h3>
                         <p><strong>Teléfono:</strong> 3101234567</p>
@@ -33,6 +32,7 @@ function PerVet () {
                         <Button className="acoBoto"><h5>Editar</h5></Button>
                     </div>
             </div>
+        </div>
     )
 }
 
