@@ -59,7 +59,7 @@ main {
 }
 
 .barra button {
-  background-color: #ffcccc; 
+  background-color: #000000; 
   border: none;
   padding: 10px 30px;
   border-radius: 9px;
@@ -231,4 +231,62 @@ main {
   max-width: 500px;
   min-width: 300px;
   box-sizing: border-box;
+}
+
+
+.formulario-cita {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formulario-cita input {
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+.recuadro-cita {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  background-color: #fefefe;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-cita {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #adcffc;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #155fc1;
+}
+
+.formulario-cita {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="time"],
+input[type="text"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
