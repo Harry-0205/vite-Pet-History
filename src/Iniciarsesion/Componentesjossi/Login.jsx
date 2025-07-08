@@ -32,7 +32,7 @@ function Login() {
         </section>
 
         <h2>Iniciar sesión</h2>
-        <Button href="/Pro" className="google-button">Iniciar sesión con Google</Button>
+        <Button href="/Admin" className="google-button">Iniciar sesión con Google</Button>
 
         <form className="register-form">
           <section className="input-group">

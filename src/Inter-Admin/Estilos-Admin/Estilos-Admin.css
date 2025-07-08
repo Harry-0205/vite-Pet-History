@@ -7,8 +7,15 @@
     text-align:center;
     border-radius: 2rem;
 }
+#sep{
+    margin: 5rem
+}
 .INVET{
      border: solid #A3B9C9 ;
      justify-self: center;
 border-radius: 2rem;
+}
+.acoBoto{
+    margin-left: 90%;
+    margin-bottom: 2rem;
 }
