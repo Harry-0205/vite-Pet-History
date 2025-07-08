@@ -54,7 +54,6 @@ justify-self: end;
     margin-right: 2rem;
 }
 
-
 .Pe
 {
     margin-top: 1rem;
@@ -62,8 +61,6 @@ justify-self: end;
     display: flex;
     
 }
-
-
 
 .recordatorio {
       
@@ -76,11 +73,6 @@ display: grid;
 grid-template-columns: repeat(2,1fr);
 justify-self: center;
 padding: 2rem;
-
-
-
-
-
 }
 .record1
 {
@@ -103,10 +95,7 @@ padding: 2rem;
     padding: 30px;
     font-size: 16px;
   }
-  .recordatorio2{
-   
 
-  }
   .record3
   { border: solid #d0e7ff;
         background-color: rgb(255, 255, 255);
@@ -140,4 +129,37 @@ padding: 2rem;
 }
 .imf{
     padding: 1rem;
+}
+.Perff{
+
+margin: auto;
+text-align: center;
+
+
+}
+.botoncito{
+
+    
+    width: auto;
+    margin: auto;
+    border-radius: 1.5rem;
+    border: solid #d0e7ff;
+}
+.titt{
+    margin: 1rem;
+    padding: 0.5rem;
+    border: solid #d0e7ff;
+    width:20%;
+    justify-self: center;
+    border-radius: 1.5rem;
+
+}
+.gdd{
+     width: auto;
+    border-radius: 1.5rem;
+    margin: 1rem;
+
+}
+.agogo{
+    margin: 2rem;
 }
