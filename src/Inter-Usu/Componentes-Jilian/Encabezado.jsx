@@ -1,19 +1,15 @@
 import React from "react";
 import Menu from "./Menu"; 
 import "../Jillian-App/Estilos.css";
-const Encabezado = ({ setSeccion }) => {
 import { Button } from "react-bootstrap";
-const Encabezado = () => {
-
+import SUBLOGO from '../../assets/imagenes/SUBLOGO.png'
+const Encabezado = ({ setSeccion }) => {
   return (
     <header className="encabezado">
-      <h1>PET-HISTORY</h1>
+      <img className="tamaño" src={SUBLOGO} alt="" />
       <div className="barra">
         <Menu setSeccion={setSeccion} /> 
         <input type="text" placeholder="PET-HISTORY" />
-        <button>SALIR</button>
-        <button>PERFIL</button>
-        <input type="text" placeholder="https://PET-HISTORY/Interfaz-Perfil/" />
         <Button href='/' >SALIR</Button>
         <Button href='/' >PERFIL</Button>
       </div>

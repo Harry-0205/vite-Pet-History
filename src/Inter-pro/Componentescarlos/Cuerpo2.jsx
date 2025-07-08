@@ -2,16 +2,16 @@ function Cuerpo2() {
     return (
       <>
         
-        <div>
-        <main className="maiin">
+        
+        
          
     
         <div className="recordatorio2">
             
             
-            <h4 className="record4">Historia Clinica  </h4>
+            <h2 className="record4">Historia Clinica  </h2>
             
-            <div className="inf1"><h2>Datos Mascotas</h2><h6>Nombre:_________________Fecha de nacimiento____________  Vacunas:____________________</h6>
+            <div className="inf1"><h4>Datos Mascotas</h4><h6>Nombre:_________________Fecha de nacimiento____________  Vacunas:____________________</h6>
             <h6>Edad: "____________"     " Raza:____________  Color:_______________ fecha de ultima desparasitacion____________________</h6>
             
             </div>
@@ -20,7 +20,7 @@ function Cuerpo2() {
       <div className="record3">
         
 
-        <h6>--- "RESUMEN HISTORIA CLINICA" --- </h6>
+        <h4>--- "RESUMEN HISTORIA CLINICA" --- </h4>
        
         
         <h8>1- Reseña
@@ -59,9 +59,9 @@ Antecedentes Quirúrgicos: Cirugías recibidas (castraciones, cirugías estétic
         </div>
         
         
-      </main>
+      
             
-        </div>
+        
         
       </>
     );
