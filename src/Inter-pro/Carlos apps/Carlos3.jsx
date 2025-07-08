@@ -4,16 +4,14 @@ import Menuu from '../Componentescarlos/Menuu';
 import Footerr from "../Componentescarlos/Footerr"
 import Cuerpo3 from '../Componentescarlos/Cuerpo2';
 import Pacientesr from '../Componentescarlos/Pacientesr';
+import Headercarlos from '../Componentescarlos/hedercarlos';
 
 
 function Carlos3() {
 
   return (
     <>
-      <div className='Edimenu'>
-
-        <Menuu></Menuu>
-      </div>
+      <Headercarlos></Headercarlos>
       <div>
         <Pacientesr></Pacientesr>
       

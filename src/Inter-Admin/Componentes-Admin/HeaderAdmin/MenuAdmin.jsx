@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import hamburguesa from '../../../assets/imagenes/menusito.webp';
 import '../../../home/Estilos-Miguel/MiguelEs.css'
 import Pet from '../../../assets/imagenes/pet.png'
+import { Link } from 'react-router-dom';
 
 function MenuAdmin() {
   const [show, setShow] = useState(false);
@@ -23,8 +24,8 @@ function MenuAdmin() {
           <Offcanvas.Title><img src={Pet} className='tamaño'></img></Offcanvas.Title>
         </Offcanvas.Header>
       <Offcanvas.Body>
-        <NavDropdown.Item href="/CreaPer"><h6>Creacion Perfil</h6></NavDropdown.Item>
-        <NavDropdown.Item href="/PerVet"><h6>Personal Veterinaria</h6></NavDropdown.Item>
+        <Link to={"/Admin/creaper"}><h6>Creacion Perfil</h6></Link>
+        <Link to={"/Admin/pervert"}><h6>Personal Veterinaria</h6></Link>
       </Offcanvas.Body>
       </Offcanvas>
     </div>
