@@ -1,177 +1,99 @@
 import React, { useState } from 'react';
 import '../Jillian-App/Estilos.css';
 import DOG from '../Imagenes/DOG.jpg';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import QR from '../Imagenes/jiji.avif';
+import { Modal, Button } from 'react-bootstrap';
 
 const Jilian2 = () => {
+  const [mostrarHistorial, setMostrarHistorial] = useState(false);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mascotas, setMascotas] = useState([
-    {
-      nombre: "Max",
-      raza: "Labrador",
-      edad: "4 años",
-      vacunas: "Completas",
-      imagen: DOG,
-      historia: {
-        fecha: "23/04/2025",
-        reporte: "Revisión general realizada. Se detectó leve inflamación en oído derecho. Se prescribió tratamiento.",
-        procedimientos: ["Vacunación antirrábica", "Desparasitación"]
-      }
-    }
+    { nombre: "Max", raza: "Labrador", edad: "4 años", vacunas: "Completas", imagen: DOG }
   ]);
 
-  const [showHistorial, setShowHistorial] = useState(false);
-  const [historiaActual, setHistoriaActual] = useState(null);
-  const [showFormulario, setShowFormulario] = useState(false);
   const [nuevaMascota, setNuevaMascota] = useState({
-    nombre: "",
-    raza: "",
-    edad: "",
-    vacunas: "",
-    imagen: DOG,
-    historia: {
-      fecha: "",
-      reporte: "",
-      procedimientos: []
-    }
+    nombre: '',
+    raza: '',
+    edad: '',
+    vacunas: ''
   });
 
-  const handleAgregarMascota = () => {
-    setMascotas([...mascotas, nuevaMascota]);
-    setShowFormulario(false);
-    setNuevaMascota({
-      nombre: "",
-      raza: "",
-      edad: "",
-      vacunas: "",
-      imagen: DOG,
-      historia: {
-        fecha: "",
-        reporte: "",
-        procedimientos: []
-      }
-    });
+  const abrirHistorial = () => setMostrarHistorial(true);
+  const cerrarHistorial = () => setMostrarHistorial(false);
+  const toggleFormulario = () => setMostrarFormulario(!mostrarFormulario);
+
+  const manejarCambio = (e) => {
+    setNuevaMascota({ ...nuevaMascota, [e.target.name]: e.target.value });
   };
 
-  const mostrarHistorial = (historia) => {
-    setHistoriaActual(historia);
-    setShowHistorial(true);
+  const agregarMascota = () => {
+    if (nuevaMascota.nombre && nuevaMascota.raza && nuevaMascota.edad && nuevaMascota.vacunas) {
+      setMascotas([...mascotas, { ...nuevaMascota, imagen: DOG }]);
+      setNuevaMascota({ nombre: '', raza: '', edad: '', vacunas: '' });
+      setMostrarFormulario(false);
+    }
   };
 
   return (
     <div className="pagina">
       {mascotas.map((mascota, index) => (
-        <div key={index} className="perfil-contenedor">
+        <div className="perfil-contenedor" key={index}>
           <img src={mascota.imagen} alt="Mascota" className="imagen-perfil" />
           <div className="info-perfil">
             <p><strong>Nombre:</strong> {mascota.nombre}</p>
             <p><strong>Raza:</strong> {mascota.raza}</p>
             <p><strong>Edad:</strong> {mascota.edad}</p>
             <p><strong>Vacunas:</strong> {mascota.vacunas}</p>
-            <Button variant="info" onClick={() => mostrarHistorial(mascota.historia)}>Ver Detalles</Button>
+            <div style={{ textAlign: 'center', marginTop: '10px' }}>
+              <Button variant="info" onClick={abrirHistorial}>Ver Detalles</Button>
+            </div>
           </div>
         </div>
       ))}
 
-      <div style={{ textAlign: 'center', margin: '20px' }}>
-        <Button variant="success" onClick={() => setShowFormulario(true)}>Agregar Mascota</Button>
+      {mostrarFormulario && (
+        <div className="formulario-cita">
+          <input type="text" name="nombre" placeholder="Nombre" value={nuevaMascota.nombre} onChange={manejarCambio} />
+          <input type="text" name="raza" placeholder="Raza" value={nuevaMascota.raza} onChange={manejarCambio} />
+          <input type="text" name="edad" placeholder="Edad" value={nuevaMascota.edad} onChange={manejarCambio} />
+          <input type="text" name="vacunas" placeholder="Vacunas" value={nuevaMascota.vacunas} onChange={manejarCambio} />
+          <Button onClick={agregarMascota}>Guardar Mascota</Button>
+        </div>
+      )}
+
+      <div style={{ textAlign: "center", marginTop: "40px", marginBottom: "60px" }}>
+        <Button variant="success" onClick={toggleFormulario}>
+          {mostrarFormulario ? "Cerrar Formulario" : "Agregar Mascota"}
+        </Button>
       </div>
 
-      <Modal show={showHistorial} onHide={() => setShowHistorial(false)} centered>
+      <Modal show={mostrarHistorial} onHide={cerrarHistorial} centered size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Historial Clínico</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {historiaActual && (
-            <>
-              <p><strong>Fecha:</strong> {historiaActual.fecha}</p>
-              <div className="reporte">
-                <h4>Reporte</h4>
-                <p>{historiaActual.reporte}</p>
-              </div>
-              <div className="procedimientos">
-                <h4>Procedimientos Realizados</h4>
-                <ul>
-                  {historiaActual.procedimientos.map((proc, idx) => (
-                    <li key={idx}>{proc}</li>
-                  ))}
-                </ul>
-              </div>
-            </>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowHistorial(false)}>Cerrar</Button>
-        </Modal.Footer>
-      </Modal>
+          <p><strong>Paciente:</strong> Max</p>
+          <p><strong>Fecha:</strong> 23/04/2025</p>
 
-      <Modal show={showFormulario} onHide={() => setShowFormulario(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Agregar Nueva Mascota</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <input
-            type="text"
-            placeholder="Nombre"
-            value={nuevaMascota.nombre}
-            onChange={(e) => setNuevaMascota({ ...nuevaMascota, nombre: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Raza"
-            value={nuevaMascota.raza}
-            onChange={(e) => setNuevaMascota({ ...nuevaMascota, raza: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Edad"
-            value={nuevaMascota.edad}
-            onChange={(e) => setNuevaMascota({ ...nuevaMascota, edad: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Vacunas"
-            value={nuevaMascota.vacunas}
-            onChange={(e) => setNuevaMascota({ ...nuevaMascota, vacunas: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Fecha Historial"
-            value={nuevaMascota.historia.fecha}
-            onChange={(e) =>
-              setNuevaMascota({
-                ...nuevaMascota,
-                historia: { ...nuevaMascota.historia, fecha: e.target.value }
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Reporte"
-            value={nuevaMascota.historia.reporte}
-            onChange={(e) =>
-              setNuevaMascota({
-                ...nuevaMascota,
-                historia: { ...nuevaMascota.historia, reporte: e.target.value }
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Procedimientos (separados por coma)"
-            onChange={(e) =>
-              setNuevaMascota({
-                ...nuevaMascota,
-                historia: {
-                  ...nuevaMascota.historia,
-                  procedimientos: e.target.value.split(',')
-                }
-              })
-            }
-          />
+          <div className="reporte">
+            <h4>Reporte</h4>
+            <p>Revisión general realizada. Se detectó leve inflamación en oído derecho. Se prescribió tratamiento.</p>
+          </div>
+
+          <div className="procedimientos">
+            <h4>Procedimientos Realizados</h4>
+            <ul>
+              <li>Vacunación antirrábica</li>
+              <li>Desparasitación</li>
+            </ul>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '30px' }}>
+            <img src={QR} alt="Código QR" style={{ width: '200px' }} />
+          </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleAgregarMascota}>Guardar Mascota</Button>
+          <Button variant="secondary" onClick={cerrarHistorial}>Cerrar</Button>
         </Modal.Footer>
       </Modal>
     </div>
