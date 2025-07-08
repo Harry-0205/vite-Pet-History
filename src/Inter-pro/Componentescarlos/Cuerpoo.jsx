@@ -5,13 +5,9 @@ import Calendario from "../Componentescarlos/Calendario.jsx";
 function Cuerpoo() {
     return (
       <>
-        
-        
         <main className="minn">
-         
         <div className="siu2"><Calendario></Calendario></div>
         <div><h4 className="record2">Recordatorios  </h4>
-
       <div className="record1">
       <p>
         <h6>- Cita General a las 2:30PM, bruno "snaucer 11/04/2025"</h6>
@@ -25,12 +21,7 @@ function Cuerpoo() {
         </div>
         <img className="perras"  src={perros} alt="dddd" />
         </div>
-        
-        
-      </main>
-            
-        
-        
+      </main>  
       </>
     );
   }

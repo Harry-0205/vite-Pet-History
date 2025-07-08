@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import hamburguesa from '../../assets/imagenes/menusito.webp';
 import Pet from "../../assets/imagenes/pet.png"
 import '../../home/Estilos-Miguel/MiguelEs.css'
+import { Link } from 'react-router-dom';
 
 function Menuu() {
   const [show, setShow] = useState(false);
@@ -24,10 +25,9 @@ function Menuu() {
           <Offcanvas.Title><img src={Pet} className='tamaño'></img></Offcanvas.Title>
         </Offcanvas.Header>
       <Offcanvas.Body>
-        <NavDropdown.Item href="/Pro">Citas</NavDropdown.Item>
-        <NavDropdown.Item href="/pro2"> Historia clinica</NavDropdown.Item>
-        <NavDropdown.Item href="/pro3">Pacientes recientes</NavDropdown.Item>
-      
+        <Link to={"/Pro/"}><h6>Citas</h6></Link>
+        <Link to={"/Pro/pro2"}><h6>Historia clinica</h6></Link>
+        <Link to={"/Pro/pro3"}><h6>Pacientes recientes</h6></Link>
       </Offcanvas.Body>
       </Offcanvas>
     </div>

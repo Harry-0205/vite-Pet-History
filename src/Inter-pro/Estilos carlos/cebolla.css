@@ -42,6 +42,17 @@ margin: 5px;
 height: 80px;
 
 }
+.record8{
+display: grid;
+grid-template-columns: repeat(1,1fr);  
+border: solid #d0e7ff;
+width: 50%;
+margin: auto;
+text-align: center;
+margin-top: 1rem;
+margin-bottom: 1rem;
+padding: 1rem;
+}
 
 .Ce
 {
@@ -131,15 +142,10 @@ padding: 2rem;
     padding: 1rem;
 }
 .Perff{
-
 margin: auto;
 text-align: center;
-
-
 }
 .botoncito{
-
-    
     width: auto;
     margin: auto;
     border-radius: 1.5rem;
@@ -152,14 +158,24 @@ text-align: center;
     width:20%;
     justify-self: center;
     border-radius: 1.5rem;
-
 }
 .gdd{
      width: auto;
     border-radius: 1.5rem;
     margin: 1rem;
-
 }
 .agogo{
     margin: 2rem;
+.co2{
+    background-color: #d0e7ff;
+    border: solid white;
+    padding: 10px;
+    border-radius: 1.5rem;
+}
+.co1{
+    background-color: #d0e7ff;
+    width: 40%;
+    margin: auto;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
 }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Encabezado from "../Componentes-Jilian/Encabezado";
 import Jilian2 from "../Componentes-Jilian/Jilian-2";
-import Jilian3 from "../Componentes-Jilian/Jilian-3";
 import Jilian4 from "../Componentes-Jilian/Jilian-4";
 import Jilian5 from "../Componentes-Jilian/Jilian-5";
 import "./Estilos.css";
@@ -18,8 +17,6 @@ const Jilian = () => {
     switch (seccion) {
       case "perfil":
         return <Jilian2 />;
-      case "historia":
-        return <Jilian3 />;
       case "cita":
         return <Jilian4 />;
       case "veterinarias":
@@ -33,7 +30,7 @@ const Jilian = () => {
     <div className="pagina">
       <Encabezado setSeccion={setSeccion} />
       <main>{mostrarSeccion()}</main>
-      <FooterMi></FooterMi>
+      <FooterMi />
     </div>
   );
 };
