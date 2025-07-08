@@ -14,7 +14,7 @@ function Headercarlos (){
             </div>
             <div className='HE3'>
                 <Button href='/' variant="primary" className='separacion' > Cerrar sesion </Button>
-                <Button href='/Pro' variant="outline-primary" className='separacion'><font color='#fafafa'>Perfil</font></Button>
+                <Button href='/Pro/properfil' variant="outline-primary" className='separacion'><font color='#fafafa'>Perfil</font></Button>
             </div>
         </div>
         </>
