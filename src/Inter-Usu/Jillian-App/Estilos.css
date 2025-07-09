@@ -250,23 +250,8 @@ main {
 }
 
 
-.recuadro-cita {
-  border: 2px solid #ccc;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 500px;
-  background-color: #fefefe;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.info-cita {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-button {
-  background-color: #adcffc;
+.recuadro-cita button {
+  background-color: #1a73e8;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -275,8 +260,28 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.recuadro-cita button:hover {
   background-color: #155fc1;
+
+}
+
+.info-cita {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+button-cita {
+  background-color: #1a73e8;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cacace;
 }
 
 .formulario-cita {
