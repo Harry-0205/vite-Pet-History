@@ -1,11 +1,22 @@
-.Edimenu
-{   margin-top: 1rem;
-    margin-left: 1rem;
-    margin: auto;
-    background-color: rgb(19, 182, 211);
-    display: flex;
 
+.SIU{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+background-color:#d0e7ff ;
+}
+.siu2{
+    justify-self: center;
+    align-self: center;
+}
+.perras{
+width: 50%;
+margin-left: 8rem;
+margin-right: 6rem;
 
+}
+.react-calendar {
+   border: solid;
+   width: 30rem;
 }
 
 .Borguesa
@@ -14,28 +25,44 @@
 width: 40px;
 height: 40px;
 display: flex;
-
+}
+.minn{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
 .cont
 {
 background-color: rgb(63, 222, 243);
-display: flex;
+
 }
 .logo
 {
-width: 90px;
-height: 80px;
-background-color:rgb(19, 182, 211);
 justify-self: center;
-align-self: center;
+margin: 5px;
+height: 80px;
+
+}
+.record8{
+display: grid;
+grid-template-columns: repeat(1,1fr);  
+border: solid #d0e7ff;
+width: 50%;
+margin: auto;
+text-align: center;
+margin-top: 1rem;
+margin-bottom: 1rem;
+padding: 1rem;
 }
 
 .Ce
 {
-    margin-top: 1rem;
-    margin-left: 20%;
-    height: 40px;
-    display: flex;
+ margin: 18px;
+justify-self: end;
+}
+
+.cee
+{
+    margin-right: 2rem;
 }
 
 .Pe
@@ -46,35 +73,32 @@ align-self: center;
     
 }
 
-.main
-{
-    flex: 1;
-    display: flex;
-    gap: 40px;
-    padding: 30px 40px;
+.recordatorio {
+      
+    margin: 2rem;
+   
 }
 
-.citas, .recordatorio {
-    flex: 1;
-    background-color: rgb(243, 176, 176);
-    padding: 30px;
-    font-size: 18px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
- 
-}
-
-.imf
-{
-    width:31rem;
-    
+.gggg{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+justify-self: center;
+padding: 2rem;
 }
 .record1
 {
+        padding: 1rem;
+        font-family:initial;
+        background-color: rgb(245, 206, 206);
     
-    background-color: rgb(131, 205, 235);
     
 }
-
+.record2
+{        font-family:initial;
+    
+    text-align: center;
+    background-color: rgb(247, 139, 139);
+}
 
 .footer {
     background-color: aqua;
@@ -82,99 +106,82 @@ align-self: center;
     padding: 30px;
     font-size: 16px;
   }
-  .recordatorio2{
-    flex: 1;
-    background-color: rgb(243, 176, 176);
-    padding: 30px;
-    font-size: 18px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-    height: 100%;
-    
 
-    
-
-  }
   .record3
-  {
+  { border: solid #d0e7ff;
         background-color: rgb(255, 255, 255);
-        height: 40rem;
+        padding: 4rem;
         text-align: center;
+        width: 75%;
+        margin: auto;
+        margin-bottom: 2rem;
+        border-radius: 1.5rem;
   }
   .record4
 {
+    margin: auto;
+    width: 20%;
     text-align: center;
-    background-color: rgb(252, 134, 134);
+    background-color: #d0e7ff;
+    margin-top: 2rem;
+    border-radius: 1.5rem;
+
 }
 
 .inf1,.inf2
 {
-    flex: 1;
-    background-color: rgb(243, 176, 176);
+
+
+   
     padding: 30px;
-    font-size: 18px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    width: 50%;
+    margin: auto;
 
 }
-.grillas{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    
-    width: 100%;
-}
-.grid3{
-    
-    align-self: center;
-    justify-self: end;
-    margin-right: 14px;
-    
-    
-}
-.b16
-{
-   margin: 4px;
-   width: 5rem;
-}
-.t1{
+.imf{
     padding: 1rem;
-    
 }
-.maiin{
-    padding: 5% 15%;
-
+.Perff{
+margin: auto;
+text-align: center;
 }
-
-.co1{
-    
-  
-  background-color: aquamarine;
-  border-radius:8px;
-  width: 60%;
-  margin: auto;
-  margin-bottom: 8rem ;
-  }
-
-
-.record8{
-    background-color: rgb(255, 255, 255);
-        
-        text-align: center;
-        padding: 1rem;
-        
-       
+.botoncito{
+    width: auto;
+    margin: auto;
+    border-radius: 1.5rem;
+    border: solid #d0e7ff;
 }
-.fff
-{
-    width: 1px;
-    height: 1px;
+.titt{
+    margin: 1rem;
+    padding: 0.5rem;
+    border: solid #d0e7ff;
+    width:20%;
+    justify-self: center;
+    border-radius: 1.5rem;
+}
+.gdd{
+     width: auto;
+    border-radius: 1.5rem;
+    margin: 1rem;
+}
+.agogo{
+    margin: 2rem;
 }
 .co2{
-    background-color: aquamarine;
-  border-radius:10px;
-  width: 80%;
-  margin: auto;
-  text-align: left;
-  margin-top: 2rem;
-  padding: 1rem;
+    background-color: #d0e7ff;
+    border: solid white;
+    padding: 10px;
+    border-radius: 1.5rem;
 }
-
+.co1{
+    background-color: #d0e7ff;
+    width: 40%;
+    margin: auto;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+#co11{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1rem;
+}

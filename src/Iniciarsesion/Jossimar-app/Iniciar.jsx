@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import '../Jossimar-estilos/Login.css';
 import Login from '../Componentesjossi/Login.jsx';
 
-function App() {
+function Iniciar() {
   return (
     <BrowserRouter>
       <Routes>
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Iniciar;

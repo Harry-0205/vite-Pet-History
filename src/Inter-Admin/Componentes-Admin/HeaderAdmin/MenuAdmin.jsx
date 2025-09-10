@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import hamburguesa from '../../assets/imagenes/menusito.webp';
-import Pet from "../../assets/imagenes/pet.png"
-import '../../home/Estilos-Miguel/MiguelEs.css'
+import hamburguesa from '../../../assets/imagenes/menusito.webp';
+import '../../../home/Estilos-Miguel/MiguelEs.css'
+import Pet from '../../../assets/imagenes/pet.png'
 import { Link } from 'react-router-dom';
 
-function Menuu() {
+function MenuAdmin() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -25,16 +24,12 @@ function Menuu() {
           <Offcanvas.Title><img src={Pet} className='tamaño'></img></Offcanvas.Title>
         </Offcanvas.Header>
       <Offcanvas.Body>
-        <Link to={"/Pro/"}><h6>Citas</h6></Link>
-        <Link to={"/Pro/pro2"}><h6>Historia clinica</h6></Link>
-        <Link to={"/Pro/pro3"}><h6>Pacientes recientes</h6></Link>
+        <Link to={"/Admin/creaper"}><h6>Creacion Perfil</h6></Link>
+        <Link to={"/Admin/pervert"}><h6>Personal Veterinaria</h6></Link>
       </Offcanvas.Body>
       </Offcanvas>
     </div>
-
-    
-    
   );
 }
 
-export default Menuu
+export default MenuAdmin    

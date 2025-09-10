@@ -1,7 +1,9 @@
-import img1 from "../../assets/pet.png";
+import img1 from "../../assets/imagenes/pet.png";
 import { Link } from 'react-router-dom';
 import "../Jossimar-estilos/Login.css";
 import React from 'react';
+import Miguel from "../../home/Miguel/Miguel";
+import { Button } from "react-bootstrap";
 
 function Login() {
   return (
@@ -30,7 +32,7 @@ function Login() {
         </section>
 
         <h2>Iniciar sesión</h2>
-        <button className="google-button">Iniciar sesión con Google</button>
+        <Button href="/Admin" className="google-button">Iniciar sesión con Google</Button>
 
         <form className="register-form">
           <section className="input-group">
@@ -49,7 +51,7 @@ function Login() {
         </p>
           </section>
 
-          <button type="submit" className="register-button">Iniciar sesión</button>
+          <Button href="/Pro" type="submit" className="register-button" >Iniciar sesión</Button>
         </form>
       </main>
     </section>
