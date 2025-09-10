@@ -5,15 +5,17 @@ import Footerr from "../Componentescarlos/Footerr"
 import Cuerpo3 from '../Componentescarlos/Cuerpo2';
 import Pacientesr from '../Componentescarlos/Pacientesr';
 import Headercarlos from '../Componentescarlos/hedercarlos';
+import Creaperf from '../Componentescarlos/Creaperf';
 
 
-function Carlos3() {
+function Carlos4() {
 
   return (
     <>
       <Headercarlos></Headercarlos>
       <div>
-        <Pacientesr></Pacientesr>
+        <Creaperf></Creaperf>
+        
       
       <Footerr></Footerr>
       
@@ -23,4 +25,4 @@ function Carlos3() {
   )
 }
 
-export default Carlos3
+export default Carlos4
