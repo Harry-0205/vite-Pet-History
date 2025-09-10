@@ -11,12 +11,19 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.5",
+<<<<<<< HEAD
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.7",
+    "react": "^19.0.0",
+=======
     "calendar": "^0.1.1",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.6",
     "reac": "^0.0.0",
     "react": "^19.1.0",
+>>>>>>> ef08d066dc92a1a0ef9b19f360e5a36c8dc3a7bb
     "react-bootstrap": "^2.10.9",
     "react-calendar": "^6.0.0",
     "react-dom": "^19.0.0",
