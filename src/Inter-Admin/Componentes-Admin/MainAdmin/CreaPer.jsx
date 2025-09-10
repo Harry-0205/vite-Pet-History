@@ -3,9 +3,8 @@ import HeaderAdmin from "../HeaderAdmin/HeaderAdmin"
 
 function CreaPer () {
     return(
-       <div>
-         <HeaderAdmin></HeaderAdmin>
-        <div className="InfoAdm">
+     
+        <div className="InfoAdm" id="sep">
             <h2>Formulario de Creación de Perfil Profesional - Administrador</h2>
                 <form >
                     <label for="nombre">Nombre completo:</label><br />
@@ -35,8 +34,6 @@ function CreaPer () {
                     <button type="submit">Crear Perfil</button>
                 </form>
         </div>
-        <FooterMi></FooterMi>
-       </div>
        
   );
 };

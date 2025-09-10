@@ -24,31 +24,83 @@ addLocale('es', {
 
 const Jilian4 = () => {
   const [date, setDate] = useState(null);
+  const [hora, setHora] = useState('');
+  const [veterinaria, setVeterinaria] = useState('');
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [cita, setCita] = useState(null);
+  const guardarCita = () => {
+  if (date && hora && veterinaria) {
+    setCita({
+      fecha: date,
+      hora,
+      veterinaria
+    });
+    setMostrarFormulario(false);
+  } else {
+    alert("Por favor completa todos los campos.");
+  }
+};
 
+const cancelarCita = () => {
+  setCita(null);
+};
   return (
     <div className="pagina">
-      <div className="contenedor-principal cita">
-        <div className="info-cita">
-          <h2>Próxima Cita</h2>
-          <p><strong>Fecha:</strong> 30/04/2025</p>
-          <p><strong>Hora:</strong> 10:30 a.m.</p>
-          <p><strong>Veterinaria:</strong> AnimalCare</p>
-        </div>
-
-        {/* Calendario en español y más grande */}
-        <div className="calendario-cita">
-          <Calendar
-            value={date}
-            onChange={(e) => setDate(e.value)}
-            inline
-            showWeek
-            locale="es"
-          />
-        </div>
-      </div>
-
-     
+  <div className="contenedor-principal-cita recuadro-cita">
+    <div className="info-cita">
+      <h2>Próxima Cita</h2>
+      {cita ? (
+        <>
+          <p><strong>Fecha:</strong> {cita.fecha.toLocaleDateString()}</p>
+          <p><strong>Hora:</strong> {cita.hora}</p>
+          <p><strong>Veterinaria:</strong> {cita.veterinaria}</p>
+          <button onClick={cancelarCita}>Cancelar Cita</button>
+        </>
+      ) : (
+        <p>No hay una cita programada</p>
+      )}
     </div>
+<div style={{textAlign:"center"}}>
+    <button onClick={() => setMostrarFormulario(!mostrarFormulario)}>
+      {mostrarFormulario ? "Cerrar Formulario" : "Agendar Cita"}
+    </button>
+</div>
+    {mostrarFormulario && (
+      <div className="formulario-cita">
+        <label>Selecciona Fecha:</label>
+        <Calendar
+          value={date}
+          onChange={(e) => setDate(e.value)}
+          inline
+          showWeek
+          locale="es"
+        />
+        <label>Hora:</label>
+        <input
+          type="time"
+          value={hora}
+          onChange={(e) => setHora(e.target.value)}
+        />
+        <label>Veterinaria:</label>
+        <input
+          type="text"
+          value={veterinaria}
+          onChange={(e) => setVeterinaria(e.target.value)}
+        />
+        <button onClick={guardarCita}>Guardar Cita</button>
+      </div>
+    )}
+  </div>
+  
+
+        
+          
+        
+  </div>
+
+
+    
+
   );
 };
 

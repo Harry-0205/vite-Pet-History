@@ -7,8 +7,24 @@
     text-align:center;
     border-radius: 2rem;
 }
+#sep{
+    margin: 3rem;
+    padding: 1rem;
+}
 .INVET{
      border: solid #A3B9C9 ;
      justify-self: center;
 border-radius: 2rem;
+}
+.acoBoto{
+    margin: 2rem;
+    text-align: center;
+}
+.list{
+    text-align: center;
+    border: solid #A3B9C9;
+    border-radius: 1.5rem;
+    width: 25%;
+    margin: auto;
+    margin-top: 3rem;
 }
