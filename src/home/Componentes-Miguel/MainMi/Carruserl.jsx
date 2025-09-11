@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import Hp from '../../../assets/imagenes/Huella.png'
-import Hg from '../../../assets/imagenes/huellaGato.png'
+
 
 function Carruserl() {
 

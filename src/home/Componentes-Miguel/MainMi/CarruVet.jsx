@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import Veteri from '../../../assets/imagenes/Veteri.png'
-import Veteri2 from '../../../assets/imagenes/Veteri2.png'
+
 
 function CarruVet() {
 
