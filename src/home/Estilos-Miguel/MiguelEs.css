@@ -1,0 +1,7 @@
+.heMi{
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    width: 1rem;
+}
