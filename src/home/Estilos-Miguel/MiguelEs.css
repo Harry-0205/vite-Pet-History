@@ -1,11 +1,48 @@
-.heMi{
+.he-comp{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
-    text-align: center;
+}
+#he-navbar{
+    place-self: center;
+}
+.he-navbar-nav{
+    color: #1F3A94;
+    cursor: pointer;
+    display: inline-block;
+}
+.he-navbar-nav:hover{
+    color: #26FFD8;
+    border-bottom: 3px solid #21CCAA  ;
 }
 .logo{
-    width: 10rem;
-    
+    width: 150px;
+    height: auto;
+}
+.he-comp-grid1{
+    justify-self: end;
+    margin-right: 6rem;
+}
+.he-button{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.he-button-pos{
+    place-self: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 5rem;
+    border: white;
+    background: linear-gradient(300deg,#59CDF0,#B0ECFF);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    justify-self: end;
+    margin-right: 2rem;
+}
+#he-button-sep{
+    justify-self: start;
+}
+.he-button-pos:hover{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+    color: white;
+    border-bottom: 2px solid blue; 
 }

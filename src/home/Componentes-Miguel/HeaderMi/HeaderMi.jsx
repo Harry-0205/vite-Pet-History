@@ -3,14 +3,19 @@ import logo from "../../../assets/imagenes/logo.png"
 
 function HeaderMi (){
     return(
-        <header className='heMi'>
-            <div><img src={logo} alt="" className='logo'/></div>
-            <div className='heMi'>
-                <div><h6>Inicio</h6></div>
-                <div><h6>Servicios</h6></div>
-                <div><h6>¿Quienes somos?</h6></div>
+        <header >
+            <div className='he-comp'>
+                <div className='he-comp-grid1'><img src={logo} alt="" className='logo' /></div>
+                <div className='he-comp' id='he-navbar'>
+                    <div ><h6 className='he-navbar-nav'>Inicio</h6></div>
+                    <div><h6 className='he-navbar-nav' >Servicios </h6></div>
+                    <div><h6 className='he-navbar-nav'>¿Quienes somos?</h6></div>
+                </div>
+                <div className='he-button'>
+                    <button type="button" class="btn btn-outline-info" className='he-button-pos'><h6>Registrate</h6></button>
+                    <button type="button" class="btn btn-outline-info" className='he-button-pos' id='he-button-sep'><h6>Iniciar sesion</h6></button>
+                </div>
             </div>
-            <div></div>
         </header>
     )
 }
