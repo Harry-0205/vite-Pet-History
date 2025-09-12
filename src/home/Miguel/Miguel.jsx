@@ -6,14 +6,9 @@ import '../Estilos-Miguel/MiguelEs.css'
 function Miguel(){
     return(
         <>
-         <div className="acomodacion">
         <HeaderMi></HeaderMi>
-        <MainMi></MainMi>
         <FooterMi></FooterMi>
-        </div>
-        </>
-
-      
+        </>  
     )
 }
 export default Miguel
