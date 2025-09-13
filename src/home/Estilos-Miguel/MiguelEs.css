@@ -9,9 +9,11 @@
     color: #1F3A94;
     cursor: pointer;
     display: inline-block;
+    border-bottom: 3px solid white ;
+
 }
 .he-navbar-nav:hover{
-    color: #26FFD8;
+    color: #59CDF0;
     border-bottom: 3px solid #21CCAA  ;
 }
 .logo{
@@ -41,6 +43,7 @@
     margin-bottom: 1rem;
     justify-self: end;
     margin-right: 2rem;
+    transition: 0.4s;
 }
 #he-button-sep{
     justify-self: start;
