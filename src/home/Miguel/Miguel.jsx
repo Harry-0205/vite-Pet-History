@@ -7,6 +7,7 @@ function Miguel(){
     return(
         <>
         <HeaderMi></HeaderMi>
+        <MainMi></MainMi>
         <FooterMi></FooterMi>
         </>  
     )

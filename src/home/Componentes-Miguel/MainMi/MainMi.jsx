@@ -1,32 +1,21 @@
 import Info2 from "./Info2"
-import Carruserl from "./Carruserl"
 import CarruVet from "./CarruVet"
 
 
 function MainMi (){
     return(
-        <div>
-            <div className="BannerMi">
-                <div className="Eslogan" >
-                    <h5>
-                    Cuidamos a tu mejor amigo como parte de nuestra familia.
-                    </h5>
+        <main>
+            <div className="ma-ban">
+                <p><h3 className="ma-ban-eslogan">El cuidado de tu mascota,<br /> conectado<br /></h3></p>
+                <div className="ma-ban-text">
+                <h5>Eficiencia para veterinarios, tranquilidad para dueños.</h5>
+                <button type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-ban-button"><h3>Registrate</h3></button>
                 </div>
             </div>
-        <div className="AcomodacionMain">
-            <div className="Infor1">
-                <section>
-                    <Carruserl></Carruserl>
-                </section>
-                <section>
-                    <CarruVet></CarruVet>
-                </section>
+            <div className="ma-carru-div">
+                <CarruVet></CarruVet>
             </div>
-            <div>
-                <Info2> </Info2>
-            </div>
-        </div>
-        </div>
+        </main>
     )
 }
 
