@@ -44,6 +44,7 @@
     justify-self: end;
     margin-right: 2rem;
     transition: 0.4s;
+    color: #021b6d;
 }
 #he-button-sep{
     justify-self: start;
@@ -54,10 +55,95 @@
     border-bottom: 2px solid blue; 
 }
 .foot{  
+    margin-top: 5rem;
     padding: 2rem;
     background: linear-gradient(1deg,#a1e0f3,#FFFFFF);
 }
 .foo-line-height{
     line-height: 1.5rem;
+}
+.ma-ban{
+    background: linear-gradient(to bottom ,transparent 70%,#FFFFFF, #c0f1ea,#85ffef);
+    text-align: center;
+    padding: 1rem;
+}
+.ma-ban-eslogan{
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(to right,#00eaff,#56C0E0,#1D4F88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.ma-ban-text{
+    width: 40%;
+    margin: auto;
+    color: #021b6d;
+}
+#ma-ban-button{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+    width: 200px;
+    height: 60px;
+    color: white;
+    border-bottom: 2px solid blue; 
+}
+.ma-cuerpo-carru {
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    position: relative;
+    border: solid white;
+}
+
+.cuerpo-carru-dentro {
+    display: flex;
+}
+.ma-cuerpo-carru img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.ma-cuerpo{
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);   
+    padding-top: 3rem;
+}
+.ma-cuerpo-text{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #031655;
+    margin-bottom: 3rem;
+}
+#ma-cuerpo2{
+    margin-top: 1rem;
+    margin-bottom: 3.5rem;
+}
+.ma-cuerpo-info{
+    color: black;
+    text-align: justify;
+}
+.ma-cuerpo-img{
+    border-radius: 55px;
+    width: 500px;
+    height: 480px;
+    margin-left: 2rem;
+    margin-top: 1rem;
     
+}
+#ma-cuerpo-img2{
+    height: auto;
+    margin-left: 0;
+    margin-right: 2rem;
+}
+.ma-cuerpo-text-aling{
+    margin-top: 2rem;
+    text-align: right;
+}
+#ma-cuerpo-buttom-text{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+    width: 260px;
+    height: auto;
+    color: white;
+    border: 2px solid blue; 
 }
