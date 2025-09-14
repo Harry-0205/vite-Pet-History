@@ -13,7 +13,7 @@ import BannerMi from "./BannerMi";
 import MainInfo from "./MainInfo";
 import servicio from "../../../assets/imagenes/img_relleno/servicio.jpg";
 import perfeccion from "../../../assets/imagenes/img_relleno/perfeccion.avif";
-
+import Button from 'react-bootstrap/Button';
 
 
 function MainMi (){
@@ -29,7 +29,7 @@ function MainMi (){
             titulo={"El cuidado de tu mascota,"}
             subtitulo={"conectado"}
             text={"Eficiencia para veterinarios, tranquilidad para dueños."}>
-                <button type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-ban-button"><h3>Registrate</h3></button>
+                <Button href="" type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-ban-button"><h3>Registrate</h3></Button>
             </BannerMi>
             <div>
                 <CarruVet imagenes={veterinarias} visible={10.14} imageWidth={150}/>
@@ -43,9 +43,9 @@ function MainMi (){
                 titulo_2={"Con nosotros podrá"}
                 texto_2={"Tener toda la información de tu mascota siempre a mano, ¡al instante! Con nuestro código QR único, podrás acceder al historial completo, vacunas, tratamientos y cita en cualquier momento y lugar. Olvídate del papeleo y las prisas; con Pet History, tendrás una agenda organizada, recordatorios automáticos de vacunas y medicinas, y una comunicación más sencilla con tu veterinario. Queremos que el cuidado de tu compañero peludo sea más fácil y tranquilo que nunca."}
                 img_2={perfeccion}>
-                    <button type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-cuerpo-buttom-text"  >
+                    <Button href="" type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-cuerpo-buttom-text"  >
                         <h3>Conoce nuestros <br /> servicios</h3>
-                    </button>
+                    </Button>
                 </MainInfo>
             </div>
         </main>
