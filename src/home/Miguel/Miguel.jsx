@@ -17,7 +17,7 @@ function Miguel(){
             <Route path='/nosotros' element={<MainNoso/>} />
         </Routes>
         <FooterMi></FooterMi>
-        </>  
+        </>
     )
 }
 export default Miguel
