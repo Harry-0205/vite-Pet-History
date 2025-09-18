@@ -4,8 +4,7 @@ import HeaderJi from './Header-Ji';
 const MainJi = () => {
     return (
         <div>
-            <HeaderJi />
-            {}
+            
         </div>
     );
 }
