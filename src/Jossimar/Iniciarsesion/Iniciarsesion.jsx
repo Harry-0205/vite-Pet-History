@@ -12,6 +12,7 @@ function IniciarSesion() {
             <img src={logo} alt="Pet History Logo" className="logo-image" /> 
             </div>
             <h2>Iniciar sesión</h2>
+            <p className="subtitle">La manera más fácil y segura de gestionar las citas de tu mascota</p>
             </div>
         <div className="options">
             <label className="remember-me">
@@ -44,7 +45,7 @@ function IniciarSesion() {
     </div>
     <div className="right-section">
         <div className="background-container">
-        <img src={backgroundImage} alt="Background" className="right-image" />
+            <p className="footer">Información general en nuestro sitio web pet-history.com</p>
         </div>
     </div>
         </div>

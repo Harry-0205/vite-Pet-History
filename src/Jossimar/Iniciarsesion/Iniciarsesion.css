@@ -5,10 +5,8 @@ overflow: hidden;
 }
 
 .logo-image {
-width: 250px; 
+width: 180px; 
 height: auto;
-justify-content: center;
-align-items: center;
 }
 
 .center-section {
@@ -68,9 +66,9 @@ font-size: 16px;
 
 .options {
 display: flex;
-justify-content: space-around;
-align-items: center;
-font-size: 14px;
+justify-content: center;
+gap: 30px;
+margin-bottom: 20px;
 }
 
 .options2 {
@@ -97,19 +95,19 @@ text-decoration: underline;
 }
 
 .login-button {
-padding: 12px;
+padding: 14px;
 background-color: #00aaff;
 color: white;
 border: none;
-border-radius: 20px;
+border-radius: 25px;
 font-size: 16px;
 cursor: pointer;
+transition: all 0.3s ease;
 margin-top: 10px;
 }
 
 .login-button:hover {
 background-color: #0088cc;
-font-size: 14px;
 }
 
 .right-section {
@@ -117,4 +115,16 @@ width: 60%;
 position: relative;
 overflow: hidden;
 min-height: 100vh;
+}
+
+.background-container {
+background-image: url('../../assets/imagenes/img8.png');
+background-size: cover;
+background-position: center;
+height: 100%;
+width: 100%;
+}
+
+body {
+font-family: 'Poppins', sans-serif;
 }
