@@ -97,3 +97,192 @@
   background-color: #55b5c2;
   transform: translateY(-2px);
 }
+
+/*Mascotas*/
+.mascotas-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.mascotas-container h2 {
+  text-align: center;
+  color: #153372;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.form-mascota {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.form-mascota input,
+.form-mascota select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.form-mascota input:focus,
+.form-mascota select:focus {
+  border-color: #2bc6a0;
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(43, 198, 160, 0.4);
+}
+
+.form-mascota input[type="file"] {
+  grid-column: span 2;
+  padding: 8px;
+}
+
+.form-mascota button {
+  grid-column: span 2;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #2bc6a0, #55b5c2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-mascota button:hover {
+  background: linear-gradient(90deg, #153372, #2bc6a0);
+  transform: translateY(-2px);
+}
+
+.lista-mascotas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.mascota-card {
+  background: #f4f6f9;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.mascota-card:hover {
+  transform: translateY(-5px);
+}
+
+.foto-mascota {
+  max-width: 120px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.mascota-card h3 {
+  color: #153372;
+  margin-bottom: 8px;
+}
+
+.mascota-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.mascota-card button {
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e63946;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mascota-card button:hover {
+  background-color: #c1121f;
+}
+
+/* HistoriaClinica */
+.historia-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.historia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.historia-header h2 {
+  color: #153372;
+  font-size: 1.8rem;
+}
+
+.historia-info p {
+  margin: 4px 0;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.historia-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.historia-reporte, 
+.historia-procedimientos {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.historia-reporte h3,
+.historia-procedimientos h3 {
+  color: #2bc6a0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.historia-reporte p {
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.historia-procedimientos ul {
+  list-style: disc;
+  padding-left: 25px;
+  color: #444;
+}
+
+.historia-procedimientos li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}

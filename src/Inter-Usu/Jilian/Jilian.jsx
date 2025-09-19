@@ -1,13 +1,19 @@
+import { Route, Routes } from "react-router-dom"
 import FooterMi from "../../home/Componentes-Miguel/FooterMi/FooterMi"
 import HeaderJi from "../Componentes-Jilian/Header-Ji/Header-Ji"
-import Mascotas from "../Componentes-Jilian/Main-Ji/Mascotas"
+import PerfilMascota from "../Componentes-Jilian/Main-Ji/Perfil-Mascota"
+
+
 
 function Jilian (){
     return(
         <>
-        <HeaderJi/>
-        <FooterMi/>
-        <Mascotas/>
+        <HeaderJi></HeaderJi>
+        <Routes>
+            <Route path="/mascotas" element={<PerfilMascota />} />
+            <Route path="/historiaClinica"element={<HistoriaClinica/>}/>
+        </Routes>
+        <FooterMi></FooterMi>
         </>
     )
 }

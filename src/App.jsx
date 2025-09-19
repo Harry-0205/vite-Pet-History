@@ -5,6 +5,7 @@ import '../src/App.css'
 import Jilian from './Inter-Usu/Jilian/Jilian';
 
 
+
 function App() {
 
   return (
@@ -12,7 +13,7 @@ function App() {
 
           <Routes>
             <Route path='/*' element={<Miguel/>} />
-            <Route path='/Usuario' element={<Jilian/>} />
+            <Route path='/usuario*' element={<Jilian/>} />
           </Routes>
 
         </>
