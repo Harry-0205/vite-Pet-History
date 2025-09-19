@@ -1,0 +1,120 @@
+.login-container {
+display: flex;
+height: 100vh;
+overflow: hidden;
+}
+
+.logo-image {
+width: 250px; 
+height: auto;
+justify-content: center;
+align-items: center;
+}
+
+.center-section {
+width: 40%;
+padding: 50px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: white;
+}
+
+.header-container {
+display: flex;
+flex-direction: column;
+align-items: center; 
+margin-bottom: 20px; 
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 10px; 
+justify-content: center; 
+}
+
+.center-section h2 {
+font-size: 24px;
+margin-bottom: 0px;
+color: #333;
+text-align: center;
+}
+
+.login-formulario {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.input-group {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.input-group label {
+font-size: 14px;
+color: #666;
+margin-bottom: 12px;
+}
+
+.input-group input {
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
+}
+
+.options {
+display: flex;
+justify-content: space-around;
+align-items: center;
+font-size: 14px;
+}
+
+.options2 {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 14px;
+}
+
+.remember-me {
+display: flex;
+align-items: center;
+gap: 5px;
+color: #666;
+}
+
+.recover-link {
+color: #00aaff;
+text-decoration: none;
+}
+
+.recover-link:hover {
+text-decoration: underline;
+}
+
+.login-button {
+padding: 12px;
+background-color: #00aaff;
+color: white;
+border: none;
+border-radius: 20px;
+font-size: 16px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.login-button:hover {
+background-color: #0088cc;
+font-size: 14px;
+}
+
+.right-section {
+width: 60%;
+position: relative;
+overflow: hidden;
+min-height: 100vh;
+}
