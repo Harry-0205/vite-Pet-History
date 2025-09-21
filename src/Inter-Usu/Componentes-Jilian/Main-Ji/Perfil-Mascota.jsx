@@ -22,93 +22,46 @@ const PerfilMascota = () => {
 const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
-        ...formData,
-        [name]: files ? files[0] : value,
-    });
+    ...formData,
+    [name]: files ? files[0] : value,
+});
 };
 
 const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.nombre || !formData.especie || !formData.raza || !formData.edad) {
-        alert("Por favor completa los campos obligatorios");
-        return;
-    }
+    alert("Por favor completa los campos obligatorios");
+    return;
+}
     setMascotas([...mascotas, { ...formData, id: Date.now() }]);
-    setFormData({
-        nombre: "",
-        especie: "",
-        raza: "",
-        edad: "",
-        vacunas: "",
-        foto: null,
-    });
+    setFormData({ nombre: "", especie: "", raza: "", edad: "", vacunas: "", foto: null });
 };
 
 const eliminarMascota = (id) => {
     setMascotas(mascotas.filter((m) => m.id !== id));
 };
 
-    return (
+return (
+    <div className="pantalla-completa">
     <div className="mascotas-container">
         <h2>Gestión de Mascotas</h2>
         <form onSubmit={handleSubmit} className="form-mascota">
-        <input
-            type="text"
-            name="nombre"
-            placeholder="Nombre de la mascota"
-            value={formData.nombre}
-            onChange={handleChange}
-            required
-        />
-        <select
-            name="especie"
-            value={formData.especie}
-            onChange={handleChange}
-            required
-        >
+        <input type="text" name="nombre" placeholder="Nombre de la mascota" value={formData.nombre} onChange={handleChange} required />
+        <select name="especie" value={formData.especie} onChange={handleChange} required>
             <option value="">Selecciona especie</option>
             {Object.keys(especiesData).map((especie) => (
-            <option key={especie} value={especie}>
-                {especie}
-            </option>
+            <option key={especie} value={especie}>{especie}</option>
 ))}
         </select>
-        <select
-            name="raza"
-            value={formData.raza}
-            onChange={handleChange}
-            required
-            disabled={!formData.especie}
-        >
+        <select name="raza" value={formData.raza} onChange={handleChange} required disabled={!formData.especie}>
             <option value="">Selecciona raza</option>
-            {formData.especie &&
-            especiesData[formData.especie].map((raza) => (
-                <option key={raza} value={raza}>
-                {raza}
-                </option>
+            {formData.especie && especiesData[formData.especie].map((raza) => (
+            <option key={raza} value={raza}>{raza}</option>
 ))}
         </select>
-        <input
-            type="number"
-            name="edad"
-            placeholder="Edad"
-            value={formData.edad}
-            onChange={handleChange}
-            required
-        />
-        <input
-            type="text"
-            name="vacunas"
-            placeholder="Vacunas (opcional)"
-            value={formData.vacunas}
-            onChange={handleChange}
-        />
-        <input
-            type="file"
-            name="foto"
-            accept="image/*"
-            onChange={handleChange}
-        />
+        <input type="number" name="edad" placeholder="Edad" value={formData.edad} onChange={handleChange} required />
+        <input type="text" name="vacunas" placeholder="Vacunas (opcional)" value={formData.vacunas} onChange={handleChange} />
+        <input type="file" name="foto" accept="image/*" onChange={handleChange} />
         <button type="submit">Agregar Mascota</button>
         </form>
         <div className="lista-mascotas">
@@ -117,13 +70,7 @@ const eliminarMascota = (id) => {
         ) : (
             mascotas.map((m) => (
             <div key={m.id} className="mascota-card">
-                {m.foto && (
-                <img
-                    src={URL.createObjectURL(m.foto)}
-                    alt={m.nombre}
-                    className="foto-mascota"
-                />
-)}
+                {m.foto && <img src={URL.createObjectURL(m.foto)} alt={m.nombre} className="foto-mascota" />}
                 <h3>{m.nombre}</h3>
                 <p><strong>Especie:</strong> {m.especie}</p>
                 <p><strong>Raza:</strong> {m.raza}</p>
@@ -134,6 +81,7 @@ const eliminarMascota = (id) => {
 ))
 )}
         </div>
+    </div>
     </div>
 );
 };

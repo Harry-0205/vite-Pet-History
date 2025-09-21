@@ -19,8 +19,8 @@ const Header = () => {
         {menuOpen && (
           <div className="menu-dropdown">
             <a href="#perfil-mascota">Perfil Mascota</a>
-            <a href="#historia-clinica">Historia Clínica</a>
             <a href="#informacion-cita">Información Cita</a>
+            <a href="#historia-clinica">Historia Clínica</a>
           </div>
         )}
       </div>

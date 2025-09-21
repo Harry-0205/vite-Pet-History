@@ -1,39 +1,49 @@
-import React from "react";
-import "../../Jillian-App/Estilos.css";
+import React, { useState } from "react";
 
 const HistoriaClinica = () => {
+  const [mostrarReporte, setMostrarReporte] = useState(true);
+  const [mostrarProcedimientos, setMostrarProcedimientos] = useState(true);
+
   return (
-    <div className="historia-container">
-      <div className="historia-header">
-        <h2>Historia Clínica</h2>
-        <div className="historia-info">
-          <p><strong>Paciente:</strong> XXXXXXXX XXXXXXXX</p>
-          <p><strong>Fecha:</strong> 20/09/2025</p>
-        </div>
-      </div>
-
-      <div className="historia-body">
-        <div className="historia-reporte">
-          <h3>Reporte:</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut
-            perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque laudantium.
-          </p>
-          <p>
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-            sed quia consequuntur magni dolores eos.
-          </p>
+    <div className="pantalla-completa">
+      <div className="historia-container">
+        <div className="historia-header">
+          <h2>Historia Clínica</h2>
+          <div className="historia-info">
+            <p><strong>Paciente:</strong> Pepe</p>
+            <p><strong>Fecha:</strong> 20/09/2025</p>
+          </div>
         </div>
 
-        <div className="historia-procedimientos">
-          <h3>Procedimientos Realizados:</h3>
-          <ul>
-            <li>Consulta médica general</li>
-            <li>Aplicación de vacuna antirrábica</li>
-            <li>Examen físico completo</li>
-            <li>Control nutricional</li>
-          </ul>
+        <div className="historia-body">
+          <div className="historia-section">
+            <h3 onClick={() => setMostrarReporte(!mostrarReporte)}>
+              📋 Reporte {mostrarReporte ? "▲" : "▼"}
+            </h3>
+            {mostrarReporte && (
+              <div className="historia-reporte">
+                <p>Durante la consulta médica general, el paciente fue valorado de manera integral,
+                evidenciando un estado de salud estable.</p>
+                <p>Se aplicó la vacuna antirrábica conforme al esquema de prevención,
+                y se brindaron recomendaciones sobre cuidados nutricionales y hábitos de bienestar.</p>
+                <p>Se sugiere mantener controles periódicos para garantizar un adecuado seguimiento clínico.</p>
+              </div>
+            )}
+          </div>
+
+          <div className="historia-section">
+            <h3 onClick={() => setMostrarProcedimientos(!mostrarProcedimientos)}>
+              🏥 Procedimientos Realizados {mostrarProcedimientos ? "▲" : "▼"}
+            </h3>
+            {mostrarProcedimientos && (
+              <ul className="historia-procedimientos">
+                <li>Consulta médica general</li>
+                <li>Aplicación de vacuna antirrábica</li>
+                <li>Examen físico completo</li>
+                <li>Control nutricional</li>
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>
