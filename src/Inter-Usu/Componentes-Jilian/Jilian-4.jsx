@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Calendar } from 'primereact/calendar';
 import { addLocale } from 'primereact/api';
 import '../Jillian-App/Estilos.css';
+import  'primeicons/primeicons.css';
 
 
 addLocale('es', {
@@ -60,10 +61,15 @@ const cancelarCita = () => {
         <p>No hay una cita programada</p>
       )}
     </div>
-<div style={{textAlign:"center"}}>
-    <button onClick={() => setMostrarFormulario(!mostrarFormulario)}>
-      {mostrarFormulario ? "Cerrar Formulario" : "Agendar Cita"}
-    </button>
+<div style={{ textAlign: "center" }}>
+  <button
+    className="button-cita"
+    onClick={() => setMostrarFormulario(!mostrarFormulario)}
+  >
+    {mostrarFormulario ? "Cerrar Formulario" : "Agendar Cita"}
+  </button>
+</div>
+    
 </div>
     {mostrarFormulario && (
       <div className="formulario-cita">
@@ -96,7 +102,7 @@ const cancelarCita = () => {
         
           
         
-  </div>
+  
 
 
     

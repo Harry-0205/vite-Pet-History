@@ -1,108 +1,149 @@
-.separacion{
-    margin: 1rem;
-    background-color: #A3B9C9;
-    border: #A3B9C9;
-}
-.tamaño{
-    height: 6rem;
-    align-items: center;
-}
-.HeaderMi {
+.he-comp{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgb(255, 255, 255);
 }
-.HE2{
-    text-align: center;
-    justify-self: center;
-    grid-area: 1/ 2 / 2 ;
-    margin-top: 1rem;
+#he-navbar{
+    place-self: center;
 }
-.HE3{
-    justify-self: end;
-    grid-area: 1 / 3 / 2 ;
-    align-self: center;
+.he-navbar-nav{
+    color: #1F3A94;
+    cursor: pointer;
+    display: inline-block;
+    border-bottom: 3px solid white ;
+
 }
-.acomodacion{
-    display: grid;
-    grid-template-rows:  auto 1fr auto ;
-    background-color: white;
+.he-navbar-nav:hover{
+    color: #59CDF0;
+    border-bottom: 3px solid #21CCAA  ;
 }
-.FooterMi{
-    background-color: #A3B9C9;
-    text-align: center;
-    height:  auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.logo{
+    width: 150px;
+    height: auto;
 }
-.BannerMi{
-    background-image: url('../../assets/imagenes/perros.jpg') ;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 25rem;
-    display: grid;
-}
-.Eslogan{
-    border: solid  #d0e7ff;
-    background-color: #A3B9C9;
-    justify-self: end;
-    align-self: end;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 2rem;
-}
-.carrusel{
+#foo-log{
     width: 15rem;
     height: auto;
-    object-fit: cover;
-    border-radius: 1rem;
 }
-.organizacion{
-    text-align: center;
-    width: 70%;
-    justify-self: center;
+.he-comp-grid1{
+    justify-self: end;
+    margin-right: 6rem;
 }
-#organizacion1{
-    width: 35%; 
-}
-.Infor1{
+.he-button{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 2rem;
-    gap: 3rem;
-    
+    grid-template-columns: repeat(2,1fr);
 }
-.CarruEst{
-    display: grid;
-    grid-template-columns: 1fr auto  1fr;
-    border: solid   #A3B9C9;
-    padding: 5px;
-    border-radius: 1.5rem;
-    width: 100%;
-}
-.BOTONES{
-     align-self: center;
-    height: 4rem;
-    background-color: white;
+.he-button-pos{
+    place-self: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 5rem;
     border: white;
+    background: linear-gradient(300deg,#59CDF0,#B0ECFF);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    justify-self: end;
+    margin-right: 2rem;
+    transition: 0.4s;
+    color: #021b6d;
 }
-.Infor2{
-    width: 75%;
-    margin: auto;
+#he-button-sep{
+    justify-self: start;
+}
+.he-button-pos:hover{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+    color: white;
+    border-bottom: 2px solid blue; 
+}
+.foot{  
+    margin-top: 5rem;
+    padding: 2rem;
+    background: linear-gradient(1deg,#a1e0f3,#FFFFFF);
+}
+.foo-line-height{
+    line-height: 1.5rem;
+}
+.ma-ban{
+    background: linear-gradient(to bottom ,transparent 70%,#FFFFFF, #c0f1ea,#85ffef);
     text-align: center;
-}
-#serv{
-    background-color: #A3B9C9;
-    border-radius: 1.5rem;
     padding: 1rem;
-    margin-bottom: 2rem;
 }
-.Servs{
-    border: solid #A3B9C9;
-    border-radius: 1.5rem;
-    width: 25%;
+.ma-ban-eslogan{
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(to right,#00eaff,#56C0E0,#1D4F88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.ma-ban-text{
+    width: 40%;
     margin: auto;
+    color: #021b6d;
+}
+#ma-ban-button{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+    width: 200px;
+    height: 60px;
+    color: white;
+    border-bottom: 2px solid blue; 
+}
+.ma-cuerpo-carru {
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    position: relative;
+    border: solid white;
 }
 
+.cuerpo-carru-dentro {
+    display: flex;
+}
+.ma-cuerpo-carru img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.ma-cuerpo{
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);   
+    padding-top: 3rem;
+}
+.ma-cuerpo-text{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #031655;
+    margin-bottom: 3rem;
+}
+#ma-cuerpo2{
+    margin-top: 1rem;
+    margin-bottom: 3.5rem;
+}
+.ma-cuerpo-info{
+    color: black;
+    text-align: justify;
+}
+.ma-cuerpo-img{
+    border-radius: 55px;
+    width: 500px;
+    height: 480px;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    
+}
+#ma-cuerpo-img2{
+    height: auto;
+    margin-left: 0;
+    margin-right: 2rem;
+}
+.ma-cuerpo-text-aling{
+    margin-top: 2rem;
+    text-align: right;
+}
+#ma-cuerpo-buttom-text{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+    width: 260px;
+    height: auto;
+    color: white;
+    border: 2px solid blue; 
+}
