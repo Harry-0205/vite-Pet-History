@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Miguel from './home/Miguel/Miguel'
-import Jossimar from './Jossimar/Iniciarsesion/iniciarsesion'
+import Jossimar from './Jossimar/IniciarUsu/Iniciar'
 import '../src/App.css'
 
 
