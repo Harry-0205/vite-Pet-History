@@ -7,7 +7,7 @@ function LoginP() {
 return (
         <div className="login-container">
             <div className="right-section">
-                <div className="background-container"></div>
+                <div className="background-container2"></div>
             </div>
             <div className="center-section">
                 <div className="header-container">
