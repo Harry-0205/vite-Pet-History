@@ -1,3 +1,130 @@
+.admin-card-title-gradient {
+  background: linear-gradient(to right,#00eaff,#56C0E0,#1D4F88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.admin-card-empty {
+  opacity: 0.8;
+  background: #f7fafd;
+  border: 2px dashed #a1e0f3;
+  color: #888;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer, .footer, .footerMi {
+  position: fixed !important;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+.admin-page {
+  min-height: calc(100vh - 180px);
+}
+
+.admin-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.admin-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1px solid #e0e0e0;
+  padding: 24px 28px;
+  min-width: 340px;
+  max-width: 400px;
+  margin: 0 8px;
+}
+
+.admin-card-header h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.admin-card-header .icon-edit,
+.admin-card-header .icon-delete {
+  margin-left: 10px;
+  font-size: 1.3rem;
+  color: #000000;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.admin-card-header .icon-edit:hover,
+.admin-card-header .icon-delete:hover {
+  color: #000000;
+}
+
+.admin-card-body {
+  margin-top: 8px;
+}
+
+.admin-add-btn {
+  background: #56C0E0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.admin-add-btn:hover {
+  background: #000000;
+}
+
+.admin-vets-list {
+  margin-top: 8px;
+}
+
+.admin-vets-list-scroll {
+  max-height: 210px; 
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.admin-vet-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(124,110,230,0.04);
+}
+.admin-vet-item .icon-edit,
+.admin-vet-item .icon-delete {
+  margin-left: 8px;
+  font-size: 1.1rem;
+  color: #000000;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.admin-vet-item .icon-edit:hover,
+.admin-vet-item .icon-delete:hover {
+  color: #000000;
+}
+.admin-vet-especialidad,
+.admin-vet-cedula,
+.admin-vet-correo,
+.admin-vet-telefono {
+  font-size: 0.98rem;
+  color: #444;
+  margin-bottom: 2px;
+}
 
 .admin-page {
   width: 90%;
