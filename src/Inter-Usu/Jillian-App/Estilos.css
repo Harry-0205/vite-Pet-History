@@ -1,344 +1,401 @@
-
-html, body {
-  height: 100%; 
-  margin: 0;     
-  padding: 0;
-  font-family: Flatory;
-  background-color: #f4f4f4; 
-  color: #333; 
-}
-
-
-.pagina {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-
-.encabezado {
-  background-color: #d0e7ff; 
-  padding: 20px;
-  text-align: center;
-}
-
-.encabezado h1 {
-  margin: 0;
-  font-size: 3.5rem; 
-}
-
-
-.barra {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  flex-wrap: wrap;
-  gap: 10px;              
-  margin-top: 10px;
-}
-
-.menu select {
-  padding: 8px;
-  font-size: 16px;
-}
-
-.barra input {
-  padding: 8px;
-  width: 250px;
-  border: 1px solid #ccc;  
-  border-radius: 9px;
-}
-
-.barra button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 30px;
-  border-radius: 9px;
-  cursor: pointer;
-}
-
-
-
-.contenedor-principal {
-  width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;    
-  background-color: #ffffff; 
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-  border-radius: 10px;
-}
-
-.perfil-contenedor {
-  display: flex;
-  flex-direction: row;             
-  align-items: center;
-  justify-content: space-around;  
-  gap: 60px;
-  background-color: #d0e7ff;
-  padding: 60px;
-  margin: 60px auto;              
-  border-radius: 20px;
-  width: 90%;                     
-  max-width: 1600px;              
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-}
-
-.imagen-perfil {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #ffcccc;
-}
-
-.info-perfil p {
-  font-size: 1.3rem;
-  margin: 10px 0;
-}
-
-
-.perfil-contenedor,
-.cita,
-.historial,
-.veterinarias {
-  width: 90%;
-  max-width: 1600px;
-  margin: 60px auto;
-  padding: 60px;
-  min-height: 700px; 
-  background-color: #ffffff;
-  border-radius: 20px;
-  border: 2px solid #d0e7ff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-
-
-.perfil-contenedor {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  background-color: #d0e7ff;;
-}
-
-.cita {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.historial {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.veterinarias ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-.veterinarias li {
-  background-color: #d0e7ff;
-  padding: 12px 20px;
-  margin: 10px 0;
-  border-radius: 10px;
-  font-size: 1.2rem;
-}
-
-.reporte,
-.procedimientos {
-  background-color: #f4f4f4; 
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-
-.cita {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.img-cita,
-.img-vet {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-  border: 2px solid #ffcccc;
-}
-
-
-.veterinarias ul {
-  list-style: none;
-  padding: 0;
-}
-
-.veterinarias li {
-  background-color: #d0e7ff; 
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-
-.footer {
-  width: 100vw; 
-  background-color: #cceeff;
-  padding: 60px 0;
-  text-align: center;
-  border-top: 3px solid #ffcccc;
-  box-sizing: border-box;
-}
-
-
-
-.footer-contenido {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.calendario-container {
-  transform: scale(1.4); 
-  margin-right: 10rem;
-  margin-top: 20px;
-}
-
-
-.calendario-cita {
-  flex: 1;
-  padding: 30px;
-  max-width: 500px;
-  min-width: 300px;
-  box-sizing: border-box;
-}
-
-
-.formulario-cita {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.formulario-cita input {
-  padding: 0.3rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-
-.recuadro-cita button {
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  margin-top: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.recuadro-cita button:hover {
-  background-color: #155fc1;
-
-}
-
-.info-cita {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-button-cita {
-  background-color: #1a73e8;
-  color: rgb(255, 255, 255);
-  border: none;
-  padding: 8px 16px;
-  margin-top: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #cacace;
-}
-
-.formulario-cita {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input[type="time"],
-input[type="text"] {
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-
-
-.formulario-agregar-mascota {
-  background-color: #ffffff;
-  border: 2px solid #d0e7ff;
-  padding: 30px;
-  margin: 20px auto;
-  border-radius: 15px;
-  max-width: 500px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.formulario-agregar-mascota input {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.modal {
-  position: fixed;
+  padding: 12px 40px;
+  background: linear-gradient(90deg, #ffffff 40%,#55b5c2 100%);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+  z-index: 1000;
+  height: 80px;
 }
 
-.modal-contenido {
-  background-color: white;
-  padding: 40px;
-  border-radius: 15px;
-  max-width: 600px;
-  width: 90%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+.menu-container {
   position: relative;
 }
 
+.menu-btn {
+  background: none;
+  border: none;
+  color: #153372;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 12px;
+}
+
+.menu-dropdown a {
+  padding: 10px;
+  color: #153372;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.menu-dropdown a:hover {
+  background: #2bc6a0;
+  color: white;
+  border-radius: 6px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.logo-img {
+  max-height: 120px;
+  width: auto;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+}
+
+.btn.perfil {
+  background: linear-gradient(135deg, #2bc6a0, #55b5c2);
+  color: white;
+}
+
+.btn.perfil:hover {
+  background: linear-gradient(135deg, #239b82, #3ea4b1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43, 198, 160, 0.35);
+}
+
+.btn.salir {
+  background: linear-gradient(135deg, #153372, #1d4e89);
+  color: white;
+}
+
+.btn.salir:hover {
+  background: linear-gradient(135deg, #0f2554, #163d6e);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(21, 51, 114, 0.4);
+}
+
+/*Fondooo*/
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(#e8fffa 0%);
+  min-height: 100vh;
+  color: #1f2937;
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+/*Mascotas*/
+.mascotas-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.mascotas-container h2 {
+  text-align: center;
+  color: #153372;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.form-mascota {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.form-mascota input,
+.form-mascota select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.form-mascota input:focus,
+.form-mascota select:focus {
+  border-color: #2bc6a0;
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(43, 198, 160, 0.4);
+}
+
+.form-mascota input[type="file"] {
+  grid-column: span 2;
+  padding: 8px;
+}
+
+.form-mascota button {
+  grid-column: span 2;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #2bc6a0, #55b5c2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-mascota button:hover {
+  background: linear-gradient(90deg, #153372, #2bc6a0);
+  transform: translateY(-2px);
+}
+
+.lista-mascotas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.mascota-card {
+  background: #f4f6f9;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.mascota-card:hover {
+  transform: translateY(-5px);
+}
+
+.foto-mascota {
+  max-width: 120px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.mascota-card h3 {
+  color: #153372;
+  margin-bottom: 8px;
+}
+
+.mascota-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.mascota-card button {
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e63946;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mascota-card button:hover {
+  background-color: #c1121f;
+}
+
+/* HistoriaClinica */
+.historia-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.historia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.historia-header h2 {
+  color: #153372;
+  font-size: 1.8rem;
+}
+
+.historia-info p {
+  margin: 4px 0;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.historia-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.historia-reporte,
+.historia-procedimientos {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.historia-reporte h3,
+.historia-procedimientos h3 {
+  color: #2bc6a0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.historia-reporte p {
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.historia-procedimientos ul {
+  list-style: disc;
+  padding-left: 25px;
+  color: #444;
+}
+
+.historia-procedimientos li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* InformacionCita */
+.contenedor-cita {
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.titulo-cita {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #0077b6;
+  font-weight: bold;
+}
+
+.subtitulo {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #023e8a;
+  font-weight: 500;
+}
+
+.formulario-cita input,
+.formulario-cita textarea {
+  width: 95%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.formulario-cita textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.btn-agendar {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  margin-top: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-agendar:hover {
+  background: #023e8a;
+}
+
+.cita-agendada {
+  padding: 25px;
+  border-radius: 15px;
+  background: #f1f1f1;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.foto-mascota {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: 15px 0;
+  object-fit: cover;
+  border: 3px solid #0077b6;
+}
+
+.btn-cancelar {
+  background: #d62828;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-cancelar:hover {
+  background: #9d0208;
+}
