@@ -154,7 +154,7 @@ function Register() {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h2>El mejor software veterinario</h2>
-          <p>Empieza a administrar tu práctica veterinaria y organiza tu información para optimizar y automatizar procesos.</p>
+          <p>Cuidado inteligente para tu mascota, eficiencia para veterinarios, tranquilidad para dueños.</p>
         </div>
       </section>
     </div>
