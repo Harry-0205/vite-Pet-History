@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import VeterinariaCard from './VeterinariaCard';
 import HeaderMi from '../home/Componentes-Miguel/HeaderMi/HeaderMi';
 import FooterMi from '../home/Componentes-Miguel/FooterMi/FooterMi';
 import '../home/Estilos-Miguel/MiguelEs.css';
@@ -12,8 +13,8 @@ const initialVets = [
     direccion: 'Av. Principal 123',
     telefono: '099111222',
     veterinarios: [
-      { id: 'med-1', nombre: 'Dra. Ana Ruiz', especialidad: 'Felinos' },
-      { id: 'med-2', nombre: 'Dr. Luis Paredes', especialidad: 'Caninos' },
+  { id: 'med-1', nombre: 'Dra. Ana Ruiz', cedula: '1234567890', correo: 'ana.ruiz@vet.com', telefono: '099888777' },
+  { id: 'med-2', nombre: 'Dr. Luis Paredes', cedula: '0987654321', correo: 'luis.paredes@vet.com', telefono: '099777888' },
     ],
   },
   {
@@ -22,7 +23,7 @@ const initialVets = [
     direccion: 'Calle 10 y Av. 5',
     telefono: '098333444',
     veterinarios: [
-      { id: 'med-3', nombre: 'Dra. Carla M.', especialidad: 'Exóticos' },
+  { id: 'med-3', nombre: 'Dra. Carla M.', cedula: '1122334455', correo: 'carla.m@vet.com', telefono: '098555444' },
     ],
   },
 ];
@@ -97,7 +98,7 @@ function AdminPanel() {
   
   const openCreateMed = (vetId) => {
     setCurrentVetId(vetId);
-    setEditingMed({ id: null, nombre: '', especialidad: '' });
+  setEditingMed({ id: null, nombre: '', cedula: '', correo: '', telefono: '' });
     setOpenMedModal(true);
   };
 
@@ -109,18 +110,18 @@ function AdminPanel() {
 
   const saveMed = () => {
     if (!currentVetId || !editingMed) return;
-    const { id, nombre, especialidad } = editingMed;
-    if (!nombre || !especialidad) return;
+  const { id, nombre, cedula, correo, telefono } = editingMed;
+  if (!nombre || !cedula || !correo || !telefono) return;
 
     setVets(prev => prev.map(v => {
       if (v.id !== currentVetId) return v;
       if (id) {
         return {
           ...v,
-          veterinarios: v.veterinarios.map(m => m.id === id ? { ...m, nombre, especialidad } : m)
+          veterinarios: v.veterinarios.map(m => m.id === id ? { ...m, nombre, cedula, correo, telefono } : m)
         };
       }
-      const newMed = { id: 'med-' + Math.random().toString(36).slice(2, 8), nombre, especialidad };
+      const newMed = { id: 'med-' + Math.random().toString(36).slice(2, 8), nombre, cedula, correo, telefono };
       return { ...v, veterinarios: [newMed, ...v.veterinarios] };
     }));
 
@@ -153,40 +154,32 @@ function AdminPanel() {
         </div>
 
         <div className="admin-grid">
-          {filtered.map(v => (
-            <div key={v.id} className="card">
-              <div className="card-header">
-                <h3>{v.nombre}</h3>
-                <div className="card-actions">
-                  <button className="icon-btn" title="Editar" onClick={() => openEditVet(v)}>✎</button>
-                  <button className="icon-btn" title="Eliminar" onClick={() => deleteVet(v.id)}>X</button>
+          {filtered.length === 0 ? (
+            <div className="admin-card-container">
+              <div className="admin-card admin-card-empty">
+                <div className="admin-card-header">
+                  <h2>Sin veterinarias registradas</h2>
                 </div>
-              </div>
-              <div className="card-body">
-                <p><strong>Dirección:</strong> {v.direccion}</p>
-                <p><strong>Teléfono:</strong> {v.telefono}</p>
-
-                <div className="sub-header">
-                  <h4>Veterinarios</h4>
-                  <button className="btn-chip" onClick={() => openCreateMed(v.id)}>+ Agregar</button>
+                <div className="admin-card-body">
+                  <p>Agrega una nueva veterinaria para comenzar.</p>
                 </div>
-                <ul className="list">
-                  {v.veterinarios.map(m => (
-                    <li key={m.id} className="list-item">
-                      <div>
-                        <div className="item-title">{m.nombre}</div>
-                        <div className="item-sub">{m.especialidad}</div>
-                      </div>
-                      <div>
-                        <button className="icon-btn" onClick={() => openEditMed(v.id, m)}>✎</button>
-                        <button className="icon-btn" onClick={() => deleteMed(v.id, m.id)}>X</button>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
-          ))}
+          ) : (
+            filtered.map(v => (
+              <VeterinariaCard
+                key={v.id}
+                direccion={v.direccion}
+                telefono={v.telefono}
+                veterinarios={v.veterinarios}
+                onEdit={() => openEditVet(v)}
+                onDelete={() => deleteVet(v.id)}
+                onAddVet={() => openCreateMed(v.id)}
+                onEditVet={idx => openEditMed(v.id, v.veterinarios[idx])}
+                onDeleteVet={idx => deleteMed(v.id, v.veterinarios[idx].id)}
+              />
+            ))
+          )}
         </div>
       </div>
       <Modal
@@ -239,12 +232,28 @@ function AdminPanel() {
               placeholder="Nombre del médico"
             />
           </label>
-          <label>Especialidad
+          <label>Cédula
             <input
               type="text"
-              value={editingMed?.especialidad || ''}
-              onChange={(e) => setEditingMed(m => ({ ...m, especialidad: e.target.value }))}
-              placeholder="Ej: Caninos, Felinos, Exóticos"
+              value={editingMed?.cedula || ''}
+              onChange={(e) => setEditingMed(m => ({ ...m, cedula: e.target.value }))}
+              placeholder="Cédula del veterinario"
+            />
+          </label>
+          <label>Correo
+            <input
+              type="email"
+              value={editingMed?.correo || ''}
+              onChange={(e) => setEditingMed(m => ({ ...m, correo: e.target.value }))}
+              placeholder="Correo del veterinario"
+            />
+          </label>
+          <label>Teléfono
+            <input
+              type="text"
+              value={editingMed?.telefono || ''}
+              onChange={(e) => setEditingMed(m => ({ ...m, telefono: e.target.value }))}
+              placeholder="Teléfono del veterinario"
             />
           </label>
         </div>
@@ -253,7 +262,7 @@ function AdminPanel() {
           <button className="btn-primary" onClick={saveMed}>Guardar</button>
         </div>
       </Modal>
-      <FooterMi />
+  <FooterMi />
     </>
   );
 }
