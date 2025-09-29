@@ -29,25 +29,56 @@
     margin-right: 6rem;
 }
 .he-button{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+    padding-right: 2rem;
 }
 .he-button-pos{
-    place-self: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 130px;
     height: 40px;
     border-radius: 5rem;
-    border: white;
+    border: none;
     background: linear-gradient(300deg,#59CDF0,#B0ECFF);
     cursor: pointer;
-    margin-bottom: 1rem;
-    justify-self: end;
-    margin-right: 2rem;
+    margin: 0;
     transition: 0.4s;
     color: #021b6d;
+    box-shadow: none;
+}
+
+/* Asegura que nuestros estilos prevalezcan sobre Bootstrap al navegar */
+.he-button .he-button-pos.btn,
+.he-button .he-button-pos.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 5rem !important;
+    background: linear-gradient(300deg,#59CDF0,#B0ECFF) !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.he-button-pos h6 { margin: 0; }
+
+/* Hover reforzado contra .btn:hover de Bootstrap */
+.he-button .he-button-pos.btn:hover,
+.he-button .he-button-pos.btn-primary:hover,
+.he-button-pos:hover{
+    background: linear-gradient(100deg,#56C0E0,#2B7DE0) !important;
+    color: white !important;
+    border-bottom: 2px solid blue; 
 }
 #he-button-sep{
-    justify-self: start;
 }
 .he-button-pos:hover{
     background: linear-gradient(100deg,#56C0E0,#2B7DE0);
