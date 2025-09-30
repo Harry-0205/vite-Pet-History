@@ -105,7 +105,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(#e8fffa 0%);
+  background: linear-gradient(#ffffff 0%);
   min-height: 100vh;
   color: #1f2937;
 }
@@ -121,15 +121,6 @@ section {
 }
 
 /*Mascotas*/
-.mascotas-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 25px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
 .mascotas-container h2 {
   text-align: center;
   color: #153372;
@@ -193,12 +184,17 @@ section {
 }
 
 .mascota-card {
-  background: #f4f6f9;
-  padding: 20px;
-  border-radius: 14px;
+  background:   #eff8ff;
+  padding: 22px;
+  border-radius: 16px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.3s ease;
+  max-width: 100%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mascota-card:hover {
@@ -206,11 +202,18 @@ section {
 }
 
 .foto-mascota {
-  max-width: 120px;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 3px solid #0077b6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.mascota-card img:not([src]) {
+  display: none;
 }
 
 .mascota-card h3 {
@@ -222,6 +225,18 @@ section {
   margin: 4px 0;
   font-size: 0.9rem;
   color: #444;
+}
+
+.mascota-card {
+  background: #eef8fc;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mascota-card button {
@@ -238,6 +253,12 @@ section {
 
 .mascota-card button:hover {
   background-color: #c1121f;
+}
+
+.lista-mascotas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
 }
 
 /* HistoriaClinica */
@@ -338,7 +359,7 @@ section {
 .formulario-cita textarea {
   width: 95%;
   padding: 14px;
-  margin: 10px 0;
+  margin: 10px;
   border: 1px solid #bbb;
   border-radius: 10px;
   font-size: 16px;
@@ -398,4 +419,24 @@ section {
 
 .btn-cancelar:hover {
   background: #9d0208;
+}
+
+.btn-toggle-formulario {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2bc6a0, #55b5c2);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-toggle-formulario:hover {
+  background: linear-gradient(135deg, #239b82, #3ea4b1);
+  transform: translateY(-2px);
 }
