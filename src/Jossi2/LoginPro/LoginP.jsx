@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./LoginP.css";
-import backgroundImage from "../../assets/imagenes/img9.png";
 import logo from "../../assets/imagenes/logo.png";
 
 function LoginP() {
