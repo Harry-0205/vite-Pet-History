@@ -1,0 +1,132 @@
+.login-container {
+display: flex;
+height: 100vh;
+overflow: hidden;
+font-family: 'Poppins', sans-serif;
+}
+
+.center-section {
+width: 40%;
+padding: 50px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: white;
+}
+
+.right-section {
+width: 60%;
+position: relative;
+overflow: hidden;
+min-height: 100vh;
+}
+
+.background-container2 {
+background-image: url('../../assets/imagenes/img9.png');
+background-size: cover;
+background-position: center;
+height: 100%;
+width: 100%;
+}
+
+.logo-image {
+width: 180px;
+height: auto;
+}
+
+.header-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 10px;
+justify-content: center;
+}
+
+.center-section h2 {
+font-size: 24px;
+margin-bottom: 0px;
+color: #333;
+text-align: center;
+}
+
+.login-formulario {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.input-group {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.input-group input {
+padding: 10px;
+border: 2px solid #ccc;
+border-radius: 8px;
+font-size: 16px;
+outline: none;            
+transition: border-color 0.3s ease;
+}
+
+
+
+.options2 {
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+color: #1F3A94;
+cursor: pointer;
+display: inline-block;
+}
+
+.recover-link {
+color: #00aaff;
+text-decoration: none;
+}
+
+.recover-link:hover {
+text-decoration: underline;
+}
+
+.login-button {
+padding: 14px;
+background: linear-gradient(100deg,#56C0E0,#2B7DE0);
+color: white;
+border: white;
+border-radius: 25px;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.3s ease;
+margin-top: 10px;
+justify-self: end;
+border-bottom: 2px solid blue; 
+}
+
+.login-button:hover {
+background-color: #0088cc;
+}
+
+.help-center {
+text-align: center;
+padding: 20px;
+color: #666;
+background-color: #fff;
+}
+
+.help-center a {
+color: #00aaff;
+text-decoration: none;
+}
+
+.help-center a:hover {
+text-decoration: underline;
+}
