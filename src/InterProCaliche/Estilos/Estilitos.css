@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background: linear-gradient(90deg, #ffffff 40%,#55b5c2 100%);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+}
+.menu-container {
+  position: relative;
+}
+.menu-btn {
+  background: none;
+  border: none;
+  color: #153372;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 12px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.logo-img {
+  max-height: 120px;
+  width: auto;
+}
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn.perfil {
+  background: linear-gradient(135deg, #2bc6a0, #55b5c2);
+  color: white;
+}
+.btn.salir {
+  background: linear-gradient(135deg, #153372, #1d4e89);
+  color: white;
+}
