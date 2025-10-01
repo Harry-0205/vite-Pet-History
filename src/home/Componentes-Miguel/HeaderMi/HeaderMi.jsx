@@ -1,22 +1,25 @@
-import Button from 'react-bootstrap/Button';
-import sublogo from '../../../assets/imagenes/SUBLOGO.png'
+import '../../Estilos-Miguel/MiguelEs.css'
+import logo from "../../../assets/imagenes/logo.png"
+import { Link} from 'react-router-dom'
 
 function HeaderMi (){
     return(
-        <>
-        <div className="HeaderMi">
-            <div >
-                <img src={sublogo} alt="" className='tamaño'/>
+        <header >
+            <div className='he-comp'>
+                <div className='he-comp-grid1'><img src={logo} alt="" className='logo' /></div>
+                <div className='he-comp' id='he-navbar'>
+                    <div><Link to={"/inicio"}><h6 className='he-navbar-nav'>Inicio</h6></Link></div>
+                    <div><Link to={"/servicios"}><h6 className='he-navbar-nav' >Servicios </h6></Link></div>
+                    <div><Link to={"/nosotros"}><h6 className='he-navbar-nav'>¿Quienes somos?</h6></Link></div>
+                </div>
+                <div className='he-button'>
+                    <Link to={'/registro'}>
+                        <button type="button" className='he-button-pos'><h6>Registrate</h6></button>
+                    </Link>
+                    <button type="button" className='he-button-pos' id='he-button-sep'><h6>Iniciar sesion</h6></button>
+                </div>
             </div>
-            <div className='HE2'>
-                <h1 ><b><font color='#4C4C4C' >PET-HISTORY</font></b></h1>
-            </div>
-            <div className='HE3'>
-                <Button href='/Registro' variant="primary" className='separacion'> Registro </Button>
-                <Button href='/Iniciar' variant="outline-primary" className='separacion'><font color='#fafafa'>Iniciar sesion</font></Button>
-            </div>
-        </div>
-        </>
+        </header>
     )
 }
 export default  HeaderMi
