@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import './register.css';
 import logo from '../assets/imagenes/logo.png';
-import hero from '../assets/imagenes/img_relleno/servicio.jpg';
+import hero from '../assets/imagenes/img_relleno/otroperrito.avif';
 
 function Register() {
   const [form, setForm] = useState({
     nombres: '',
-    apellidos: '',
+    apellido1: '',
+    apellido2: '',
     email: '',
     telefono: '',
-    cedula: '',
+    direccion: '',
+    fechaNacimiento: '',
+    tipoDocumento: '',
+    documento: '',
     password: '',
+    showTipoDoc: false,
   });
   const [remember, setRemember] = useState(false);
 
@@ -19,26 +24,16 @@ function Register() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Registro enviado: ' + JSON.stringify({ ...form, remember }, null, 2));
-    setForm({ nombres: '', apellidos: '', email: '', telefono: '', cedula: '', password: '' });
-    setRemember(false);
-  };
-
   return (
     <div className="register-split">
       <aside className="register-left">
         <div className="auth-brand">
           <img src={logo} alt="PetHistory" className="brand-logo" />
         </div>
-
         <header className="auth-header">
           <h1 className="register-title">Crear cuenta</h1>
-          <p className="register-sub"></p>
         </header>
-
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form className="register-form" >
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="nombres">Nombres</label>
@@ -53,29 +48,53 @@ function Register() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="apellidos">Apellidos</label>
+              <label htmlFor="apellido1">Primer Apellido</label>
               <input
-                id="apellidos"
-                name="apellidos"
+                id="apellido1"
+                name="apellido1"
                 type="text"
-                value={form.apellidos}
+                value={form.apellido1}
                 onChange={handleChange}
-                placeholder="Pérez López"
+                placeholder="Pérez"
                 required
               />
             </div>
           </div>
-
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="email">Correo electrónico</label>
+              <label htmlFor="apellido2">Segundo Apellido</label>
               <input
-                id="email"
-                name="email"
-                type="email"
-                value={form.email}
+                id="apellido2"
+                name="apellido2"
+                type="text"
+                value={form.apellido2}
                 onChange={handleChange}
-                placeholder="correo@ejemplo.com"
+                placeholder="López"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="direccion">Dirección</label>
+              <input
+                id="direccion"
+                name="direccion"
+                type="text"
+                value={form.direccion}
+                onChange={handleChange}
+                placeholder="Calle 123 #45-67"
+                required
+              />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="fechaNacimiento">Fecha de nacimiento</label>
+              <input
+                id="fechaNacimiento"
+                name="fechaNacimiento"
+                type="date"
+                value={form.fechaNacimiento}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -94,19 +113,76 @@ function Register() {
               />
             </div>
           </div>
-
           <div className="form-row">
+            <div className="form-group" style={{ position: 'relative' }}>
+              <label htmlFor="tipoDocumento">Tipo de documento</label>
+              <button
+                type="button"
+                className="dropdown-btn"
+                style={{
+                  width: '100%',
+                  padding: '12px 14px',
+                  border: '1.5px solid #a1e0f3',
+                  borderRadius: '12px',
+                  background: '#fff',
+                  textAlign: 'left',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  marginBottom: '0',
+                }}
+                onClick={() => setForm(f => ({ ...f, showTipoDoc: !f.showTipoDoc }))}
+              >
+                {form.tipoDocumento === 'cedula_extranjeria' ? 'Cédula de extranjería' : form.tipoDocumento === 'cedula_ciudadania' ? 'Cédula de ciudadanía' : 'Selecciona tipo'}
+                <span style={{ float: 'right' }}>▼</span>
+              </button>
+              {form.showTipoDoc && (
+                <div style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: 0,
+                  width: '100%',
+                  background: '#fff',
+                  border: '1.5px solid #a1e0f3',
+                  borderRadius: '0 0 12px 12px',
+                  zIndex: 10,
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+                }}>
+                  <div style={{ padding: '10px', cursor: 'pointer' }}
+                    onClick={() => setForm(f => ({ ...f, tipoDocumento: 'cedula_extranjeria', showTipoDoc: false }))}>
+                    Cédula de extranjería
+                  </div>
+                  <div style={{ padding: '10px', cursor: 'pointer' }}
+                    onClick={() => setForm(f => ({ ...f, tipoDocumento: 'cedula_ciudadania', showTipoDoc: false }))}>
+                    Cédula de ciudadanía
+                  </div>
+                </div>
+              )}
+            </div>
             <div className="form-group">
-              <label htmlFor="cedula">Cédula</label>
+              <label htmlFor="documento">Número de documento</label>
               <input
-                id="cedula"
-                name="cedula"
+                id="documento"
+                name="documento"
                 type="text"
-                value={form.cedula}
+                value={form.documento}
                 onChange={handleChange}
-                placeholder="1052570617"
+                placeholder="Número de documento"
                 pattern="^[0-9]{5,20}$"
                 title="Solo números"
+                required
+              />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="email">Correo electrónico</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="correo@ejemplo.com"
                 required
               />
             </div>
@@ -124,7 +200,6 @@ function Register() {
               />
             </div>
           </div>
-
           <div className="form-extra">
             <label className="remember">
               <input
@@ -134,13 +209,11 @@ function Register() {
               />
               Recordarme
             </label>
-                      </div>
-
+          </div>
           <div className="actions">
             <button type="submit" className="btn-primary-gradient">Registrarme</button>
           </div>
         </form>
-
         <footer className="auth-footer">
           <p className="muted">
             Información general en nuestro sitio web
@@ -148,7 +221,6 @@ function Register() {
           </p>
         </footer>
       </aside>
-
       <section className="register-right">
         <img src={hero} alt="Veterinaria" className="hero-img" />
         <div className="hero-overlay"></div>
@@ -159,6 +231,7 @@ function Register() {
       </section>
     </div>
   );
+
 }
 
 export default Register;
