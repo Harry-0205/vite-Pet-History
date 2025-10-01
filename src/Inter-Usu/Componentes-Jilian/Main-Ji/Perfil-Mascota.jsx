@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import iconoUser from "../../../assets/imagenes/veteri_logos/icono_user.png";
 
 const especiesData = {
   Perro: ["Labrador", "Pastor Alemán", "Pug", "Bulldog", "Golden Retriever"],
@@ -20,6 +21,9 @@ const PerfilMascota = () => {
   });
   const [mostrarFormulario, setMostrarFormulario] = useState(true);
 
+  // Referencia al contenedor de las tarjetas para centrar scroll
+  const listaRef = useRef(null);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -35,14 +39,24 @@ const PerfilMascota = () => {
       return;
     }
 
-    setMascotas([...mascotas, { ...formData, id: Date.now() }]);
+    setMascotas((prev) => [...prev, { ...formData, id: Date.now() }]);
     setFormData({ nombre: "", especie: "", raza: "", edad: "", vacunas: "", foto: null });
     setMostrarFormulario(false);
   };
 
   const eliminarMascota = (id) => {
-    setMascotas(mascotas.filter((m) => m.id !== id));
+    setMascotas((prev) => prev.filter((m) => m.id !== id));
   };
+
+  // Cada vez que cambian las mascotas, centramos el scroll horizontal y vertical
+  useEffect(() => {
+    if (listaRef.current) {
+      const container = listaRef.current;
+      // Scroll para centrar vertical y horizontalmente
+      container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
+      container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+    }
+  }, [mascotas]);
 
   return (
     <div className="pantalla-completa">
@@ -114,19 +128,17 @@ const PerfilMascota = () => {
           </form>
         )}
 
-        <div className="lista-mascotas">
+        <div className="lista-mascotas" ref={listaRef}>
           {mascotas.length === 0 ? (
             <p>No hay mascotas registradas</p>
           ) : (
             mascotas.map((m) => (
               <div key={m.id} className="mascota-card">
-                {m.foto && (
-                  <img
-                    src={URL.createObjectURL(m.foto)}
-                    alt={m.nombre}
-                    className="foto-mascota"
-                  />
-                )}
+                <img
+                  src={m.foto ? URL.createObjectURL(m.foto) : iconoUser}
+                  alt={m.nombre}
+                  className="foto-mascota"
+                />
                 <h3>{m.nombre}</h3>
                 <p><strong>Especie:</strong> {m.especie}</p>
                 <p><strong>Raza:</strong> {m.raza}</p>
