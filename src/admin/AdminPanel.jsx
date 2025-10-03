@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import VeterinariaCard from './VeterinariaCard';
-import HeaderMi from '../home/Componentes-Miguel/HeaderMi/HeaderMi';
+import HeaderJi from '../Inter-Usu/Componentes-Jilian/Header-Ji/Header-Ji';
 import FooterMi from '../home/Componentes-Miguel/FooterMi/FooterMi';
 import '../home/Estilos-Miguel/MiguelEs.css';
 import './admin.css';
@@ -11,19 +11,21 @@ const initialVets = [
     id: 'vet-1',
     nombre: 'Veterinaria Central',
     direccion: 'Av. Principal 123',
-    telefono: '099111222',
+    nit: '123456789-0',
+    correo: 'central@vet.com',
     veterinarios: [
-  { id: 'med-1', nombre: 'Dra. Ana Ruiz', cedula: '1234567890', correo: 'ana.ruiz@vet.com', telefono: '099888777' },
-  { id: 'med-2', nombre: 'Dr. Luis Paredes', cedula: '0987654321', correo: 'luis.paredes@vet.com', telefono: '099777888' },
+      { id: 'med-1', nombre: 'Dra. Ana Ruiz', cedula: '1234567890', correo: 'ana.ruiz@vet.com', telefono: '099888777' },
+      { id: 'med-2', nombre: 'Dr. Luis Paredes', cedula: '0987654321', correo: 'luis.paredes@vet.com', telefono: '099777888' },
     ],
   },
   {
     id: 'vet-2',
     nombre: 'Clínica PetCare',
     direccion: 'Calle 10 y Av. 5',
-    telefono: '098333444',
+    nit: '987654321-0',
+    correo: 'petcare@vet.com',
     veterinarios: [
-  { id: 'med-3', nombre: 'Dra. Carla M.', cedula: '1122334455', correo: 'carla.m@vet.com', telefono: '098555444' },
+      { id: 'med-3', nombre: 'Dra. Carla M.', cedula: '1122334455', correo: 'carla.m@vet.com', telefono: '098555444' },
     ],
   },
 ];
@@ -45,9 +47,8 @@ function Modal({ open, title, onClose, children }) {
 
 function AdminPanel() {
   const [vets, setVets] = useState(initialVets);
-  const [filter, setFilter] = useState('');
 
-  
+  const [filter, setFilter] = useState('');
   const [openVetModal, setOpenVetModal] = useState(false);
   const [editingVet, setEditingVet] = useState(null); 
 
@@ -66,7 +67,7 @@ function AdminPanel() {
   }, [filter, vets]);
 
   const openCreateVet = () => {
-    setEditingVet({ id: null, nombre: '', direccion: '', telefono: '' });
+    setEditingVet({ id: null, nombre: '', direccion: '', nit: '', correo: '' });
     setOpenVetModal(true);
   };
 
@@ -77,13 +78,13 @@ function AdminPanel() {
 
   const saveVet = () => {
     if (!editingVet) return;
-    const { id, nombre, direccion, telefono } = editingVet;
-    if (!nombre || !direccion || !telefono) return;
+    const { id, nombre, direccion, nit, correo } = editingVet;
+    if (!nombre || !direccion || !nit || !correo) return;
 
     if (id) {
-      setVets(prev => prev.map(v => v.id === id ? { ...v, nombre, direccion, telefono } : v));
+      setVets(prev => prev.map(v => v.id === id ? { ...v, nombre, direccion, nit, correo } : v));
     } else {
-      const newVet = { id: 'vet-' + Math.random().toString(36).slice(2, 8), nombre, direccion, telefono, veterinarios: [] };
+      const newVet = { id: 'vet-' + Math.random().toString(36).slice(2, 8), nombre, direccion, nit, correo, veterinarios: [] };
       setVets(prev => [newVet, ...prev]);
     }
     setOpenVetModal(false);
@@ -137,7 +138,7 @@ function AdminPanel() {
 
   return (
     <>
-      <HeaderMi />
+  <HeaderJi />
 
       <div className="admin-page">
         <div className="admin-header">
@@ -169,8 +170,10 @@ function AdminPanel() {
             filtered.map(v => (
               <VeterinariaCard
                 key={v.id}
+                nombre={v.nombre}
                 direccion={v.direccion}
-                telefono={v.telefono}
+                nit={v.nit}
+                correo={v.correo}
                 veterinarios={v.veterinarios}
                 onEdit={() => openEditVet(v)}
                 onDelete={() => deleteVet(v.id)}
@@ -204,16 +207,24 @@ function AdminPanel() {
               placeholder="Dirección"
             />
           </label>
-          <label>Teléfono
+          <label>NIT
             <input
               type="text"
-              value={editingVet?.telefono || ''}
-              onChange={(e) => setEditingVet(v => ({ ...v, telefono: e.target.value }))}
-              placeholder="3009776778"
+              value={editingVet?.nit || ''}
+              onChange={(e) => setEditingVet(v => ({ ...v, nit: e.target.value }))}
+              placeholder="NIT de la veterinaria"
+            />
+          </label>
+          <label>Correo
+            <input
+              type="email"
+              value={editingVet?.correo || ''}
+              onChange={(e) => setEditingVet(v => ({ ...v, correo: e.target.value }))}
+              placeholder="Correo de la veterinaria"
             />
           </label>
         </div>
-        <div className="modal-actions">
+        <div className="modal-actions" style={{ gap: '24px' }}>
           <button className="btn-secondary" onClick={() => { setOpenVetModal(false); setEditingVet(null); }}>Cancelar</button>
           <button className="btn-primary" onClick={saveVet}>Guardar</button>
         </div>
@@ -257,7 +268,7 @@ function AdminPanel() {
             />
           </label>
         </div>
-        <div className="modal-actions">
+        <div className="modal-actions" style={{ gap: '24px' }}>
           <button className="btn-secondary" onClick={() => { setOpenMedModal(false); setEditingMed(null); setCurrentVetId(null); }}>Cancelar</button>
           <button className="btn-primary" onClick={saveMed}>Guardar</button>
         </div>

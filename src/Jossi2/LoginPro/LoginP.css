@@ -76,6 +76,20 @@ outline: none;
 transition: border-color 0.3s ease;
 }
 
+outline: none;
+transition: border-color 0.3s ease;
+}
+
+.options2 {
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+color: #1F3A94;
+cursor: pointer;
+display: inline-block;
+}
+
 .recover-link {
 color: #00aaff;
 text-decoration: none;

@@ -1,16 +1,17 @@
 import React from "react";
 import "./admin.css";
 
-const VeterinariaCard = ({ direccion, telefono, veterinarios, onEdit, onDelete, onAddVet, onEditVet, onDeleteVet }) => {
+const VeterinariaCard = ({ nombre, direccion, nit, correo, veterinarios, onEdit, onDelete, onAddVet, onEditVet, onDeleteVet }) => {
     return (
       <div className="admin-card-container">
         <div className="admin-card">
           <div className="admin-card-header">
-            <h2 className="admin-card-title-gradient">Veterinaria Central <span className="icon-edit" onClick={onEdit} title="Editar" role="button">✎</span> <span className="icon-delete" onClick={onDelete} title="Eliminar" role="button">X</span></h2>
+            <h2 className="admin-card-title-gradient">{nombre} <span className="icon-edit" onClick={onEdit} title="Editar" role="button">✎</span> <span className="icon-delete" onClick={onDelete} title="Eliminar" role="button">X</span></h2>
           </div>
           <div className="admin-card-body">
             <p><b>Dirección:</b> {direccion}</p>
-            <p><b>Teléfono:</b> {telefono}</p>
+            <p><b>NIT:</b> {nit}</p>
+            <p><b>Correo:</b> {correo}</p>
             <h3>Veterinarios</h3>
             <button className="admin-add-btn" onClick={onAddVet}>+ Agregar</button>
             <div className="admin-vets-list admin-vets-list-scroll">
