@@ -15,6 +15,8 @@ const PerfilMascota = () => {
     especie: "",
     raza: "",
     edad: "",
+    nit: "",
+    correo: "",
     vacunas: "",
     foto: null,
 });
@@ -29,12 +31,12 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.nombre || !formData.especie || !formData.raza || !formData.edad) {
+    if (!formData.nombre || !formData.especie || !formData.raza || !formData.edad || !formData.nit || !formData.correo) {
     alert("Por favor completa los campos obligatorios");
     return;
 }
     setMascotas([...mascotas, { ...formData, id: Date.now() }]);
-    setFormData({ nombre: "", especie: "", raza: "", edad: "", vacunas: "", foto: null });
+    setFormData({ nombre: "", especie: "", raza: "", edad: "", nit: "", correo: "", vacunas: "", foto: null });
 };
 
 const eliminarMascota = (id) => {
@@ -59,10 +61,12 @@ return (
             <option key={raza} value={raza}>{raza}</option>
 ))}
         </select>
-        <input type="number" name="edad" placeholder="Edad" value={formData.edad} onChange={handleChange} required />
-        <input type="text" name="vacunas" placeholder="Vacunas (opcional)" value={formData.vacunas} onChange={handleChange} />
-        <input type="file" name="foto" accept="image/*" onChange={handleChange} />
-        <button type="submit">Agregar Mascota</button>
+    <input type="number" name="edad" placeholder="Edad" value={formData.edad} onChange={handleChange} required />
+    <input type="text" name="nit" placeholder="NIT de la veterinaria" value={formData.nit} onChange={handleChange} required />
+    <input type="email" name="correo" placeholder="Correo de la veterinaria" value={formData.correo} onChange={handleChange} required />
+    <input type="text" name="vacunas" placeholder="Vacunas (opcional)" value={formData.vacunas} onChange={handleChange} />
+    <input type="file" name="foto" accept="image/*" onChange={handleChange} />
+    <button type="submit">Agregar Mascota</button>
         </form>
         <div className="lista-mascotas">
         {mascotas.length === 0 ? (
