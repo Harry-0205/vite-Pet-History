@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Iniciar.css";
-import backgroundImage from "../../assets/imagenes/img10.png";
 import logo from "../../assets/imagenes/logo.png";
 
 function Iniciar() {
@@ -20,14 +19,11 @@ return (
         <div className="input-group">
             <input type="password" id="contrasena" placeholder="Contraseña" />
         </div>
-        <div className="options2">
-            <Link to="/Recuperarcontra" className="recover-link">¿Recuperar contraseña?</Link>
-        </div>
             <button type="button" className="login-button">Iniciar sesión</button>
         </div>
         <div className="help-center">
         <p>Centro de Ayuda</p>
-        <p>Información general en nuestro sitio web <a href="https://Pethistory.co">Pethistory.co</a></p>
+        <p>Información general en nuestro sitio web <a href="http://localhost:5173/">Pethistory</a></p>
     </div>
     </div>
     <div className="right-section">
