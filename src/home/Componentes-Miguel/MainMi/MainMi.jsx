@@ -29,7 +29,7 @@ function MainMi (){
             titulo={"El cuidado de tu mascota,"}
             subtitulo={"conectado"}
             text={"Eficiencia para veterinarios, tranquilidad para dueños."}>
-                <Button href="" type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-ban-button"><h3>Registrate</h3></Button>
+                <Button href="/registro" type="button" class="btn btn-outline-info" className='he-button-pos' id="ma-ban-button"><h3>Registrate</h3></Button>
             </BannerMi>
             <div>
                 <CarruVet imagenes={veterinarias} visible={10.14} imageWidth={150}/>

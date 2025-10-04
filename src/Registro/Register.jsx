@@ -1,28 +1,58 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './register.css';
 import logo from '../assets/imagenes/logo.png';
 import hero from '../assets/imagenes/img_relleno/otroperrito.avif';
+import { obtenerTiposDoc } from '../api/tipoDocApi';
+import { crearUsuario } from '../api/usuariosApi';
+import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Register() {
-  const [form, setForm] = useState({
-    nombres: '',
-    apellido1: '',
-    apellido2: '',
-    email: '',
-    telefono: '',
-    direccion: '',
-    fechaNacimiento: '',
-    tipoDocumento: '',
-    documento: '',
-    password: '',
-    showTipoDoc: false,
+   const handledCrearUsuario = async () => {
+      try {
+      await crearUsuario(formData);
+      alert(" Usuario creado exitosamente");
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert(" Error al crear el usuario");
+    }
+  };
+  const [formData, setFormData] = useState({
+    numDoc: "",
+    nombre: "",
+    apeUno: "",
+    apeDos: "",
+    telefono: "",
+    numContra: "",
+    direccion: "",
+    fechaNac: "",
+    tipdoc: "",
+    nomTipoDoc: "",
+    correo: "",
+    passw: "",
   });
+
+  const [tiposDoc, setTiposDoc] = useState([]);
   const [remember, setRemember] = useState(false);
+
+  useEffect(() => {
+    const cargarTiposDoc = async () => {
+      try {
+        const tipos = await obtenerTiposDoc();
+        setTiposDoc(tipos);
+      } catch (error) {
+        console.error("Error al cargar tipos de documento:", error);
+      }
+    };
+    cargarTiposDoc();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+ 
 
   return (
     <div className="register-split">
@@ -33,69 +63,63 @@ function Register() {
         <header className="auth-header">
           <h1 className="register-title">Crear cuenta</h1>
         </header>
-        <form className="register-form" >
+
+        <form className="register-form" action={handledCrearUsuario}>
+          {/* numDoc */}
+          <div className="form-group">
+            <label htmlFor="numDoc">Número de documento</label>
+            <input
+              id="numDoc"
+              name="numDoc"
+              type='number'
+              value={formData.numDoc}
+              onChange={handleChange}
+              placeholder="Número de documento"
+              pattern="^[0-9]{5,20}$"
+              title="Solo números"
+              required
+            />
+          </div>
+
+          {/* nombre y apeUno */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="nombres">Nombres</label>
+              <label htmlFor="nombre">Nombres</label>
               <input
-                id="nombres"
-                name="nombres"
-                type="text"
-                value={form.nombres}
+                id="nombre"
+                name="nombre"
+                type='text'
+                value={formData.nombre}
                 onChange={handleChange}
                 placeholder="Juan Carlos"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="apellido1">Primer Apellido</label>
+              <label htmlFor="apeUno">Primer Apellido</label>
               <input
-                id="apellido1"
-                name="apellido1"
-                type="text"
-                value={form.apellido1}
+                id="apeUno"
+                name="apeUno"
+                type='text'
+                value={formData.apeUno}
                 onChange={handleChange}
                 placeholder="Pérez"
                 required
               />
             </div>
           </div>
+
+          {/* apeDos y telefono */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="apellido2">Segundo Apellido</label>
+              <label htmlFor="apeDos">Segundo Apellido</label>
               <input
-                id="apellido2"
-                name="apellido2"
-                type="text"
-                value={form.apellido2}
+                id="apeDos"
+                name="apeDos"
+                type='text'
+                value={formData.apeDos}
                 onChange={handleChange}
                 placeholder="López"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="direccion">Dirección</label>
-              <input
-                id="direccion"
-                name="direccion"
-                type="text"
-                value={form.direccion}
-                onChange={handleChange}
-                placeholder="Calle 123 #45-67"
-                required
-              />
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="fechaNacimiento">Fecha de nacimiento</label>
-              <input
-                id="fechaNacimiento"
-                name="fechaNacimiento"
-                type="date"
-                value={form.fechaNacimiento}
-                onChange={handleChange}
-                required
               />
             </div>
             <div className="form-group">
@@ -103,96 +127,92 @@ function Register() {
               <input
                 id="telefono"
                 name="telefono"
-                type="tel"
-                value={form.telefono}
+                type='number'
+                value={formData.telefono}
                 onChange={handleChange}
                 placeholder="3009776779"
-                pattern="^[0-9+\-\s()]{7,}$"
-                title="Ingresa un teléfono válido"
                 required
               />
             </div>
           </div>
-          <div className="form-row">
-            <div className="form-group" style={{ position: 'relative' }}>
-              <label htmlFor="tipoDocumento">Tipo de documento</label>
-              <button
-                type="button"
-                className="dropdown-btn"
-                style={{
-                  width: '100%',
-                  padding: '12px 14px',
-                  border: '1.5px solid #a1e0f3',
-                  borderRadius: '12px',
-                  background: '#fff',
-                  textAlign: 'left',
-                  fontSize: '14px',
-                  cursor: 'pointer',
-                  marginBottom: '0',
-                }}
-                onClick={() => setForm(f => ({ ...f, showTipoDoc: !f.showTipoDoc }))}
-              >
-                {form.tipoDocumento === 'cedula_extranjeria' ? 'Cédula de extranjería' : form.tipoDocumento === 'cedula_ciudadania' ? 'Cédula de ciudadanía' : 'Selecciona tipo'}
-                <span style={{ float: 'right' }}>▼</span>
-              </button>
-              {form.showTipoDoc && (
-                <div style={{
-                  position: 'absolute',
-                  top: '100%',
-                  left: 0,
-                  width: '100%',
-                  background: '#fff',
-                  border: '1.5px solid #a1e0f3',
-                  borderRadius: '0 0 12px 12px',
-                  zIndex: 10,
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
-                }}>
-                  <div style={{ padding: '10px', cursor: 'pointer' }}
-                    onClick={() => setForm(f => ({ ...f, tipoDocumento: 'cedula_extranjeria', showTipoDoc: false }))}>
-                    Cédula de extranjería
-                  </div>
-                  <div style={{ padding: '10px', cursor: 'pointer' }}
-                    onClick={() => setForm(f => ({ ...f, tipoDocumento: 'cedula_ciudadania', showTipoDoc: false }))}>
-                    Cédula de ciudadanía
-                  </div>
-                </div>
-              )}
-            </div>
+
             <div className="form-group">
-              <label htmlFor="documento">Número de documento</label>
+              <label htmlFor="direccion">Dirección</label>
               <input
-                id="documento"
-                name="documento"
-                type="text"
-                value={form.documento}
+                id="direccion"
+                name="direccion"
+                type='text'
+                value={formData.direccion}
                 onChange={handleChange}
-                placeholder="Número de documento"
-                pattern="^[0-9]{5,20}$"
-                title="Solo números"
+                placeholder="Calle 123 #45-67"
                 required
               />
             </div>
-          </div>
+          
+
+          {/* fechaNac y tipo doc */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="email">Correo electrónico</label>
+              <label htmlFor="fechaNac">Fecha de nacimiento</label>
               <input
-                id="email"
-                name="email"
+                id="fechaNac"
+                name="fechaNac"
+                type="date"
+                value={formData.fechaNac}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="tipdoc">Tipo de documento</label>
+              <Form.Select
+                name="tipdoc"
+                value={formData.tipdoc}
+                onChange={(e) => {
+                  const idSeleccionado = parseInt(e.target.value);
+                  const tipoSeleccionado = tiposDoc.find(
+                    (t) => t.idTipo === idSeleccionado
+                  );
+                  setFormData((f) => ({
+                    ...f,
+                    tipdoc: idSeleccionado,
+                    nomTipoDoc: tipoSeleccionado?.nomTipoDoc || "",
+                  }));
+                }}
+                required
+                className="form-select mb-2"
+              >
+                <option value="">Seleccione un tipo</option>
+                {tiposDoc.map((tipo) => (
+                  <option key={tipo.idTipo} value={tipo.idTipo}>
+                    {tipo.tipoDoc} - {tipo.nomTipoDoc}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
+          </div>
+
+          {/* correo y passw */}
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="correo">Correo electrónico</label>
+              <input
+                id="correo"
+                name="correo"
                 type="email"
-                value={form.email}
+                value={formData.correo}
                 onChange={handleChange}
                 placeholder="correo@ejemplo.com"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="passw">Contraseña</label>
               <input
-                id="password"
-                name="password"
-                type="password"
-                value={form.password}
+                id="passw"
+                name="passw"
+                type='password'
+                value={formData.passw}
                 onChange={handleChange}
                 placeholder="Mínimo 6 caracteres"
                 minLength={6}
@@ -200,6 +220,8 @@ function Register() {
               />
             </div>
           </div>
+
+          {/* remember me */}
           <div className="form-extra">
             <label className="remember">
               <input
@@ -210,10 +232,17 @@ function Register() {
               Recordarme
             </label>
           </div>
+
+          {/* botón */}
           <div className="actions">
-            <button type="submit" className="btn-primary-gradient">Registrarme</button>
+            <Link to="/Usuario/Perfil">
+              <button type="submit" className="btn-primary-gradient">
+                Registrarme
+              </button>
+            </Link>
           </div>
         </form>
+
         <footer className="auth-footer">
           <p className="muted">
             Información general en nuestro sitio web
@@ -221,17 +250,20 @@ function Register() {
           </p>
         </footer>
       </aside>
+
       <section className="register-right">
         <img src={hero} alt="Veterinaria" className="hero-img" />
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h2>El mejor software veterinario</h2>
-          <p>Cuidado inteligente para tu mascota, eficiencia para veterinarios, tranquilidad para dueños.</p>
+          <p>
+            Cuidado inteligente para tu mascota, eficiencia para veterinarios,
+            tranquilidad para dueños.
+          </p>
         </div>
       </section>
     </div>
   );
-
 }
 
 export default Register;
