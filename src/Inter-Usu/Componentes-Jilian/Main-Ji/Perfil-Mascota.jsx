@@ -21,7 +21,6 @@ const PerfilMascota = () => {
   });
   const [mostrarFormulario, setMostrarFormulario] = useState(true);
 
-  // Referencia al contenedor de las tarjetas para centrar scroll
   const listaRef = useRef(null);
 
   const handleChange = (e) => {
@@ -48,11 +47,9 @@ const PerfilMascota = () => {
     setMascotas((prev) => prev.filter((m) => m.id !== id));
   };
 
-  // Cada vez que cambian las mascotas, centramos el scroll horizontal y vertical
   useEffect(() => {
     if (listaRef.current) {
       const container = listaRef.current;
-      // Scroll para centrar vertical y horizontalmente
       container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
       container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
     }

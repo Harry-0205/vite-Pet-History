@@ -190,9 +190,9 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-content: flex-start;
   gap: 30px;
-  padding: 0;
+  padding: 20px;
   margin: 0;
   overflow: auto;
 }
@@ -257,72 +257,153 @@ section {
 }
 
 /* HistoriaClinica */
-.historia-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 25px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.historia-clinica-wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.historia-header {
+.historia-header-nueva {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.card-mascota-nueva {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 50px 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  width: 480px;
+  height: 590px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 15px;
+}
+
+.titulo-historia-nueva {
+  font-size: 2.4rem;
+  color: #153372;
+  font-weight: 700;
+  border-left: 6px solid #2bc6a0;
+  padding-left: 15px;
+  margin-left: -0;
+}
+
+.card-mascota-nueva {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 50px 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  width: 480px;
+  height: 590px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto-mascota-nueva {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #2bc6a0;
+  margin-bottom: 30px;
+}
+
+.nombre-mascota {
+  color: #153372;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-vermas-nuevo {
+  background: linear-gradient(135deg, #2bc6a0, #55b5c2);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-vermas-nuevo:hover {
+  background: linear-gradient(135deg, #239b82, #3ea4b1);
+  transform: translateY(-2px);
+}
+
+.modal-fondo-nuevo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido-nuevo {
+  background: white;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-contenido-nuevo h2 {
+  color: #153372;
   margin-bottom: 20px;
 }
 
-.historia-header h2 {
-  color: #153372;
-  font-size: 1.8rem;
+.seccion-historia {
+  margin-bottom: 30px;
 }
 
-.historia-info p {
-  margin: 4px 0;
-  color: #444;
-  font-size: 0.95rem;
-}
-
-.historia-body {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.historia-reporte,
-.historia-procedimientos {
-  background: #f9fafb;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
-
-.historia-reporte h3,
-.historia-procedimientos h3 {
+.seccion-historia h3 {
   color: #2bc6a0;
-  margin-bottom: 12px;
-  font-size: 1.2rem;
-}
-
-.historia-reporte p {
   margin-bottom: 10px;
-  color: #333;
-  line-height: 1.5;
 }
 
-.historia-procedimientos ul {
-  list-style: disc;
-  padding-left: 25px;
+.seccion-historia p {
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.seccion-historia ul {
+  padding-left: 20px;
   color: #444;
 }
 
-.historia-procedimientos li {
+.seccion-historia li {
   margin-bottom: 8px;
-  font-size: 0.95rem;
+}
+
+.btn-cerrar-modal {
+  background: #153372;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cerrar-modal:hover {
+  background: #0f2554;
 }
 
 /* InformacionCita */
@@ -434,4 +515,111 @@ section {
 .btn-toggle-formulario:hover {
   background: linear-gradient(135deg, #239b82, #3ea4b1);
   transform: translateY(-2px);
+}
+
+.btn-ver-mas {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #0077b6;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+  background-color: #023e8a;
+}
+
+.detalles-cita {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f1f9ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: left;
+  width: 100%;
+}
+
+.botones-acciones {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-agendar-otra {
+  background: linear-gradient(135deg, #2bc6a0, #55b5c2);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-agendar-otra:hover {
+  background: linear-gradient(135deg, #239b82, #3ea4b1);
+  transform: translateY(-2px);
+}
+
+.btn-eliminar {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+  background: #c1121f;
+  transform: translateY(-2px);
+}
+
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.form-cita label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-cita input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-botones {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 15px;
 }
