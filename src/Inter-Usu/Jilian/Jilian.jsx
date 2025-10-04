@@ -4,6 +4,8 @@ import HeaderJi from "../Componentes-Jilian/Header-Ji/Header-Ji"
 import PerfilMascota from "../Componentes-Jilian/Main-Ji/Perfil-Mascota"
 import HistoriaClinica from "../Componentes-Jilian/Main-Ji/Historia-Clinica"
 import InformacionCita from "../Componentes-Jilian/Main-Ji/Informacion-Cita"
+import PerfilUsuario from "../Componentes-Jilian/Main-Ji/PerfilUsuario"
+
 
 
 
@@ -13,8 +15,9 @@ function Jilian (){
         <HeaderJi></HeaderJi>
         <Routes>
             <Route path="/perfil" element={<PerfilMascota/>} />
-            <Route path="/historia"element={<HistoriaClinica/>}/>
             <Route path="/informacion"element={<InformacionCita/>}/>
+            <Route path="/historia"element={<HistoriaClinica/>}/>
+            <Route path="/usuario"element={<PerfilUsuario/>}/>
         </Routes>
         <FooterMi></FooterMi>
         </>
