@@ -1,32 +1,53 @@
-import { useState } from 'react';
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import Veteri from '../../../assets/imagenes/Veteri.png'
-import Veteri2 from '../../../assets/imagenes/Veteri2.png'
+import { useEffect, useState } from 'react';
 
-function CarruVet() {
 
-    const datos = [{iconsRef: Veteri, Titulo: 'Veterinaria Rosa', texto: "Somos una veterina especializada en procedimietnos como esterilizacion, endoscopia y mas. Nos ubicamos en: Carrera 8 #987e12sur. Te esperamos" }
-        ,{iconsRef: Veteri2, Titulo: 'Veterinaria Max', texto: "Somos una veterina especializada en procedimietnos como esterilizacion, endoscopia y mas. Nos ubicamos en: Carrera 5 #123a45bis. Te esperamos" }]
 
-  const [Index, setIndex] = useState(0);
-  const siguiente =()=>{
-    setIndex((prev) => (prev + 1 ) % datos.length)
-  }
-   const anterior =()=>{
-    setIndex((prev) => (prev - 1 + datos.length) % datos.length)
-  }
+function CarruVet({ imagenes = [], visible = 10.14, imageWidth = 150 }) {
+
+  const total = imagenes.length;
+  const [index, setIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleTransitionEnd = () => {
+    if (index === total) {
+      // Paso 1: quitar transición y saltar al inicio
+      setIsTransitioning(false);
+      setIndex(0);
+      // Paso 2: esperar 2 frames para reactivar transición
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsTransitioning(true);
+        });
+      });
+    }
+  };
+  
   return (
-    
-    <div className='CarruEst'>
-        <button onClick={anterior} className='BOTONES'><BsArrowLeft /></button>
-        <div className='organizacion' id='organizacion1'>
-            <img src= {datos[Index].iconsRef} alt="" className='carrusel'/>
-            <h3>{datos[Index].Titulo}</h3>
-            <p>{datos[Index].texto}</p>
-        </div>
-        <button onClick={siguiente} className='BOTONES' id='orga' ><BsArrowRight /></button>
+    <div
+      className="ma-cuerpo-carru"
+      style={{ width: `${imageWidth * visible}px` }}
+    >
+      <div
+        className="cuerpo-carru-dentro"
+        style={{
+          transform: `translateX(-${index * imageWidth}px)`,
+          transition: isTransitioning ? "transform 0.5s ease-in-out" : "none",
+        }}
+        onTransitionEnd={handleTransitionEnd}
+      >
+        {[...imagenes, ...imagenes].map((src, i) => (
+          <img key={i} src={src} alt={`logo-${i}`} />
+        ))}
+      </div>
     </div>
-    
   );
 }
+
 export default CarruVet;

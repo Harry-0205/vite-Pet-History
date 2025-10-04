@@ -1,25 +1,36 @@
 import { Route, Routes } from 'react-router-dom'
-import Jilian from './Inter-Usu/Jillian-App/Jilian'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Miguel from './home/Miguel/Miguel'
-import Carlos from './Inter-pro/Carlos apps/Carlos.jsx';
-import Registro from "./registro/Pages/Registro";
-import Login from './Iniciarsesion/Componentesjossi/Login';
-import Admin from './Inter-Admin/Admin/Admin';
+import Jossimar from './Jossimar/IniciarUsu/Iniciar'
+import Jossi2 from './Jossi2/LoginPro/LoginP'
+import Register from './Registro/Register'
+import AdminPanel from './admin/AdminPanel'
 import '../src/App.css'
+import Jilian from './Inter-Usu/Jilian/Jilian';
+import Carlos from './InterProCaliche/Rutas/Carlos';
+import Perfil from './InterProCaliche/Componentes/Perfil';
+
+
+
 
 
 function App() {
 
   return (
-        <Routes>
-          <Route path='/' element={<Miguel/>} />
-          <Route path='/Admin/*' element={<Admin/>} />
-          <Route path='/iniciar' element={<Login/>} />
-          <Route path='/Usu/*' element={<Jilian/>} />
-          <Route path='/Pro/*' element={<Carlos/>} />
-          <Route path='/registro' element={<Registro/>}/>
-        </Routes>
+        <>
+          <Routes>
+            <Route path='/*' element={<Miguel/>} />
+            <Route path='/usuario*' element={<Jilian/>} />
+            <Route path='/registro' element={<Register />} />
+            <Route path='/admin' element={<AdminPanel />} />
+            <Route path='/LoginU' element={<Jossimar/>} />
+            <Route path='/LoginP' element={<Jossi2/>} />
+            <Route path='/Profesional*' element={<Carlos/>} />
+
+
+
+          </Routes>
+        </>
   )
 }
 
