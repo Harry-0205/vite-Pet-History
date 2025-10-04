@@ -13,8 +13,8 @@ function Jilian (){
         <HeaderJi></HeaderJi>
         <Routes>
             <Route path="/perfil" element={<PerfilMascota/>} />
-            <Route path="/historia"element={<HistoriaClinica/>}/>
             <Route path="/informacion"element={<InformacionCita/>}/>
+            <Route path="/historia"element={<HistoriaClinica/>}/>
         </Routes>
         <FooterMi></FooterMi>
         </>
