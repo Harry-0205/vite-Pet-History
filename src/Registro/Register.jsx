@@ -1,30 +1,58 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './register.css';
 import logo from '../assets/imagenes/logo.png';
-import hero from '../assets/imagenes/img_relleno/servicio.jpg';
+import hero from '../assets/imagenes/img_relleno/otroperrito.avif';
+import { obtenerTiposDoc } from '../api/tipoDocApi';
+import { crearUsuario } from '../api/usuariosApi';
+import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Register() {
-  const [form, setForm] = useState({
-    nombres: '',
-    apellidos: '',
-    email: '',
-    telefono: '',
-    cedula: '',
-    password: '',
+   const handledCrearUsuario = async () => {
+      try {
+      await crearUsuario(formData);
+      alert(" Usuario creado exitosamente");
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert(" Error al crear el usuario");
+    }
+  };
+  const [formData, setFormData] = useState({
+    numDoc: "",
+    nombre: "",
+    apeUno: "",
+    apeDos: "",
+    telefono: "",
+    numContra: "",
+    direccion: "",
+    fechaNac: "",
+    tipdoc: "",
+    nomTipoDoc: "",
+    correo: "",
+    passw: "",
   });
+
+  const [tiposDoc, setTiposDoc] = useState([]);
   const [remember, setRemember] = useState(false);
+
+  useEffect(() => {
+    const cargarTiposDoc = async () => {
+      try {
+        const tipos = await obtenerTiposDoc();
+        setTiposDoc(tipos);
+      } catch (error) {
+        console.error("Error al cargar tipos de documento:", error);
+      }
+    };
+    cargarTiposDoc();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Registro enviado: ' + JSON.stringify({ ...form, remember }, null, 2));
-    setForm({ nombres: '', apellidos: '', email: '', telefono: '', cedula: '', password: '' });
-    setRemember(false);
-  };
+ 
 
   return (
     <div className="register-split">
@@ -32,51 +60,66 @@ function Register() {
         <div className="auth-brand">
           <img src={logo} alt="PetHistory" className="brand-logo" />
         </div>
-
         <header className="auth-header">
           <h1 className="register-title">Crear cuenta</h1>
-          <p className="register-sub"></p>
         </header>
 
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form className="register-form" action={handledCrearUsuario}>
+          {/* numDoc */}
+          <div className="form-group">
+            <label htmlFor="numDoc">Número de documento</label>
+            <input
+              id="numDoc"
+              name="numDoc"
+              type='number'
+              value={formData.numDoc}
+              onChange={handleChange}
+              placeholder="Número de documento"
+              pattern="^[0-9]{5,20}$"
+              title="Solo números"
+              required
+            />
+          </div>
+
+          {/* nombre y apeUno */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="nombres">Nombres</label>
+              <label htmlFor="nombre">Nombres</label>
               <input
-                id="nombres"
-                name="nombres"
-                type="text"
-                value={form.nombres}
+                id="nombre"
+                name="nombre"
+                type='text'
+                value={formData.nombre}
                 onChange={handleChange}
                 placeholder="Juan Carlos"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="apellidos">Apellidos</label>
+              <label htmlFor="apeUno">Primer Apellido</label>
               <input
-                id="apellidos"
-                name="apellidos"
-                type="text"
-                value={form.apellidos}
+                id="apeUno"
+                name="apeUno"
+                type='text'
+                value={formData.apeUno}
                 onChange={handleChange}
-                placeholder="Pérez López"
+                placeholder="Pérez"
                 required
               />
             </div>
           </div>
 
+          {/* apeDos y telefono */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="email">Correo electrónico</label>
+              <label htmlFor="apeDos">Segundo Apellido</label>
               <input
-                id="email"
-                name="email"
-                type="email"
-                value={form.email}
+                id="apeDos"
+                name="apeDos"
+                type='text'
+                value={formData.apeDos}
                 onChange={handleChange}
-                placeholder="correo@ejemplo.com"
-                required
+                placeholder="López"
               />
             </div>
             <div className="form-group">
@@ -84,39 +127,92 @@ function Register() {
               <input
                 id="telefono"
                 name="telefono"
-                type="tel"
-                value={form.telefono}
+                type='number'
+                value={formData.telefono}
                 onChange={handleChange}
                 placeholder="3009776779"
-                pattern="^[0-9+\-\s()]{7,}$"
-                title="Ingresa un teléfono válido"
                 required
               />
             </div>
           </div>
 
+            <div className="form-group">
+              <label htmlFor="direccion">Dirección</label>
+              <input
+                id="direccion"
+                name="direccion"
+                type='text'
+                value={formData.direccion}
+                onChange={handleChange}
+                placeholder="Calle 123 #45-67"
+                required
+              />
+            </div>
+          
+
+          {/* fechaNac y tipo doc */}
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="cedula">Cédula</label>
+              <label htmlFor="fechaNac">Fecha de nacimiento</label>
               <input
-                id="cedula"
-                name="cedula"
-                type="text"
-                value={form.cedula}
+                id="fechaNac"
+                name="fechaNac"
+                type="date"
+                value={formData.fechaNac}
                 onChange={handleChange}
-                placeholder="1052570617"
-                pattern="^[0-9]{5,20}$"
-                title="Solo números"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="tipdoc">Tipo de documento</label>
+              <Form.Select
+                name="tipdoc"
+                value={formData.tipdoc}
+                onChange={(e) => {
+                  const idSeleccionado = parseInt(e.target.value);
+                  const tipoSeleccionado = tiposDoc.find(
+                    (t) => t.idTipo === idSeleccionado
+                  );
+                  setFormData((f) => ({
+                    ...f,
+                    tipdoc: idSeleccionado,
+                    nomTipoDoc: tipoSeleccionado?.nomTipoDoc || "",
+                  }));
+                }}
+                required
+                className="form-select mb-2"
+              >
+                <option value="">Seleccione un tipo</option>
+                {tiposDoc.map((tipo) => (
+                  <option key={tipo.idTipo} value={tipo.idTipo}>
+                    {tipo.tipoDoc} - {tipo.nomTipoDoc}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
+          </div>
+
+          {/* correo y passw */}
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="correo">Correo electrónico</label>
               <input
-                id="password"
-                name="password"
-                type="password"
-                value={form.password}
+                id="correo"
+                name="correo"
+                type="email"
+                value={formData.correo}
+                onChange={handleChange}
+                placeholder="correo@ejemplo.com"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="passw">Contraseña</label>
+              <input
+                id="passw"
+                name="passw"
+                type='password'
+                value={formData.passw}
                 onChange={handleChange}
                 placeholder="Mínimo 6 caracteres"
                 minLength={6}
@@ -125,6 +221,7 @@ function Register() {
             </div>
           </div>
 
+          {/* remember me */}
           <div className="form-extra">
             <label className="remember">
               <input
@@ -134,10 +231,15 @@ function Register() {
               />
               Recordarme
             </label>
-                      </div>
+          </div>
 
+          {/* botón */}
           <div className="actions">
-            <button type="submit" className="btn-primary-gradient">Registrarme</button>
+            <Link to="/Usuario/Perfil">
+              <button type="submit" className="btn-primary-gradient">
+                Registrarme
+              </button>
+            </Link>
           </div>
         </form>
 
@@ -154,7 +256,10 @@ function Register() {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h2>El mejor software veterinario</h2>
-          <p>Cuidado inteligente para tu mascota, eficiencia para veterinarios, tranquilidad para dueños.</p>
+          <p>
+            Cuidado inteligente para tu mascota, eficiencia para veterinarios,
+            tranquilidad para dueños.
+          </p>
         </div>
       </section>
     </div>

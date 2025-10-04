@@ -16,6 +16,8 @@ const PerfilMascota = () => {
     especie: "",
     raza: "",
     edad: "",
+    nit: "",
+    correo: "",
     vacunas: "",
     foto: null,
   });
@@ -33,6 +35,7 @@ const PerfilMascota = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!formData.nombre || !formData.especie || !formData.raza || !formData.edad) {
       alert("Por favor completa los campos obligatorios");
       return;
@@ -59,6 +62,7 @@ const PerfilMascota = () => {
     <div className="pantalla-completa">
       <div className="mascotas-container">
         <h2>Gestión de Mascotas</h2>
+
 
         {!mostrarFormulario && (
           <button className="btn-toggle-formulario" onClick={() => setMostrarFormulario(true)}>
