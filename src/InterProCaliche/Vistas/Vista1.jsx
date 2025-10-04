@@ -1,4 +1,6 @@
 import FooterMi from "../../home/Componentes-Miguel/FooterMi/FooterMi"
+import ClinicalRecordManager from "../Componentes/ClinicalRecordManager"
+
 import HeaderCali from "../Componentes/Headercali"
 
 function Vista1 (){
@@ -8,7 +10,9 @@ function Vista1 (){
         <HeaderCali></HeaderCali>
         </div>
         
-        <div></div>
+        <div>
+            <ClinicalRecordManager></ClinicalRecordManager>
+        </div>
         
         
         

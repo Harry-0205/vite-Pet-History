@@ -58,3 +58,479 @@
   background: linear-gradient(135deg, #153372, #1d4e89);
   color: white;
 }
+.clinical-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.banner {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.banner.busqueda .campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.banner input {
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  width: 220px;
+}
+
+.btn {
+  background: #006699;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #004466;
+}
+
+.formulario {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.formulario .fila {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.formulario label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #003366;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+.resultados {
+  background: #fdfdfd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.resultados h3 {
+  margin-bottom: 10px;
+  color: #003366;
+}
+
+.resultados .card {
+  background: #eef6fb;
+  border: 1px solid #cce0ee;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+/* Estilos para agendar citas */
+
+.historial-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0a2a5a;
+}
+
+.lista-mascotas {
+  display: grid;
+  gap: 15px;
+}
+
+.tarjeta-mascota {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.tarjeta-mascota:hover {
+  box-shadow: 0 4px 15px rgba(103, 193, 217, 0.6); /* sombra azul clara */
+  border-color: #67c1d9; /* refuerzo del borde en azul */
+}
+
+
+.tarjeta-mascota.activa {
+  background: #f0f9fb;
+  border: 1px solid #67c1d9;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nombre {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a2a5a;
+}
+
+.fecha {
+  font-size: 14px;
+  color: #888;
+}
+
+.especie {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.detalles {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+.boton-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.boton-vermas {
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #1dbf73, #0a2a5a);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.boton-vermas:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+/* Citassssssss
+ */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtros input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.no-citas {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+}
+
+.citas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.cita-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,123,255,0.3);
+}
+
+.cita-card.proxima {
+  border: 2px solid #007bff;
+}
+
+.cita-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.icon-mascota {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.cita-card h3 {
+  margin: 0;
+  color: #007bff;
+}
+
+.cita-info p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.cita-botones {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.cita-botones button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.cita-botones button:hover {
+  opacity: 0.85;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.cerrar-modal {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cerrar-modal:hover {
+  opacity: 0.85;
+}
+/* perfil del profesional */
+.up-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+  background-color: #fdfdfd;
+  font-family: Arial, sans-serif;
+}
+
+.up-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Imagen de perfil */
+.up-image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.up-image-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #00aaff;
+  margin-bottom: 10px;
+}
+
+.up-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.up-image-input {
+  cursor: pointer;
+}
+
+/* Mensaje de sin cambios */
+.up-no-changes {
+  text-align: center;
+  color: #888;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Campos */
+.up-form .up-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.up-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.up-form span {
+  padding: 8px 12px;
+  background-color: #eee;
+  border-radius: 6px;
+}
+
+.up-form input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.up-form input:focus {
+  border-color: #00aaff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,170,255,0.5);
+}
+
+/* Botón */
+.up-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00aaff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+.up-button:hover:enabled {
+  background-color: #0088cc;
+}
+
+.up-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsividad */
+@media (max-width: 500px) {
+  .up-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .up-profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}

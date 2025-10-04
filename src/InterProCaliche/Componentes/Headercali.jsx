@@ -2,6 +2,8 @@ import { useState } from "react";
 import "../Estilos/Estilitos.css";
 import logo from "../../assets/imagenes/logo.png"
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 
 const HeaderCali = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,9 +20,10 @@ const HeaderCali = () => {
         </button>
         {menuOpen && (
           <div className="menu-dropdown">
-            <a href>Pacientes</a>
-            <a href>Información Cita</a>
-            <a href>Historia Clínica</a>
+            <a href={"/Profesional/Pacientes"}>Pacientes</a>
+            <a href={"/Profesional/Citas"}>Información Cita</a>
+            <a href={"/Profesional/Historia"}>Historia Clínica</a>
+          
           </div>
         )}
       </div>
@@ -30,8 +33,9 @@ const HeaderCali = () => {
       </div>
 
       <div className="nav-buttons">
-        <button className="btn perfil">Perfil</button>
-        <button className="btn salir">Salir</button>
+        <Link to="/Profesional/Miperfil" className="btn perfil">Mi Perfil</Link>
+        <button  className="btn salir" >Salir</button>
+        
       </div>
     </header>
   );
