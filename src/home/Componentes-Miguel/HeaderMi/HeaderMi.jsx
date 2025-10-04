@@ -16,7 +16,9 @@ function HeaderMi (){
                     <Link to={'/registro'}>
                         <button type="button" className='he-button-pos'><h6>Registrate</h6></button>
                     </Link>
-                    <button type="button" className='he-button-pos' id='he-button-sep'><h6>Iniciar sesion</h6></button>
+                    <Link to={'/loginU'}>
+                        <button type="button" className='he-button-pos' id='he-button-sep'><h6>Iniciar sesion</h6></button>
+                    </Link>
                 </div>
             </div>
         </header>
