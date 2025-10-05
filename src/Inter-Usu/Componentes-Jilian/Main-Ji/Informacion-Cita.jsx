@@ -1,171 +1,241 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Jillian-App/Estilos.css";
+import { crearAgendamiento, obtenerCitas, obtenerProcedimientos } from "../../../api/agendamientoApi";
+import { obtenerVeterinariaId } from "../../../api/veterinariasApi";
+import { obtenerMascotas } from "../../../api/mascotasApi";
+
 
 const InformacionCita = () => {
-    const [mascotas, setMascotas] = useState([
-    {
-        id: 1,
-        nombre: "Chanda",
-        especie: "Canino",
-        raza: "Pastor Alemán",
-        edad: "1 año",
-        vacunas: "Ninguna",
-        foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9hiO_ZFhEH7gSrb_Sar4jH_lqDYDDi_OpjA&s",
-        cita: null,
-    },
-    {
-        id: 2,
-        nombre: "Luna",
-        especie: "Felino",
-        raza: "Birmano",
-        edad: "4 años",
-        vacunas: "Rabia, Vacuna contra FeLV",
-        foto: "https://nfnatcane.es/blog/wp-content/uploads/2020/02/gato-birmano.jpg",
-        cita: {
-        fecha: "2025-10-10",
-        hora: "09:00",
-        motivo: "Vacunación",
-},
-},
-]);
-
-    const [mostrarDetalles, setMostrarDetalles] = useState(null);
-    const [mascotaSeleccionada, setMascotaSeleccionada] = useState(null);
-    const [formData, setFormData] = useState({ fecha: "", hora: "", motivo: "" });
-    const [mostrarModal, setMostrarModal] = useState(false);
-
-const abrirModal = (mascota) => {
-    setMascotaSeleccionada(mascota);
-    setFormData({ fecha: "", hora: "", motivo: "" });
-    setMostrarModal(true);
-};
-
-const guardarCita = (e) => {
+  const handleCrearAgendamiento = async (e) => {
     e.preventDefault();
-    setMascotas((prev) =>
-    prev.map((m) =>
-        m.id === mascotaSeleccionada.id
-        ? { ...m, cita: { ...formData } }
-        : m
-    )
-);
-    setMostrarModal(false);
-};
+    try {
+    const nuevaCita = await crearAgendamiento(formData);
 
-const eliminarCita = (id) => {
-    setMascotas((prev) =>
-    prev.map((m) => (m.id === id ? { ...m, cita: null } : m))
+
+        setMascotas((prev) =>
+        prev.map((m) =>
+            m.idMasc === formData.idMascota
+            ? { ...m, cita: nuevaCita }
+            : m
+        )
+        );
+        alert("Cita asignada correctamente");
+        setMostrarModal(false);
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert("Error al asignar cita");
+    }
+  };
+
+
+  const [mostrarDetalles, setMostrarDetalles] = useState(null);
+  const [mascotaSeleccionada, setMascotaSeleccionada] = useState(null);
+
+    const [mascotas, setMascotas] = useState([]); // antes "paciente"
+    const [procedimiento, setProcedimiento] = useState([]);
+    const [veterinaria, setVeterinaria] = useState(null);
+
+  const [formData, setFormData] = useState({ fecAg: Date.now(),fecAsi: "",idMascota:"", idProcedimientos: "", idVeterinarias: "" });
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+  const [agenda, setAgenda] = useState([
+    {
+      fecAg: Date.now(),
+      fecAsi: "",
+      idMascota: "",
+      nomMasc: "",
+      idProcedimientos: "",
+      procedimientos: "",
+      idVeterinarias: "",
+      nomVet: ""
+    }
+  ]);
+
+  useEffect(() => {
+    const cargarDatos = async () => {
+    try {
+        const [proceData, veteriData, mascData, citasData] = await Promise.all([
+            obtenerProcedimientos(),
+            obtenerVeterinariaId(1),
+            obtenerMascotas(),
+            obtenerCitas(), // 👈 ahora también traemos las citas
+        ]);
+
+        // 🔗 Unir cada mascota con su cita
+        const mascotasConCitas = mascData.map((m) => {
+            const citas = citasData.filter((c) => c.idMascota === m.idMasc);
+            return { ...m, citas };
+        });
+
+        setMascotas(mascotasConCitas);
+        setVeterinaria(veteriData);
+        setProcedimiento(proceData);
+        } catch (error) {
+        console.error("Error al cargar la data:", error);
+        }
+    };
+    cargarDatos();
+  }, []);
+
+  const abrirModal = (agenda) => {
+    setMascotaSeleccionada(agenda);
+    setFormData({ fecAsi: "", nomMasc: "", procedimientos: "", nomVet: "" });
+    setMostrarModal(true);
+  };
+
+  const eliminarCita = (idMascota) => {
+    setAgenda((prev) =>
+      prev.map((m) => (m.idMascota === idMascota ? { ...m, cita: null } : m))
     );
     setMostrarDetalles(null);
-};
+  };
 
-return (
+  return (
     <div className="pantalla-completa">
-        <div className="mascotas-container">
+      <div className="mascotas-container">
         <h2 className="titulo-cita">📅 Gestión de Citas</h2>
 
         <div className="lista-mascotas">
-            {mascotas.map((mascota) => (
-            <div className="mascota-card" key={mascota.id}>
-                <img
-                src={mascota.foto}
-                alt={mascota.nombre}
-                className="foto-mascota"
-                />
-                <h3>{mascota.nombre}</h3>
-                <p><strong>Especie:</strong> {mascota.especie}</p>
-                <p><strong>Raza:</strong> {mascota.raza}</p>
-                <p><strong>Edad:</strong> {mascota.edad}</p>
-                <p><strong>Vacunas:</strong> {mascota.vacunas}</p>
-
-            {mascota.cita && (
-                <button
+          {mascotas.length === 0 ? (
+            <p>No hay mascotas registradas</p>
+          ) : (
+            mascotas.map((m) => (
+              <div className="mascota-card" key={m.idMasc}
+                onClick={() => {
+                setMascotaSeleccionada(m);
+                setFormData((prev) => ({
+                    ...prev,
+                    idMascota: m.idMasc,
+                }));
+                }}>
+                <h3>{m.nom}</h3>
+                <p><strong>ID:</strong> {m.idMasc}</p>
+                {m.citas && m.citas.length > 0 && (
+                <>
+                    <button
                     className="btn-ver-mas"
                     onClick={() =>
-                    setMostrarDetalles(
-                        mostrarDetalles === mascota.id ? null : mascota.id
-                    )
-}
-                >
-                    {mostrarDetalles === mascota.id ? "Ocultar detalles" : "Ver más"}
-                </button>
-)}
+                        setMostrarDetalles(
+                        mostrarDetalles === m.idMasc ? null : m.idMasc
+                        )
+                    }
+                    >
+                    {mostrarDetalles === m.idMasc ? "Ocultar detalles" : "Ver más"}
+                    </button>
 
-            {mostrarDetalles === mascota.id && mascota.cita && (
-                <div className="detalles-cita">
-                    <p><strong>Fecha:</strong> {mascota.cita.fecha}</p>
-                    <p><strong>Hora:</strong> {mascota.cita.hora}</p>
-                    <p><strong>Motivo:</strong> {mascota.cita.motivo}</p>
-                </div>
-)}
+                    {mostrarDetalles === m.idMasc && (
+                    <div className="detalles-cita scroll-citas">
+                        {m.citas.map((cita, index) => (
+                        <div key={index} className="cita-item">
+                            <p><strong>Fecha:</strong> {cita.fecAsi}</p>
+                            <p><strong>Procedimiento:</strong> {cita.procedimientos}</p>
+                            <p><strong>Veterinaria:</strong> {cita.nomVet}</p>
+                            <hr />
+                        </div>
+                        ))}
+                    </div>
+                    )}
+                </>
+                )}
 
-            <div className="botones-acciones">
-                <button
+                <div className="botones-acciones">
+                  <button
                     className="btn-agendar-otra"
-                    onClick={() => abrirModal(mascota)}
-                >
-                    {mascota.cita ? "Agendar otra cita" : "Agendar cita"}
-                </button>
+                    onClick={() => abrirModal(m)}
+                  >
+                    {m.cita ? "Agendar otra cita" : "Agendar cita"}
+                  </button>
 
-                {mascota.cita && (
-                <button
-                    className="btn-eliminar"
-                    onClick={() => eliminarCita(mascota.id)}
-                >
-                    Eliminar cita
-                </button>
-)}
-            </div>
-            </div>
-))}
+                  {m.cita && (
+                    <button
+                      className="btn-eliminar"
+                      onClick={() => eliminarCita(m.idMascota)}
+                    >
+                      Eliminar cita
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))
+          )}
         </div>
-    </div>
+      </div>
 
-    {mostrarModal && (
+      {/* Modal */}
+      {mostrarModal && (
         <div className="modal-fondo">
-            <div className="modal-contenido">
-            <h3>Agendar cita para {mascotaSeleccionada.nombre}</h3>
-            <form onSubmit={guardarCita} className="form-cita">
-            <label>
+          <div className="modal-contenido">
+            <h3>Agendar cita para {mascotaSeleccionada.nom}</h3>
+            <form onSubmit={handleCrearAgendamiento} className="form-cita">
+              <label >
                 Fecha:
                 <input
-                    type="date"
-                    value={formData.fecha}
-                    onChange={(e) => setFormData({ ...formData, fecha: e.target.value })}
-                    required
+                  type="date"
+                  value={formData.fecAsi}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fecAsi: e.target.value })
+                  }
+                  required
                 />
-            </label>
-            <label>
-                Hora:
-                <input
-                    type="time"
-                    value={formData.hora}
-                    onChange={(e) => setFormData({ ...formData, hora: e.target.value })}
+              </label>
+                <label>
+                Procedimiento:
+                <select
+                    value={formData.idProcedimientos}
+                    onChange={(e) =>
+                    setFormData({ ...formData, idProcedimientos: e.target.value })
+                    }
                     required
-                />
-            </label>
-            <label>
-                Motivo:
-                <input
-                    type="text"
-                    placeholder="Motivo de la cita"
-                    value={formData.motivo}
-                    onChange={(e) => setFormData({ ...formData, motivo: e.target.value })}
+                >
+                    <option value="">Selecciona un procedimiento</option>
+                    {procedimiento.map((proc) => (
+                    <option key={proc.idProcedimiento} value={proc.idProcedimiento}>
+                        {proc.procedimiento}
+                    </option>
+                    ))}
+                </select>
+                </label>
+                <label>
+                Veterinaria:
+                <select
+                    value={formData.idVeterinarias}
+                    onChange={(e) =>
+                    setFormData({ ...formData, idVeterinarias: e.target.value })
+                    }
                     required
-                />
-            </label>
-            <div className="modal-botones">
-                <button type="submit" className="btn-agendar-otra">Guardar cita</button>
-                <button type="button" className="btn-eliminar" onClick={() => setMostrarModal(false)}>
-                    Cancelar
+                >
+                    <option value="">Selecciona una veterinaria</option>
+                    {Array.isArray(veterinaria) ? (
+                    veterinaria.map((vet) => (
+                        <option key={vet.idVeterinaria} value={vet.idVeterinaria}>
+                        {vet.nombre}
+                        </option>
+                    ))
+                    ) : (
+                    <option value={veterinaria?.idVeterinaria || ""}>
+                        {veterinaria?.nombre || "Veterinaria no disponible"}
+                    </option>
+                    )}
+                </select>
+                </label>
+              <div className="modal-botones">
+                <button type="submit" className="btn-agendar-otra">
+                  Guardar cita
                 </button>
-            </div>
+                <button
+                  type="button"
+                  className="btn-eliminar"
+                  onClick={() => setMostrarModal(false)}
+                >
+                  Cancelar
+                </button>
+              </div>
             </form>
+          </div>
         </div>
-        </div>
-)}
+      )}
     </div>
-);
+  );
 };
 
 export default InformacionCita;

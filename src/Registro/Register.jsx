@@ -5,13 +5,16 @@ import hero from '../assets/imagenes/img_relleno/otroperrito.avif';
 import { obtenerTiposDoc } from '../api/tipoDocApi';
 import { crearUsuario } from '../api/usuariosApi';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 
 function Register() {
-   const handledCrearUsuario = async () => {
+  const navigate = useNavigate();
+  const handledCrearUsuario = async () => {
       try {
-      await crearUsuario(formData);
-      alert(" Usuario creado exitosamente");
+        await crearUsuario(formData);
+        console.log("Usuario creado");
+        navigate('/Usuario/Perfil');
+        alert(" Usuario creado exitosamente");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       alert(" Error al crear el usuario");
@@ -63,9 +66,7 @@ function Register() {
         <header className="auth-header">
           <h1 className="register-title">Crear cuenta</h1>
         </header>
-
         <form className="register-form" action={handledCrearUsuario}>
-          {/* numDoc */}
           <div className="form-group">
             <label htmlFor="numDoc">Número de documento</label>
             <input
@@ -80,8 +81,6 @@ function Register() {
               required
             />
           </div>
-
-          {/* nombre y apeUno */}
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="nombre">Nombres</label>
@@ -108,8 +107,6 @@ function Register() {
               />
             </div>
           </div>
-
-          {/* apeDos y telefono */}
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="apeDos">Segundo Apellido</label>
@@ -135,7 +132,6 @@ function Register() {
               />
             </div>
           </div>
-
             <div className="form-group">
               <label htmlFor="direccion">Dirección</label>
               <input
@@ -148,9 +144,6 @@ function Register() {
                 required
               />
             </div>
-          
-
-          {/* fechaNac y tipo doc */}
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="fechaNac">Fecha de nacimiento</label>
@@ -191,8 +184,6 @@ function Register() {
               </Form.Select>
             </div>
           </div>
-
-          {/* correo y passw */}
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="correo">Correo electrónico</label>
@@ -220,8 +211,6 @@ function Register() {
               />
             </div>
           </div>
-
-          {/* remember me */}
           <div className="form-extra">
             <label className="remember">
               <input
@@ -232,14 +221,10 @@ function Register() {
               Recordarme
             </label>
           </div>
-
-          {/* botón */}
           <div className="actions">
-            <Link to="/Usuario/Perfil">
-              <button type="submit" className="btn-primary-gradient">
+              <button type="submit"  className="btn-primary-gradient">
                 Registrarme
               </button>
-            </Link>
           </div>
         </form>
 

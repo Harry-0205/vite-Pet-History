@@ -37,7 +37,7 @@ const Header = () => {
           className="btn salir"
           onClick={() => {
             localStorage.clear();
-            navigate("/inicio");
+            navigate("/LoginU");
           }}
         >
           Salir
