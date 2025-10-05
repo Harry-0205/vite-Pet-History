@@ -800,3 +800,34 @@ input:focus {
   background: linear-gradient(135deg, #2bc6a0, #55b5c2);
   box-shadow: 0 6px 16px rgba(85, 181, 194, 0.9);
 }
+
+.scroll-citas {
+  max-height: 180px; /* ajusta según tu diseño */
+  overflow-y: auto;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8fcff;
+  border: 1px solid #d6e4f0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Personaliza el scroll */
+.scroll-citas::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-citas::-webkit-scrollbar-thumb {
+  background: #58c4b5;
+  border-radius: 4px;
+}
+
+.scroll-citas::-webkit-scrollbar-thumb:hover {
+  background: #3da99a;
+}
+
+.cita-item {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}

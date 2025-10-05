@@ -11,6 +11,7 @@ const PerfilMascota = () => {
     }, []);
 
     const listaRef = useRef(null);
+
     const handleCrearMascota = async (e) => {
         e.preventDefault();
         try {
@@ -21,7 +22,6 @@ const PerfilMascota = () => {
             setMascotas(obtenerMasc);
             setFormData({ nom: "", fecNam: "", foto: "", idColor: "", usuarioDoc: "", idRaza: "" });
             setMostrarFormulario(false);
-            listaRef.current?.scrollIntoView({ behavior: "smooth" });
 
         } catch (error) {
             console.error("Error al enviar el formulario:", error);

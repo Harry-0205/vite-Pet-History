@@ -34,7 +34,7 @@ const HeaderCali = () => {
 
       <div className="nav-buttons">
         <Link to="/Profesional/Miperfil" className="btn perfil">Mi Perfil</Link>
-        <button  className="btn salir" >Salir</button>
+        <Link  to="/LoginP" className="btn salir" >Salir</Link>
         
       </div>
     </header>
