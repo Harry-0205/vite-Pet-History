@@ -20,7 +20,7 @@ function App() {
         <>
           <Routes>
             <Route path='/*' element={<Miguel/>} />
-            <Route path='/usuario*' element={<Jilian/>} />
+            <Route path='/usuario/*' element={<Jilian/>} />
             <Route path='/registro' element={<Register />} />
             <Route path='/admin' element={<AdminPanel />} />
             <Route path='/LoginU' element={<Jossimar/>} />

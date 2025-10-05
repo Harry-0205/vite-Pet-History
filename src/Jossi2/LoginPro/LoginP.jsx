@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./LoginP.css";
 import logo from "../../assets/imagenes/logo.png";
+import { Button } from "react-bootstrap";
 
 function LoginP() {
 return (
@@ -23,7 +24,7 @@ return (
                     <div className="input-group">
                         <input type="password" id="contrasena" placeholder="Contraseña" />
                     </div>
-                    <button type="button" className="login-button">Iniciar sesión</button>
+                    <Button href={"/Profesional/Miperfil"} type="button" className="login-button">Iniciar sesión</Button>
                 </div>
 
                 <div className="help-center">
