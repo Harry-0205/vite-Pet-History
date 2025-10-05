@@ -1,65 +1,84 @@
-import React, { useState, useEffect, useRef } from "react";
-import iconoUser from "../../../assets/imagenes/veteri_logos/icono_user.png";
-
-const especiesData = {
-  Perro: ["Labrador", "Pastor Alemán", "Pug", "Bulldog", "Golden Retriever"],
-  Gato: ["Persa", "Siames", "Bengalí", "Esfinge", "Maine Coon"],
-  Ave: ["Canario", "Periquito", "Loro", "Cacatúa"],
-  Pez: ["Goldfish", "Betta", "Guppy", "Cíclido"],
-  Conejo: ["Mini Lop", "Holandés", "Cabeza de León"],
-};
+import { useEffect, useState,useRef } from "react";
+import {obtenerMascotas, obtenerRazas, obtenerColores, obtenerEspecies,crearMascota } from '../../../api/mascotasApi';
 
 const PerfilMascota = () => {
-  const [mascotas, setMascotas] = useState([]);
-  const [formData, setFormData] = useState({
-    nombre: "",
-    especie: "",
-    raza: "",
-    edad: "",
-    nit: "",
-    correo: "",
-    vacunas: "",
-    foto: null,
-  });
-  const [mostrarFormulario, setMostrarFormulario] = useState(true);
 
-  const listaRef = useRef(null);
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files ? files[0] : value,
+    useEffect(() => {
+        obtenerMascotas()
+            .then(data => setMascotas(data))
+            .catch((error) => console.error("Error al cargar mascotas:", error));
+    }, []);
+
+    const listaRef = useRef(null);
+    const handleCrearMascota = async (e) => {
+        e.preventDefault();
+        try {
+
+            await crearMascota(formData);
+            alert(" Mascota creada exitosamente");
+            const obtenerMasc = await obtenerMascotas();
+            setMascotas(obtenerMasc);
+            setFormData({ nom: "", fecNam: "", foto: "", idColor: "", usuarioDoc: "", idRaza: "" });
+            setMostrarFormulario(false);
+            listaRef.current?.scrollIntoView({ behavior: "smooth" });
+
+        } catch (error) {
+            console.error("Error al enviar el formulario:", error);
+            alert(" Error al crear la mascota");
+        }
+    };
+    
+    const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const [raza, setRazas] = useState([]);
+    const [colore, setColores] = useState([]);
+    const [especie, setEspecies] = useState([]);
+    const [mascotas, setMascotas] = useState([]);
+    
+
+    const [formData, setFormData] = useState({
+    nom: "",
+    fecNam: "",
+    foto: "",
+    idColor: "",
+    usuarioDoc: "",
+    idRaza: "",
+    foto: null
     });
-  };
+    
+useEffect(() => {
+    const cargarDatos = async () => {
+        try {
+            const razaData = await obtenerRazas();
+            const coloreData = await obtenerColores();
+            const especieData = await obtenerEspecies();;
+            setRazas(razaData);
+            setColores(coloreData);
+            setEspecies(especieData);
+        } catch (error) {
+            console.error("Error al cargar razas:", error);
+        }
+    };
+    cargarDatos();
+}, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    if (!formData.nombre || !formData.especie || !formData.raza || !formData.edad) {
-      alert("Por favor completa los campos obligatorios");
-      return;
-    }
 
-    setMascotas((prev) => [...prev, { ...formData, id: Date.now() }]);
-    setFormData({ nombre: "", especie: "", raza: "", edad: "", vacunas: "", foto: null });
-    setMostrarFormulario(false);
-  };
+const handleChange = (e) => {
+  const { name, value, files } = e.target;
+  setFormData((prev) => ({
+    ...prev,
+    [name]: files ? files[0] : value,
+  }));
+};
 
-  const eliminarMascota = (id) => {
-    setMascotas((prev) => prev.filter((m) => m.id !== id));
-  };
+const eliminarMascota = (idMasc) => {
+    setMascotas(mascotas.filter((m) => m.idMasc !== idMasc));
+};
 
-  useEffect(() => {
-    if (listaRef.current) {
-      const container = listaRef.current;
-      container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
-      container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
-    }
-  }, [mascotas]);
+return (
+     <div className="pantalla-completa">
 
-  return (
-    <div className="pantalla-completa">
       <div className="mascotas-container">
         <h2>Gestión de Mascotas</h2>
 
@@ -71,59 +90,71 @@ const PerfilMascota = () => {
         )}
 
         {mostrarFormulario && (
-          <form onSubmit={handleSubmit} className="form-mascota">
+          <form onSubmit={handleCrearMascota} className="form-mascota">
             <input
-              type="text"
-              name="nombre"
-              placeholder="Nombre de la mascota"
-              value={formData.nombre}
-              onChange={handleChange}
-              required
+            type="text"
+            name="nom"
+            placeholder="Nombre de la mascota"
+            value={formData.nom}
+            onChange={handleChange}
+            required
             />
             <select
-              name="especie"
-              value={formData.especie}
-              onChange={handleChange}
-              required
+            name="especie"
+            value={formData.especie}
+            onChange={handleChange}
+            required
             >
               <option value="">Selecciona especie</option>
-              {Object.keys(especiesData).map((especie) => (
-                <option key={especie} value={especie}>{especie}</option>
+                {especie.map((espe) => (
+                  <option key={espe.idEspecie} value={espe.idEspecie}>
+                {espe.nomEspecie}
+              </option>
               ))}
             </select>
             <select
-              name="raza"
-              value={formData.raza}
-              onChange={handleChange}
-              required
-              disabled={!formData.especie}
+            name="idRaza"
+            value={formData.idRaza}
+            onChange={handleChange}
+            required
+            disabled={!formData.especie}
             >
               <option value="">Selecciona raza</option>
-              {formData.especie &&
-                especiesData[formData.especie].map((raza) => (
-                  <option key={raza} value={raza}>{raza}</option>
+              {raza
+                .filter((r) => r.idEspecie === parseInt(formData.especie))
+                .map((raz) => (
+                  <option key={raz.idRaza} value={raz.idRaza}>
+                  {raz.nomRaza}
+                </option>
                 ))}
             </select>
             <input
+            type="date"
+            name="fecNam"
+            value={formData.fecNam}
+            onChange={handleChange}
+            required
+            />
+            <select
+            name="idColor"
+            value={formData.idColor}
+            onChange={handleChange}
+            required
+            >
+              <option value="">Selecciona color</option>
+              {colore.map((col) => (
+                <option key={col.idColor} value={col.idColor}>
+                {col.nomColor}
+              </option>
+              ))}
+            </select>
+            <input
               type="number"
-              name="edad"
-              placeholder="Edad"
-              value={formData.edad}
+              name="usuarioDoc"
+              placeholder="Documento del usuario"
+              value={formData.usuarioDoc}
               onChange={handleChange}
               required
-            />
-            <input
-              type="text"
-              name="vacunas"
-              placeholder="Vacunas (opcional)"
-              value={formData.vacunas}
-              onChange={handleChange}
-            />
-            <input
-              type="file"
-              name="foto"
-              accept="image/*"
-              onChange={handleChange}
             />
             <button type="submit">Agregar Mascota</button>
           </form>
@@ -134,27 +165,19 @@ const PerfilMascota = () => {
             <p>No hay mascotas registradas</p>
           ) : (
             mascotas.map((m) => (
-              <div key={m.id} className="mascota-card">
-                <img
-                  src={m.foto ? URL.createObjectURL(m.foto) : iconoUser}
-                  alt={m.nombre}
-                  className="foto-mascota"
-                />
-                <h3>{m.nombre}</h3>
-                <p><strong>Especie:</strong> {m.especie}</p>
-                <p><strong>Raza:</strong> {m.raza}</p>
-                <p><strong>Edad:</strong> {m.edad} años</p>
-                {m.vacunas && (
-                  <p><strong>Vacunas:</strong> {m.vacunas}</p>
-                )}
-                <button onClick={() => eliminarMascota(m.id)}>Eliminar</button>
+              <div key={m.idMasc} className="mascota-card">
+                <h3>{m.nom}</h3>
+                <p><strong>Raza:</strong> {m.nomRaza}</p>
+                <p><strong>Edad:</strong> {m.fecNam}</p>
+                <button onClick={() => eliminarMascota(m.idMasc)}>Eliminar</button>
+
               </div>
             ))
           )}
         </div>
       </div>
     </div>
-  );
+);
 };
 
 export default PerfilMascota;
