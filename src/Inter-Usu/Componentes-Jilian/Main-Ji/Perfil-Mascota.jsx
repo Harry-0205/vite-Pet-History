@@ -78,6 +78,7 @@ const eliminarMascota = (idMasc) => {
 
 return (
      <div className="pantalla-completa">
+
       <div className="mascotas-container">
         <h2>Gestión de Mascotas</h2>
 
@@ -169,6 +170,7 @@ return (
                 <p><strong>Raza:</strong> {m.nomRaza}</p>
                 <p><strong>Edad:</strong> {m.fecNam}</p>
                 <button onClick={() => eliminarMascota(m.idMasc)}>Eliminar</button>
+
               </div>
             ))
           )}
