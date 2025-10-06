@@ -431,32 +431,6 @@
   color: #333;
 }
 
-/* Imagen de perfil */
-.up-image-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.up-image-wrapper {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #00aaff;
-  margin-bottom: 10px;
-}
-
-.up-profile-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.up-image-input {
-  cursor: pointer;
-}
 
 /* Mensaje de sin cambios */
 .up-no-changes {
