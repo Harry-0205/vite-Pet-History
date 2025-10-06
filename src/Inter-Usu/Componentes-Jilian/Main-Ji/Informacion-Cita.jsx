@@ -35,12 +35,12 @@ const InformacionCita = () => {
     const [procedimiento, setProcedimiento] = useState([]);
     const [veterinaria, setVeterinaria] = useState(null);
 
-  const [formData, setFormData] = useState({ fecAg: Date.now(),fecAsi: "",idMascota:"", idProcedimientos: "", idVeterinarias: "" });
+  const [formData, setFormData] = useState({ fecAg: new Date().toISOString().split("T")[0],fecAsi: "",idMascota:"", idProcedimientos: "", idVeterinarias: "" });
   const [mostrarModal, setMostrarModal] = useState(false);
 
   const [agenda, setAgenda] = useState([
     {
-      fecAg: Date.now(),
+      fecAg: "",
       fecAsi: "",
       idMascota: "",
       nomMasc: "",

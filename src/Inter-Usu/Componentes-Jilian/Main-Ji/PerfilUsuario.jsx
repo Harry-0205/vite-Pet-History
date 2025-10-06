@@ -3,7 +3,6 @@ import iconoUser from "../../../assets/imagenes/veteri_logos/icono_user.png";
 import "../../Jillian-App/Estilos.css";
 
 const PerfilUsuario = ({ toggleProfile }) => {
-    const [fotoPerfil, setFotoPerfil] = useState(null);
     const [editableData, setEditableData] = useState({
     telefono: "",
     direccion: "",
@@ -15,10 +14,7 @@ const PerfilUsuario = ({ toggleProfile }) => {
     setEditableData((prev) => ({ ...prev, [name]: value }));
 };
 
-    const handleFotoChange = (e) => {
-    const file = e.target.files[0];
-    if (file) setFotoPerfil(file);
-};
+
 
     const handleSave = () => {
     alert("Datos guardados");
@@ -36,18 +32,6 @@ const PerfilUsuario = ({ toggleProfile }) => {
         </div>
 
         <div className="profile-body">
-            <div className="avatar-section">
-            <img
-                src={fotoPerfil ? URL.createObjectURL(fotoPerfil) : iconoUser}
-                alt="Avatar del usuario"
-                className="avatar-img"
-            />
-            <label className="upload-label">
-                Cambiar foto
-                <input type="file" accept="image/*" onChange={handleFotoChange} />
-            </label>
-            </div>
-
             <div className="info-section">
             <div className="field non-editable">
                 <span className="label">Nombre:</span>
@@ -62,8 +46,7 @@ const PerfilUsuario = ({ toggleProfile }) => {
                 <span className="value">0012345</span>
             </div>
             <div className="field non-editable">
-                <span className="label">Fecha registro:</span>
-                <span className="value">05/04/2023</span>
+
             </div>
 
             <label className="field editable">

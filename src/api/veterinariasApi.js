@@ -10,3 +10,13 @@ export const obtenerVeterinariaId = async (id) => {
         throw error;
     }
 };
+
+export const crearVeterinaria = async (data) => {
+    const resp = await fetch(`${BASE_URL}/veterinarias/crearVet`,{
+        method: 'POST',
+        headers:  { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    if (!resp.ok) throw new Error('Error al crear la veterinaria');
+    return resp.json();
+}
