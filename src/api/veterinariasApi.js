@@ -10,3 +10,28 @@ export const obtenerVeterinariaId = async (id) => {
         throw error;
     }
 };
+
+export const crearVeterinaria = async (data) => {
+    const resp = await fetch(`${BASE_URL}/veterinarias/crearVet`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    if (!resp.ok) throw new Error('Error al crear veterinaria');
+    return resp.json();
+}
+
+export const obtenerVeterinarias = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/veterinarias`,{
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (!response.ok) throw new Error("Error al obtener veterinarias");
+        return await response.json();
+    } catch (error) {
+        if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+            throw new Error("No se pudo conectar al servidor.");
+        }
+    }
+};
