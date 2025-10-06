@@ -1,0 +1,38 @@
+.haderbando{
+  width:100%;
+  background: linear-gradient(90deg,#00eaff,#56C0E0,#1D4F88);
+  padding: 12px 0;
+}
+.haderbando-inner{
+  width:90%;
+  max-width:1500px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo-center img{
+  height: clamp(64px, 9vw, 108px);
+  width: auto;
+  display: block;
+  background: transparent; 
+  padding: 0; 
+  border-radius: 0;
+  box-shadow: none; 
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.spacer{
+  width:44px; 
+}
+.actions .salir-btn{
+  background:#144a7a;
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.logo-center img:hover{
+  transform: translateY(-2px) scale(1.02);
+}

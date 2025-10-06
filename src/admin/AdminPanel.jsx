@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import VeterinariaCard from './VeterinariaCard';
-import HeaderJi from '../Inter-Usu/Componentes-Jilian/Header-Ji/Header-Ji';
+import HaderBando from './HaderBando';
 import FooterMi from '../home/Componentes-Miguel/FooterMi/FooterMi';
 import '../home/Estilos-Miguel/MiguelEs.css';
 import './admin.css';
@@ -33,9 +33,9 @@ const initialVets = [
 function Modal({ open, title, onClose, children }) {
   if (!open) return null;
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="modal-header">
+    <div className="modal admin-modal">
+      <div className="modal-content admin-modal-content">
+        <div className="modal-header admin-modal-header">
           <h3>{title}</h3>
           <button className="icon-btn" onClick={onClose} aria-label="Cerrar">✕</button>
         </div>
@@ -59,11 +59,25 @@ function AdminPanel() {
   const filtered = useMemo(() => {
     const q = filter.trim().toLowerCase();
     if (!q) return vets;
-    return vets.filter(v =>
-      v.nombre.toLowerCase().includes(q) ||
-      v.direccion.toLowerCase().includes(q) ||
-      v.telefono.toLowerCase().includes(q)
-    );
+    return vets.filter(v => {
+      const nombre = (v.nombre || '').toString().toLowerCase();
+      const direccion = (v.direccion || '').toString().toLowerCase();
+      const nit = (v.nit || '').toString().toLowerCase();
+      const correo = (v.correo || '').toString().toLowerCase();
+      const telefono = (v.telefono || '').toString().toLowerCase();
+
+     
+      const vetNames = (v.veterinarios || []).map(m => (m.nombre || '').toString().toLowerCase()).join(' ');
+
+      return (
+        nombre.includes(q) ||
+        direccion.includes(q) ||
+        nit.includes(q) ||
+        correo.includes(q) ||
+        telefono.includes(q) ||
+        vetNames.includes(q)
+      );
+    });
   }, [filter, vets]);
 
   const openCreateVet = () => {
@@ -138,7 +152,7 @@ function AdminPanel() {
 
   return (
     <>
-  <HeaderJi />
+  <HaderBando />
 
       <div className="admin-page">
         <div className="admin-header">

@@ -3,7 +3,7 @@ import "./admin.css";
 
 const VeterinariaCard = ({ nombre, direccion, nit, correo, veterinarios, onEdit, onDelete, onAddVet, onEditVet, onDeleteVet }) => {
     return (
-      <div className="admin-card-container">
+      <div className="admin-card-wrapper">
         <div className="admin-card">
           <div className="admin-card-header">
             <h2 className="admin-card-title-gradient">{nombre} <span className="icon-edit" onClick={onEdit} title="Editar" role="button">✎</span> <span className="icon-delete" onClick={onDelete} title="Eliminar" role="button">X</span></h2>
