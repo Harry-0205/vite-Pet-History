@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react"; // Asegúrate de importar us
 import "../Estilos/Estilitos.css";
 
 
-
-
-
-
 const Perfil = () => {
   const [userData, setUserData] = useState({
     tipoDocumento: "Cédula",
@@ -17,7 +13,6 @@ const Perfil = () => {
     direccion: "Calle Falsa 123",
     correo: "carlos@example.com",
     contraseña: "123456",
-    imagen: null,
   });
 
   const [formState, setFormState] = useState({
@@ -27,7 +22,6 @@ const Perfil = () => {
     direccion: userData.direccion,
     correo: userData.correo,
     contraseña: userData.contraseña,
-    imagen: userData.imagen,
   });
 
   const [hasChanges, setHasChanges] = useState(false);
@@ -39,8 +33,7 @@ const Perfil = () => {
       formState.telefono !== userData.telefono ||
       formState.direccion !== userData.direccion ||
       formState.correo !== userData.correo ||
-      formState.contraseña !== userData.contraseña ||
-      formState.imagen !== userData.imagen;
+      formState.contraseña !== userData.contraseña;
 
     setHasChanges(changed);
   }, [formState, userData]);
@@ -51,17 +44,6 @@ const Perfil = () => {
       ...prev,
       [name]: value,
     }));
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageURL = URL.createObjectURL(file);
-      setFormState((prev) => ({
-        ...prev,
-        imagen: imageURL,
-      }));
-    }
   };
 
   const handleFormSubmit = (e) => {
@@ -78,23 +60,6 @@ const Perfil = () => {
   return (
     <div className="up-container">
       <h2 className="up-title">Perfil de Usuario</h2>
-
-      {/* Imagen de perfil */}
-      <div className="up-image-section">
-        <div className="up-image-wrapper">
-          <img
-            src={formState.imagen || "https://via.placeholder.com/150"}
-            alt="Perfil"
-            className="up-profile-image"
-          />
-        </div>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="up-image-input"
-        />
-      </div>
 
       {/* Mensaje si no hay cambios */}
       {!hasChanges && <p className="up-no-changes">No hay cambios para guardar</p>}
@@ -179,4 +144,3 @@ const Perfil = () => {
 };
 
 export default Perfil;
-
